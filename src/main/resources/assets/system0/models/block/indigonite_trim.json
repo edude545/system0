@@ -1,0 +1,7 @@
+{
+  "parent" : "block/cube_column",
+  "textures" : {
+    "end"  : "system0:block/indigonite_ring_panel",
+    "side" : "system0:block/indigonite_i_panel"
+  }
+}

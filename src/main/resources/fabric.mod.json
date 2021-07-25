@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "system0",
+  "version": "${version}",
+
+  "name": "System0",
+  "description": "A mod about exploration, telecommunications and magic.",
+  "authors": [
+    "ethobat"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/system0/s0_noise.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.ethobat.system0.System0"
+    ],
+    "client": [
+      "net.ethobat.system0.System0Client"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.17.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

@@ -1,0 +1,168 @@
+{
+
+  "energy.system0.greenular" : "Greenular",
+  "energy.system0.greenular.death" : "turned to dust",
+  "energy.system0.skeintillating" : "Skeintillating",
+  "energy.system0.skeintillating.death" : "got metaphysical whiplash",
+  "energy.system0.blakronic" : "Blakronic",
+  "energy.system0.blakronic.death" : "was blown to smithereens",
+  "energy.system0.petrionic" : "Petrionic",
+  "energy.system0.petrionic.death" : "experienced tectonic uplift",
+  "energy.system0.tidalizing" : "Tidalizing",
+  "energy.system0.tidalizing.death" : "was crushed by tidal forces",
+  "energy.system0.chorromatic" : "Chorromatic",
+  "energy.system0.chorromatic.death" : "was lacerated by coral",
+  "energy.system0.glimmeral" : "Glimmeral",
+  "energy.system0.glimmeral.death" : "was lethally dazzled",
+  "energy.system0.lodestic" : "Lodestic",
+  "energy.system0.lodestic.death" : "was polarized",
+  "energy.system0.anbaric" : "Anbaric",
+  "energy.system0.anbaric.death" : "was anbarocuted",
+  "energy.system0.cushastic" : "Cushastic",
+  "energy.system0.cushastic.death" : "was so comfortable they died",
+  "energy.system0.fulvinant" : "Fulvinant",
+  "energy.system0.fulvinant.death" : "was scorchocuted",
+  "energy.system0.monstrotic" : "Monstrotic",
+  "energy.system0.monstrotic.death" : "was ghoulified",
+  "energy.system0.sanguineous" : "Sanguineous",
+  "energy.system0.sanguineous.death" : "drowned in blood",
+  "energy.system0.harlequious" : "Harlequious",
+  "energy.system0.harlequious.death" : "couldn't keep down the clown",
+  "energy.system0.serendoompitous" : "Serendoompitous",
+  "energy.system0.serendoompitous.death" : "met their fate",
+  "energy.system0.gravital" : "Gravital",
+  "energy.system0.gravital.death" : "was compressed into a singularity",
+  "energy.system0.liminesque" : "Liminesque",
+  "energy.system0.liminesque.death" : "fell into limbo",
+  "energy.system0.mnemoline" : "Mnemoline",
+  "energy.system0.mnemoline.death" : "remembered everything",
+  "energy.system0.odyssean" : "Odyssean",
+  "energy.system0.odyssean.death" : "was apparently important enough to spend Odyssean Energy on",
+  "energy.system0.phantasmagoric" : "Phantasmagoric",
+  "energy.system0.phantasmagoric.death" : "was subjected to full-spectrum lemonade migraine obliteration",
+
+
+  "itemGroup.system0.components" : "S0: Components",
+
+  "item.system0.celadon_battery" : "Celadon Battery",
+  "item.system0.orgimex_dual_cell" : "Orgimex Dual Cell",
+  "item.system0.monophonic_immaterializer" : "Monophonic Immaterializer",
+
+  "itemGroup.system0.decoration" : "S0: Decoration",
+
+  "block.system0.rough_rock" : "Rough Rock",
+  "block.system0.indigonite_trim" : "Indigonite Trim",
+  "block.system0.glaucous_gourd" : "Glaucous Gourd",
+  "block.system0.glaucous_gourd.tooltip" : "A dull blue gourd. Its flesh has an unexpectedly useful composition.",
+  "block.system0.icon_trophy" : "S0 Trophy",
+
+
+
+  "itemGroup.system0.tools" : "S0: Tools",
+
+  "item.system0.clanger" : "Clanger",
+  "item.system0.debug_tool" : "Debug Tool",
+  "item.system0.vein_scouter" : "Vein Scouter",
+  "item.system0.network_pda" : "Network PDA",
+
+
+
+  "itemGroup.system0.crafting" : "S0: Crafting",
+
+  "item.system0.indigonite" : "Indigonite Composite",
+  "item.system0.indigonite.tooltip" : "Layered wafers of varied indigonite. Many applications in construction.",
+
+  "item.system0.glaucous_gourd_slice" : "Glaucous Gourd",
+  "item.system0.glaucous_gourd_slice.tooltip" : "Slice of a dull blue gourd. Its flesh has an unexpectedly useful composition.",
+
+  "item.system0.flashtin_antenna" : "Flashtin Antenna",
+  "item.system0.flashtin_antenna.tooltip" : "Thin translucent pole that resonates with magic.",
+
+
+
+  "itemGroup.system0.armors" : "S0: Armor",
+
+  "item.system0.indigonite_helmet" : "Indigonite Mask",
+  "item.system0.indigonite_chestplate" : "Indigonite Vest",
+  "item.system0.indigonite_leggings" : "Indigonite Legplates",
+  "item.system0.indigonite_boots" : "Indigonite Boots",
+
+
+
+  "itemGroup.system0.machinery" : "S0: Machinery",
+
+  "block.system0.debug_machine" : "Debug Machine",
+  "block.system0.first_arcanum_exoticizer" : "\"First Arcanum\" Exoticizer",
+
+
+
+  "itemGroup.system0.network" : "S0: Network",
+
+  "block.system0.flashtin_dipole" : "Flashtin Dipole",
+
+
+  "itemGroup.system0.psionics" : "S0: Psionics",
+
+  "psionicSchema.system0.blakron_blast" : "Blakron Blast",
+  "psionicMantra.system0.blakron_blast" : "",
+
+  "psionicSchema.system0.fire_at_will" : "Fire, At Will",
+  "psionicMantra.system0.fire_at_will" : "Pyromaniacal Surge Inferno",
+
+  "psionicSchema.system0.bonfire_night" : "Bonfire Night",
+  "psionicMantra.system0.bonfire_night" : "Piercing Sky Illuminations",
+
+  "psionicSchema.system0.breakneck_blitz" : "Breakneck Blitz",
+  "psionicMantra.system0.breakneck_blitz" : "",
+
+  "psionicSchema.system0.tech_support" : "Tech Support",
+  "psionicMantra.system0.tech_support" : "Particularizing Systems Investigator",
+
+  "psionicSchema.system0.malicious_rail" : "Malicious Rail",
+  "psionicMantra.system0.malicious_rail" : "Plutonic Sentry's Ignition",
+
+  "psionicSchema.system0.weather_forecast" : "Weather Forecast",
+  "psionicMantra.system0.weather_forecast" : "Prognosticated Situation Info",
+
+  "psionicSchema.system0.lightning_spear" : "Lightning Spear",
+  "psionicMantra.system0.lightning_spear" : "Partizan Shock Impaler",
+
+  "psionicSchema.system0.tektonyx" : "Tektonyx",
+  "psionicMantra.system0.tektonyx" : "Proximity Seismic Initiator",
+
+  "psionicSchema.system0.singularity_rifle" : "Singularity Rifle",
+  "psionicMantra.system0.singularity_rifle" : "Prognosticated Situation Info",
+
+  "psionicSchema.system0.redstone_disruption" : "Redstone Disruption",
+  "psionicMantra.system0.redstone_disruption" : "Primitive Systems Inhibitor",
+
+  "psionicSchema.system0.tektonyx_dx" : "Tektonyx DX",
+  "psionicMantra.system0.tektonyx_dx" : "Planetary Stability Inversion",
+
+  "psionicSchema.system0.ebonpyre" : "Ebonpyre",
+  "psionicMantra.system0.ebonpyre" : "Paroxysm Shadow Immolator",
+
+  "psionicSchema.system0.gold_pilot" : "Gold Pilot",
+  "psionicMantra.system0.gold_pilot" : "Progenitor's Superlumninal Inheritance",
+
+  "psionicSchema.system0.lalassu_xul" : "Lalassu Xul",
+  "psionicMantra.system0.lalassu_xul" : "Phantom Sovereign's Immaculation",
+
+  "psionicSchema.system0.ballista_harmonia" : "Ballista Harmonia",
+  "psionicMantra.system0.ballista_harmonia" : "Projectile Symphonic Incidence",
+
+  "psionicSchema.system0.sepulchritude" : "SEPULCHRITUDE",
+  "psionicMantra.system0.sepulchritude" : "Pulchritude Super Inundation",
+
+  "psionicSchema.system0.atomykk_breakdown" : "4T0MYKK 8R34KD0WN",
+  "psionicMantra.system0.atomykk_breakdown" : "Protonic Schism Impulse",
+
+  "psionicSchema.system0.ghartok_padhome" : "GHARTOK PADHOME",
+  "psionicMantra.system0.ghartok_padhome" : "Psijic Symbols' Incandescence",
+
+  "psionicSchema.system0.nihility_theorem" : "Nihility Theorem",
+  "psionicMantra.system0.nihility_theorem" : "Perfected Sepulchre Ideals",
+
+  "psionicSchema.system0.drfl" : "Dazzling Rainbow Fruitcake Lobotomy",
+  "psionicMantra.system0.drfl" : "Pandaemonium's Screaming Imminence"
+}

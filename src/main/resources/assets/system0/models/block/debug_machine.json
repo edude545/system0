@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/orientable",
+    "textures": {
+        "top": "system0:block/machine_generic_top",
+        "front": "system0:block/machine_debug_front",
+        "side": "system0:block/machine_slats_side"
+    }
+}

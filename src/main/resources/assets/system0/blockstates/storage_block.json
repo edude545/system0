@@ -1,0 +1,5 @@
+{
+  "variants" : {
+    "type=indigonite" : { "model" :  "system0:block/storage_block_indigonite"}
+  }
+}

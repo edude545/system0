@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "system0:block/flashtin_dipole",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "system0:block/flashtin_dipole",
+      "y": 90,
+      "x": 90
+    },
+    "facing=south": {
+      "model": "system0:block/flashtin_dipole",
+      "y": 180,
+      "x": 90
+    },
+    "facing=west": {
+      "model": "system0:block/flashtin_dipole",
+      "y": 270,
+      "x": 90
+    },
+    "facing=down": {
+      "model": "system0:block/flashtin_dipole",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "system0:block/flashtin_dipole"
+    }
+  }
+}
