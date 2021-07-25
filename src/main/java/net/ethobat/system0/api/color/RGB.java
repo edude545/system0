@@ -4,6 +4,7 @@ import net.minecraft.util.math.MathHelper;
 
 public class RGB {
 
+    // test
     public final int RED;
     public final int GREEN;
     public final int BLUE;
