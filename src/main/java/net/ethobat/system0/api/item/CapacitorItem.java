@@ -1,5 +1,6 @@
 package net.ethobat.system0.api.item;
 
+import net.ethobat.system0.api.color.RGB;
 import net.ethobat.system0.api.energy.IItemEnergyStore;
 import net.ethobat.system0.api.nbt.ItemNBTHandler;
 import net.ethobat.system0.api.registry.S0Registry;
@@ -15,6 +16,14 @@ public class CapacitorItem extends ComponentItem implements IItemEnergyStore {
         this.maxAmount = maxAmount;
     }
 
+    public long getAmount(ItemStack stack) {
+        if (stack.hasTag()) {
+            return ItemNBTHandler.getEnergy(stack.getTag());
+        } else {
+            return 0;
+        }
+    }
+
     @Override
     public long getMaxAmount() {
         return this.maxAmount;
@@ -27,15 +36,19 @@ public class CapacitorItem extends ComponentItem implements IItemEnergyStore {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        return S0Registry.ENERGY_TYPE.get(
-                new Identifier(stack.getTag().getCompound("system0").getString("energyType"))
-        )
-                .getPrimaryColor().asInt();
+        if (stack.hasTag()) {
+            return S0Registry.ENERGY_TYPE.get(new Identifier(stack.getTag().getCompound("system0").getString("energyType")))
+                    .getPrimaryColor().asInt();
+        } else {
+            //return new RGB(255,255,255).asInt();
+            return RGB.getNewRandomColor().asInt();
+        }
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        return super.getItemBarStep(stack);
+        //Math.min(1 + 12 * getBundleOccupancy(stack) / 64, 13);
+        return 12;
     }
 
 }

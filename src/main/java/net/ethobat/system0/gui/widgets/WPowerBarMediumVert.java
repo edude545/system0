@@ -24,7 +24,7 @@ public class WPowerBarMediumVert extends AbstractPowerBar {
     }
 
     public Identifier getTextureFull() {
-        return new Identifier("system0", "textures/gui/widget/power_bar_m_vert"+this.energyType.NAME+".png");
+        return new Identifier("system0", "textures/gui/widget/power_bar_m_vert"+this.energyType.getName()+".png");
     }
 
 }

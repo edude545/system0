@@ -1,16 +1,11 @@
 package net.ethobat.system0;
 
 
-import net.ethobat.system0.auxiliary.S0Item;
 import net.ethobat.system0.registry.S0Blocks;
 import net.ethobat.system0.registry.S0Items;
 import net.ethobat.system0.registry.S0Registrar;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -45,7 +40,6 @@ public class System0 implements ModInitializer {
 //		System.out.println("System0 client initialized");
 //	}
 
-	// might need to make the second argument a lambda
 	private static ItemGroup gr(String name,  Supplier<ItemStack> stackSupplier) {
 		return FabricItemGroupBuilder.build(new Identifier(MOD_ID, name), stackSupplier);
 	}
