@@ -25,7 +25,6 @@ public final class S0ScreenHandlerTypes {
     private static Identifier id(String name) {
         return new Identifier(System0.MOD_ID, name);
     }
-
     public static void init() {}
 
 }

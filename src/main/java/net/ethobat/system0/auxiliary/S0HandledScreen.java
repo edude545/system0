@@ -12,23 +12,15 @@ import net.minecraft.util.Identifier;
 // HandledScreens are client-side only and are responsible for displaying the screen. Visuals, etc.
 public abstract class S0HandledScreen<SH extends S0ScreenHandler> extends WidgetedScreen<SH> {
 
-    public static final GUIBackground bg = new GUIBackground(new Identifier("system0", "textures/gui/gui_bg_vanilla.png"));
+    public static int SCREEN_WIDTH = 640;
+    public static int SCREEN_HEIGHT = 330;
+
+    public static final GUIBackground bg = new GUIBackground(new Identifier("system0", "textures/gui/gui_bg_marked.png"));
 
     public S0HandledScreen(SH handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
-    }
-
-    @Override
-    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-//        int x = (this.width - this.backgroundWidth) / 2;
-//        int y = (this.height - this.backgroundHeight) / 2;
-//        prepareTexture(this.getTextureIdentifier());
-//        this.drawTexture(matrices, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight);
-//        prepareTexture(new Identifier("system0", "textures/gui/gui_bg_vanilla.png"));
-//        this.drawTexture(matrices, x, y, 0, 0, 128, 128);
-        //matrices.scale(0.0625f, 0.0625f, 0.0625f); // this shrinks the text too...
-        bg.drawCenter(matrices, 4, 4);
-        //matrices.scale(16f, 16f, 16f); // ...need to scale it back up after
+        this.backgroundHeight = getBGHeight() * GUIBackground.TILE_SIZE;
+        this.backgroundWidth = getBGWidth() * GUIBackground.TILE_SIZE;
     }
 
     @Override
@@ -36,15 +28,25 @@ public abstract class S0HandledScreen<SH extends S0ScreenHandler> extends Widget
         this.renderBackground(matrices);
         super.render(matrices, mouseX, mouseY, delta);
         this.drawMouseoverTooltip(matrices, mouseX, mouseY);
+        this.drawWidgetTooltips(matrices, mouseX, mouseY);
+    }
+
+    @Override
+    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
+        bg.drawCenter(this, matrices, this.getBGWidth(), this.getBGHeight());
+        this.drawWidgets(matrices, mouseX, mouseY);
     }
 
     @Override
     protected void init() {
         super.init();
         // Center the title
-        this.titleX = (this.backgroundWidth - this.textRenderer.getWidth(this.title)) / 2;
+        this.titleX = (this.backgroundWidth - this.textRenderer.getWidth(this.title)) / 2 - 5;
     }
 
     public abstract Identifier getTextureIdentifier();
+
+    public abstract int getBGWidth();
+    public abstract int getBGHeight();
 
 }

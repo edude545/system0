@@ -1,12 +1,11 @@
 package net.ethobat.system0.api.color;
 
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.Random;
 
 public class RGB implements IColor {
-
-    private static Random random = new Random();
 
     // test
     public final int RED;
@@ -23,8 +22,8 @@ public class RGB implements IColor {
         return MathHelper.packRgb(this.RED/255f, this.GREEN/255f, this.BLUE/255f);
     }
 
-    public static RGB getNewRandomColor() {
-        return new RGB(random.nextInt(256), random.nextInt(256), random.nextInt(256));
+    public Formatting getFormatCode() {
+        return Formatting.byColorIndex(this.asInt());
     }
 
 }

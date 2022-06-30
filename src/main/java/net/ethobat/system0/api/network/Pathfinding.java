@@ -1,5 +1,8 @@
 package net.ethobat.system0.api.network;
 
+import net.ethobat.system0.api.network.physical.INetConnection;
+import net.ethobat.system0.api.network.physical.INetConnector;
+
 import java.util.HashMap;
 import java.util.HashSet;
 

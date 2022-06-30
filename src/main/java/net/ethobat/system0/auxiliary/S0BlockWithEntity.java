@@ -22,4 +22,5 @@ public abstract class S0BlockWithEntity extends BlockWithEntity implements IS0Bl
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
+
 }

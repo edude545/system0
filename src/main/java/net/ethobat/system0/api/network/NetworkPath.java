@@ -1,5 +1,7 @@
 package net.ethobat.system0.api.network;
 
+import net.ethobat.system0.api.network.physical.INetConnection;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
