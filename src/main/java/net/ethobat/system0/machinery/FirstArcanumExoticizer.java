@@ -1,7 +1,6 @@
 package net.ethobat.system0.machinery;
 
 import net.ethobat.system0.auxiliary.S0Block;
-import net.ethobat.system0.auxiliary.S0Machine;
 import net.ethobat.system0.registry.S0BlockEntityTypes;
 import net.ethobat.system0.registry.S0ScreenHandlerTypes;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -23,6 +22,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
@@ -67,22 +67,6 @@ public class FirstArcanumExoticizer extends S0Machine {
         return BE::tick;
     }
 
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
-            if (player.isSneaking()) {
-                ((BE) world.getBlockEntity(pos)).toggleMachine();
-                return ActionResult.SUCCESS;
-            }
-            if (screenHandlerFactory != null) {
-                player.openHandledScreen(screenHandlerFactory);
-            }
-
-        }
-        return ActionResult.SUCCESS;
-    }
-
     public static class BE extends S0Machine.BE {
 
         // 0: input
@@ -90,35 +74,29 @@ public class FirstArcanumExoticizer extends S0Machine {
         public DefaultedList<ItemStack> inv = DefaultedList.ofSize(9, ItemStack.EMPTY);
 
         @Override
-        public DefaultedList<ItemStack> getItems() {
-            return inv;
-        }
-
-        @Override
-        public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInv, PlayerEntity player) {
             //We provide *this* to the screenHandler as our class Implements Inventory
             //Only the Server has the Inventory at the start, this will be synced to the client in the ScreenHandler
-            return new SH(syncId, playerInventory, this);
+            return new SH(syncId, playerInv, this);
         }
 
         public <T extends S0Block> BE(BlockPos pos, BlockState state) {
             super(S0BlockEntityTypes.FIRST_ARCANUM_EXOTICIZER, pos, state);
         }
 
+        @Override
+        public DefaultedList<ItemStack> getItems() {
+            return this.inv;
+        }
+
         public static <T extends BlockEntity> void tick(World world, BlockPos pos, BlockState state, T be) {
         }
 
-        @Override
-        public void readNbt(NbtCompound nbt) {
-            super.readNbt(nbt);
-            Inventories.readNbt(nbt, this.getItems());
-        }
+
 
         @Override
-        public NbtCompound writeNbt(NbtCompound nbt) {
-            super.writeNbt(nbt);
-            Inventories.writeNbt(nbt, this.getItems());
-            return nbt;
+        public NbtCompound createWidgetNBT(ServerPlayerEntity player, NbtCompound nbt) {
+            return null;
         }
 
     }
@@ -130,28 +108,26 @@ public class FirstArcanumExoticizer extends S0Machine {
 //            this(syncID, playerInv, new SimpleInventory(9)); // calling the server constructor
 //        }
 
-        public SH(int syncID, PlayerInventory playerInv, PacketByteBuf buf) {
-            super(syncID, playerInv, buf);
-        }
-
         // Server constructor; server knows container's inventory and can directly provide it as an argument.
         // This inventory will then be synced to the client.
         public SH(int syncID, PlayerInventory playerInv, Inventory inv) {
             super(syncID, playerInv, inv);
             checkSize(inv, 9);
-            this.place3x3GridSlots(inv, 0, 0);
-            this.placePlayerInvSlots(playerInv, 0, 0);
-            this.placePlayerHotbarSlots(playerInv, 0, 0);
+            //this.place3x3GridSlots(inv, 62, 17);
+            //this.placePlayerInvSlots(playerInv, 8, 84);
+            //this.placePlayerHotbarSlots(playerInv, 8, 142);
+        }
+
+        // Client constructor
+        public SH(int syncID, PlayerInventory playerInv, PacketByteBuf buf) {
+            this(syncID, playerInv, new SimpleInventory(9));
+            checkSize(inv, 9);
+            //this.updateWidgetsFromNBT(buf.readNbt());
         }
 
         @Override
         public ScreenHandlerType<?> getScreenHandlerType() {
             return S0ScreenHandlerTypes.FIRST_ARCANUM_EXOTICIZER;
-        }
-
-        @Override
-        public Inventory getEmptyInventory() {
-            return new SimpleInventory(9);
         }
 
     }

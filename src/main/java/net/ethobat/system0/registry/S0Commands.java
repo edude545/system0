@@ -1,8 +1,10 @@
 package net.ethobat.system0.registry;
 
 import com.mojang.brigadier.Command;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.ethobat.system0.api.gui.GUIBackground;
 import net.ethobat.system0.api.psionics.PsionicProfile;
 import net.ethobat.system0.api.psionics.PsionicSchema;
 import net.ethobat.system0.api.util.MessageHandler;
@@ -25,18 +27,26 @@ public final class S0Commands implements Command<Object> {
                                         .executes(S0Commands::executeDebug)
                         )
                         .then(
+                                literal("test").then (
+                                    argument("dbgtestarg", IntegerArgumentType.integer())
+                                        .executes(S0Commands::dbgtest)
+                                )
+                        )
+                        .then(
                                 literal("hello")
                                         .executes(ctx -> executeSay(ctx, "hello world!"))
                         )
                         .then(
-                                argument("player", EntityArgumentType.players())
-                                .then(
-                                    literal("psi")
-                                        .executes(S0Commands::executeShowPsionics)
+                                literal("player").then (
+                                    argument("player", EntityArgumentType.players())
+                                    .then(
+                                        literal("psi")
+                                            .executes(S0Commands::executeShowPsionics)
+                                    )
+                                    .executes(ctx -> executeSay(ctx, "[/s0 player ... ] No subcommand recognized."))
                                 )
-                                .executes(ctx -> executeSay(ctx, "No subcommand recognized."))
                         )
-                        .executes(ctx -> print(ctx, "No subcommand recognized."))
+                        .executes(ctx -> print(ctx, "[/s0 ...] No subcommand recognized."))
                 )
         );
     }
@@ -63,6 +73,11 @@ public final class S0Commands implements Command<Object> {
     public static int executeShowPsionics(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         PlayerEntity player = EntityArgumentType.getPlayer(ctx, "player");
         MessageHandler.say(PsionicProfile.ofPlayer(player).toString(), player);
+        return 1;
+    }
+
+    private static int dbgtest(CommandContext<ServerCommandSource> ctx) {
+        GUIBackground.TILE_SIZE = ctx.getArgument("dbgtestarg", Integer.class);
         return 1;
     }
 

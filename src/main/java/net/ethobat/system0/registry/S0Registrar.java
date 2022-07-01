@@ -2,9 +2,10 @@ package net.ethobat.system0.registry;
 
 import net.ethobat.system0.System0;
 import net.ethobat.system0.api.energy.EnergyType;
+import net.ethobat.system0.api.gui.GUINetworkingHandler;
 import net.ethobat.system0.api.gui.widgets.GUIWidget;
-import net.ethobat.system0.api.registry.S0Registry;
 import net.ethobat.system0.api.psionics.PsionicSchema;
+import net.ethobat.system0.api.registry.S0Registry;
 import net.ethobat.system0.auxiliary.S0BlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
@@ -24,6 +25,9 @@ public class S0Registrar {
         S0Progressions.init();
         S0Schemas.init();
         S0ScreenHandlerTypes.init();
+
+        // Part of S0's API
+        GUINetworkingHandler.init();
     }
 
     // Registered on the client only.
@@ -37,7 +41,7 @@ public class S0Registrar {
     }
 
     // for brevity
-    private static Identifier id(String name) {
+    public static Identifier id(String name) {
         return new Identifier(System0.MOD_ID, name);
     }
 
@@ -52,7 +56,7 @@ public class S0Registrar {
     }
 
     // Register block entity type
-    public static <BE extends S0BlockEntity> BlockEntityType<BE> register(BlockEntityType<BE> type, String name) {
+    public static BlockEntityType<?> register(BlockEntityType<?> type, String name) {
         return Registry.register(Registry.BLOCK_ENTITY_TYPE, id(name), type);
     }
 

@@ -6,6 +6,7 @@ import net.ethobat.system0.machinery.FirstArcanumExoticizer;
 import net.ethobat.system0.network.FlashtinDipole;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 
 public final class S0BlockEntityTypes {
@@ -23,7 +24,7 @@ public final class S0BlockEntityTypes {
     public static void init() {}
 
     // just for use in this class, for brevity
-    private static <T extends S0BlockEntity> BlockEntityType<T> type(String name, FabricBlockEntityTypeBuilder.Factory<T> factory, Block block) {
+    private static <T extends BlockEntity> BlockEntityType<T> type(String name, FabricBlockEntityTypeBuilder.Factory<T> factory, Block block) {
         BlockEntityType<T> t = FabricBlockEntityTypeBuilder.create(factory, block).build(null);
         S0Registrar.register(t, name);
         return t;

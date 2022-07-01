@@ -1,13 +1,16 @@
 package net.ethobat.system0.api.item;
 
-import net.ethobat.system0.api.color.RGB;
-import net.ethobat.system0.api.energy.IItemEnergyStore;
-import net.ethobat.system0.api.nbt.ItemNBTHandler;
+import net.ethobat.system0.api.color.ColorGenerator;
+import net.ethobat.system0.api.energy.EnergyType;
+import net.ethobat.system0.api.energy.IItemEnergyContainer;
+import net.ethobat.system0.api.nbt.NBTHandler;
 import net.ethobat.system0.api.registry.S0Registry;
+import net.ethobat.system0.registry.S0EnergyTypes;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
+import net.minecraft.item.ItemUsageContext;
+import net.minecraft.util.ActionResult;
 
-public class CapacitorItem extends ComponentItem implements IItemEnergyStore {
+public class CapacitorItem extends ComponentItem implements IItemEnergyContainer {
 
     public final long maxAmount;
 
@@ -16,16 +19,45 @@ public class CapacitorItem extends ComponentItem implements IItemEnergyStore {
         this.maxAmount = maxAmount;
     }
 
-    public long getAmount(ItemStack stack) {
+    public static EnergyType setEnergyType(ItemStack stack, EnergyType energyType) {
+        NBTHandler.putNBTForItem(stack.getOrCreateTag(), "energyType", energyType.getRegistryID().toString());
+        return energyType;
+    }
+
+    public static EnergyType getEnergyType(ItemStack stack) {
+        String key = NBTHandler.getString(stack.getTag(), "energyType");
         if (stack.hasTag()) {
-            return ItemNBTHandler.getEnergy(stack.getTag());
+            if (S0Registry.ENERGY_TYPE.hasKey(key)) {
+                return S0Registry.ENERGY_TYPE.get(key);
+            }
+        }
+        return null;
+    }
+
+    public static long setEnergy(ItemStack stack, long n) {
+        NBTHandler.putNBT(stack.getOrCreateTag(), "energy", n);
+        return n;
+    }
+
+    public static long getEnergy(ItemStack stack) {
+        if (stack.hasTag()) {
+            return NBTHandler.getLong(stack.getTag(), "energy");
         } else {
             return 0;
         }
     }
 
+    public static long addEnergy(ItemStack stack, long n) {
+        return setEnergy(stack, getEnergy(stack)+n);
+    }
+
+    public static float getFillRatio(ItemStack stack) {
+        CapacitorItem instance = (CapacitorItem) stack.getItem();
+        return getEnergy(stack) / (float) instance.getMaxEnergy();
+    }
+
     @Override
-    public long getMaxAmount() {
+    public long getMaxEnergy() {
         return this.maxAmount;
     }
 
@@ -36,19 +68,31 @@ public class CapacitorItem extends ComponentItem implements IItemEnergyStore {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
+        //System.out.println("Checking color...");
         if (stack.hasTag()) {
-            return S0Registry.ENERGY_TYPE.get(new Identifier(stack.getTag().getCompound("system0").getString("energyType")))
-                    .getPrimaryColor().asInt();
-        } else {
-            //return new RGB(255,255,255).asInt();
-            return RGB.getNewRandomColor().asInt();
+            //System.out.println("...found a color!");
+            EnergyType energyType = getEnergyType(stack);
+            if (energyType != null) {
+                return energyType.getPrimaryColor().asInt();
+            }
         }
+        //System.out.println("...picking random color.");
+        return ColorGenerator.getRandomSaturatedBright().asInt();
     }
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        //Math.min(1 + 12 * getBundleOccupancy(stack) / 64, 13);
-        return 12;
+        //return -1;
+        //System.out.println(String.valueOf(getEnergy(stack)));
+        return (int) Math.min(13 * getFillRatio(stack), 13);
+
+        //return 13;
     }
 
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        CapacitorItem.setEnergyType(context.getStack(), S0EnergyTypes.SKEINTILLATING);
+        CapacitorItem.setEnergy(context.getStack(), 170_000);
+        return ActionResult.SUCCESS;
+    }
 }

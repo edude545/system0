@@ -53,7 +53,7 @@
   "block.system0.rough_rock" : "Rough Rock",
   "block.system0.indigonite_trim" : "Indigonite Trim",
   "block.system0.glaucous_gourd" : "Glaucous Gourd",
-  "block.system0.glaucous_gourd.tooltip" : "A dull blue gourd. Its flesh has an unexpectedly useful composition.",
+  "block.system0.glaucous_gourd.tooltip" : "A dull blue gourd.\nIts flesh has an unexpectedly useful composition.",
   "block.system0.icon_trophy" : "S0 Trophy",
 
 
@@ -69,15 +69,23 @@
 
   "itemGroup.system0.crafting" : "S0: Crafting",
 
-  "item.system0.indigonite" : "Indigonite Composite",
-  "item.system0.indigonite.tooltip" : "Layered wafers of varied indigonite. Many applications in construction.",
+  "item.system0.indigonite_composite" : "Indigonite Composite",
+  "item.system0.indigonite_composite.tooltip" : "Layered wafers of varied indigonite.\nMany applications in construction.",
 
   "item.system0.glaucous_gourd_slice" : "Glaucous Gourd",
-  "item.system0.glaucous_gourd_slice.tooltip" : "Slice of a dull blue gourd. Its flesh has an unexpectedly useful composition.",
+  "item.system0.glaucous_gourd_slice.tooltip" : "Slice of a dull blue gourd.\nIts flesh has an unexpectedly useful composition.",
 
   "item.system0.flashtin_antenna" : "Flashtin Antenna",
   "item.system0.flashtin_antenna.tooltip" : "Thin translucent pole that resonates with magic.",
 
+  "item.system0.symvinyl_sheet" : "Symvinyl Sheet",
+  "item.system0.symvinyl_sheet.tooltip" : "Clear sheet of metasymmetric plastic.",
+
+  "item.system0.para_trillions" : "Para Trillions",
+  "item.system0.para_trillions.tooltip" : "Brilliant finely-cut gems.\nThey look expensive.",
+
+  "item.system0.nexxine_symbol" : "Nexxine Symbol",
+  "item.system0.nexxine_symbol.tooltip" : "Heavy red slab with a sigil engraved.",
 
 
   "itemGroup.system0.armors" : "S0: Armor",

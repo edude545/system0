@@ -1,0 +1,21 @@
+This GUI library can generate visuals and handle screens by using widgets.
+
+To set up a screen that uses widgets:
+
+    - Your `ScreenHandler` (SH) class must extend `WidgetedScreenHandler`.
+    - Widgets are represented as fields in the SH class, so declare them.
+    - Initialize widgets in the SH constructor.
+    - Call `WidgetedScreenHandler#addWidget` for each widget.
+
+    - Your `HandledScreen` (HS) class must extend `WidgetedScreen`. Nothing else needs to be done here.
+
+    - Your `BlockEntity` (BE) class must implement `IWidgetNBTProvider`.
+    Each widget class should have a static method `writeNBT`.
+    - In your implementation of `IWidgetNBTProvider#createWidgetNBT`, for each widget you defined in your SH class, pass the `nbt` argument, the widget's name, and any other parameters to the `writeNBT` static method. This will write the relevant data under that widget's name.
+    - In your implementation of `ExtendedScreenHandlerFactory#writeScreenOpeningData`, you can now call `createWidgetNBT` to sync the BE's data during that tick.
+
+    However, to display the screen in real time, data must be synced each time the BlockEntity has new data to display. Obviously you can just do this every tick, but there is room for optimization.
+
+    - On the server side of the BE, call `GUINetworkingHandler#sendWidgetData` with the user to be synced to and the result of `createWidgetNBT`. A packet will be sent to the client to update the widgets on the client's SH.
+
+`S0BlockEntityWithScreen` is an example implementation of

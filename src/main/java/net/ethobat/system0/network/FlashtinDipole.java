@@ -1,7 +1,7 @@
 package net.ethobat.system0.network;
 
 import net.ethobat.system0.api.energy.EnergyType;
-import net.ethobat.system0.api.network.AbstractBETransceiver;
+import net.ethobat.system0.api.network.physical.be.AbstractBETransceiver;
 import net.ethobat.system0.auxiliary.S0Block;
 import net.ethobat.system0.registry.S0BlockEntityTypes;
 import net.minecraft.block.Block;

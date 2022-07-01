@@ -2,8 +2,8 @@ package net.ethobat.system0.items.equipment;
 
 import net.ethobat.system0.System0;
 import net.ethobat.system0.api.util.MessageHandler;
-import net.ethobat.system0.api.network.IReceiverAntenna;
-import net.ethobat.system0.api.network.ITransmitterAntenna;
+import net.ethobat.system0.api.network.physical.IReceiverAntenna;
+import net.ethobat.system0.api.network.physical.ITransmitterAntenna;
 import net.ethobat.system0.auxiliary.S0Item;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemUsageContext;

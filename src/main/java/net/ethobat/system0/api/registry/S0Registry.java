@@ -6,7 +6,6 @@ import net.ethobat.system0.api.progression.ProgressItem;
 import net.ethobat.system0.api.psionics.PsionicSchema;
 import net.minecraft.util.Identifier;
 
-import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -17,23 +16,40 @@ public class S0Registry<T> {
     public static final S0Registry<ProgressItem> PROGRESSION = new S0Registry<>();
     public static final S0Registry<Class<? extends GUIWidget>> WIDGETS = new S0Registry<>();
 
-    private final HashMap<Identifier, T> REGISTRY;
+    private final HashMap<Identifier, T> MAP;
 
     public S0Registry() {
-        this.REGISTRY = new HashMap<>();
+        this.MAP = new HashMap<>();
     }
 
     public T get(Identifier id) {
-        return this.REGISTRY.get(id);
+        T ret = this.MAP.get(id);
+        if (ret == null) {
+            throw new IllegalArgumentException("Nothing registered under key "+id.toString());
+        } else {
+            return ret;
+        }
+    }
+
+    public T get(String string) {
+        return this.get(new Identifier(string));
     }
 
     public T register(T obj, Identifier id) {
-        return this.REGISTRY.put(id, obj);
+        return this.MAP.put(id, obj);
+    }
+
+    public boolean hasKey(Identifier id) {
+        return this.MAP.containsKey(id);
+    }
+
+    public boolean hasKey(String string) {
+        return this.MAP.containsKey(new Identifier(string));
     }
 
     public Collection<T> getAll() {
-        System.out.println("Schema registry contents: "+this.REGISTRY.values().toString());
-        return this.REGISTRY.values();
+        System.out.println("Schema registry contents: "+this.MAP.values().toString());
+        return this.MAP.values();
     }
 
 }

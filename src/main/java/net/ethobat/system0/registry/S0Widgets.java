@@ -1,7 +1,7 @@
 package net.ethobat.system0.registry;
 
-import net.ethobat.system0.gui.widgets.WPowerBarMediumVert;
-import net.ethobat.system0.gui.widgets.WSlotGrid;
+import net.ethobat.system0.api.gui.widgets.WPowerBarMediumVert;
+import net.ethobat.system0.api.gui.widgets.WSlotGrid;
 
 public class S0Widgets {
 

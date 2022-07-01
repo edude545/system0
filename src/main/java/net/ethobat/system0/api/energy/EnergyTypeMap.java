@@ -30,4 +30,10 @@ public class EnergyTypeMap extends HashMap<EnergyType, Long> {
         }
     }
 
+    public static EnergyTypeMap singleType(EnergyType type, long amt) {
+        EnergyTypeMap ret = new EnergyTypeMap();
+        ret.put(type, amt);
+        return ret;
+    }
+
 }
