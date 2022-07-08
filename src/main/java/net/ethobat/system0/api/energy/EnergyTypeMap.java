@@ -5,6 +5,15 @@ import java.util.Set;
 
 public class EnergyTypeMap extends HashMap<EnergyType, Long> {
 
+    // Sum all of this map's energy values
+    public long sumSelf() {
+        long ret = 0;
+        for (long n : this.values()) {
+            ret += n;
+        }
+        return ret;
+    }
+
     public EnergyTypeMap sum(EnergyTypeMap map) {
         Set<EnergyType> types = this.keySet();
         types.addAll(map.keySet());

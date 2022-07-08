@@ -5,11 +5,12 @@ import net.ethobat.system0.api.network.physical.INetConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class NetworkPath {
+// DEPRECATED
+public class NetworkPathDeprecated {
 
     public final INetConnection[] CONNECTIONS;
 
-    NetworkPath(INetConnection[] connections) {
+    NetworkPathDeprecated(INetConnection[] connections) {
         this.CONNECTIONS = connections;
     }
 
@@ -42,8 +43,8 @@ public class NetworkPath {
             return connection;
         }
 
-        public NetworkPath build() {
-            return new NetworkPath((INetConnection[]) this.CONNECTIONS.toArray());
+        public NetworkPathDeprecated build() {
+            return new NetworkPathDeprecated((INetConnection[]) this.CONNECTIONS.toArray());
         }
 
     }

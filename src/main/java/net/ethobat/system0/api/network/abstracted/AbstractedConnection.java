@@ -2,25 +2,39 @@ package net.ethobat.system0.api.network.abstracted;
 
 import net.ethobat.system0.api.energy.EnergyTypeMap;
 
-public class AbstractedConnection {
+import java.util.HashMap;
 
-    public final AbstractedTransmitter transmitter;
-    public final AbstractedReceiver receiver;
+public class AbstractedConnection implements IAbstractedNetworkMember {
 
-    // Highest potential bandwidth of the connection, assuming the nodes have no other connections.
-    private final long potentialBandwidth;
-    // Effective bandwidth of the connection. May be recalculated if the nodes establishe other connections.
-    private long bandwidth;
+    public final Network NETWORK;
+
+    public final AbstractedTransmitter TRANSMITTER;
+    public final AbstractedReceiver RECEIVER;
+
+    // Bandwidth of the connection.
+    private long potentialBandwidth;
 
     // Represents energy flowing through the connection each tick.
-    public final EnergyTypeMap channels;
+    public EnergyTypeMap channels;
+
+    public HashMap<NetworkPath,EnergyTypeMap> separatedChannels;
 
     public AbstractedConnection(AbstractedTransmitter transmitter, AbstractedReceiver receiver) {
-        this.transmitter = transmitter;
-        this.receiver = receiver;
+        this.NETWORK = transmitter.getNetwork();
+        this.TRANSMITTER = transmitter;
+        this.RECEIVER = receiver;
         this.potentialBandwidth = Math.min(transmitter.getBandwidth(), receiver.getBandwidth());
 
         this.channels = new EnergyTypeMap();
+    }
+
+    @Override
+    public Network getNetwork() {
+        return this.NETWORK;
+    }
+
+    public long getPotentialBandwidth() {
+        return this.potentialBandwidth;
     }
 
 }

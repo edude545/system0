@@ -19,6 +19,10 @@ public class AbstractedReceiver extends AbstractedNode {
         this.sensitivity = sensitivity;
     }
 
+    public AbstractedConnection getConnection(UUID transmitter) {
+        return this.getNetwork().getConnection(transmitter, this.getUUID());
+    }
+
     public static AbstractedReceiver fromNBT(NbtCompound nbt) {
         return new AbstractedReceiver(
                 NBTHandler.getUUID(nbt, "uuid"),

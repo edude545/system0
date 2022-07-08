@@ -141,21 +141,21 @@ public class NBTHandler {
     }
 
     public static void genericPut(NbtCompound nbt, String key, Object obj) {
-        if (obj instanceof Byte         ) { putNBT(nbt, key, (Byte          ) obj); }
-        if (obj instanceof Short        ) { putNBT(nbt, key, (Short         ) obj); }
-        if (obj instanceof Integer      ) { putNBT(nbt, key, (Integer       ) obj); }
-        if (obj instanceof Long         ) { putNBT(nbt, key, (Long          ) obj); }
-        if (obj instanceof Float        ) { putNBT(nbt, key, (Float         ) obj); }
-        if (obj instanceof Double       ) { putNBT(nbt, key, (Double        ) obj); }
-//        if (obj instanceof Byte[]       ) { putNBT(nbt, key, (Byte[]        ) obj); }
-        if (obj instanceof String       ) { putNBT(nbt, key, (String        ) obj); }
-        //if (obj instanceof NbtElement[]) { putNBT(nbt, key, (Byte) obj); }
-        if (obj instanceof NbtCompound  ) { putNBT(nbt, key, (NbtCompound   ) obj); }
-//        if (obj instanceof Integer[]    ) { putNBT(nbt, key, (Integer[]     ) obj); }
-//        if (obj instanceof Long[]       ) { putNBT(nbt, key, (Long[]        ) obj); }
-        if (obj instanceof UUID         ) { putNBT(nbt, key, obj.toString());       }
+             if (obj instanceof Byte         ) { putNBT(nbt, key, (Byte          ) obj); }
+        else if (obj instanceof Short        ) { putNBT(nbt, key, (Short         ) obj); }
+        else if (obj instanceof Integer      ) { putNBT(nbt, key, (Integer       ) obj); }
+        else if (obj instanceof Long         ) { putNBT(nbt, key, (Long          ) obj); }
+        else if (obj instanceof Float        ) { putNBT(nbt, key, (Float         ) obj); }
+        else if (obj instanceof Double       ) { putNBT(nbt, key, (Double        ) obj); }
+//        else if (obj instanceof Byte[]       ) { putNBT(nbt, key, (Byte[]        ) obj); }
+        else if (obj instanceof String       ) { putNBT(nbt, key, (String        ) obj); }
+        //else if (obj instanceof NbtElement[]) { putNBT(nbt, key, (Byte) obj); }
+        else if (obj instanceof NbtCompound  ) { putNBT(nbt, key, (NbtCompound   ) obj); }
+//        else if (obj instanceof Integer[]    ) { putNBT(nbt, key, (Integer[]     ) obj); }
+//        else if (obj instanceof Long[]       ) { putNBT(nbt, key, (Long[]        ) obj); }
+        else if (obj instanceof UUID         ) { putNBT(nbt, key, obj.toString());       }
         else {
-            throw new IllegalArgumentException("Can't write object of type " + obj.getClass().toString() + " to NBT!");
+            throw new IllegalArgumentException("Can't write object of type \"" + obj.getClass().toString() + "\" to NBT!");
         }
     }
 

@@ -6,22 +6,25 @@ import net.ethobat.system0.api.energy.EnergyTypeMap;
 public class SimpleSource extends AbstractedSource {
 
     private final EnergyType type;
-    private final long amt;
+    private final long potentialEnergy;
 
-    private final EnergyTypeMap channels;
+    // Amount of occupied energy.
+    private final long usedEnergy;
 
-    public SimpleSource(EnergyType type, long amt) {
+    public SimpleSource(EnergyType type, long potentialEnergy) {
         this.type = type;
-        this.amt = amt;
-        this.channels = EnergyTypeMap.singleType(this.type, 0);
+        this.potentialEnergy = potentialEnergy;
+        this.usedEnergy = 0;
     }
 
+    @Override
     public EnergyTypeMap getPotentialEnergy() {
-        return EnergyTypeMap.singleType(this.type, this.amt);
+        return EnergyTypeMap.singleType(this.type, this.potentialEnergy);
     }
 
+    @Override
     public EnergyTypeMap getChannels() {
-        return this.channels;
+        return EnergyTypeMap.singleType(this.type, this.usedEnergy);
     }
 
 }

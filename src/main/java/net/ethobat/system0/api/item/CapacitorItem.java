@@ -25,7 +25,7 @@ public class CapacitorItem extends ComponentItem implements IItemEnergyContainer
     }
 
     public static EnergyType getEnergyType(ItemStack stack) {
-        String key = NBTHandler.getString(stack.getTag(), "energyType");
+        String key = NBTHandler.getString(stack.getOrCreateTag(), "energyType");
         if (stack.hasTag()) {
             if (S0Registry.ENERGY_TYPE.hasKey(key)) {
                 return S0Registry.ENERGY_TYPE.get(key);

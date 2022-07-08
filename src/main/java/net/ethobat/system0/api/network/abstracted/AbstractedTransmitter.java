@@ -24,6 +24,16 @@ public class AbstractedTransmitter extends AbstractedNode {
         this.penetration = penetration;
     }
 
+    public boolean tryConnection(AbstractedReceiver receiver) {
+        return this.network.tryConnection(this, receiver);
+    }
+
+    public AbstractedConnection getConnection(UUID receiver) {
+        return this.getNetwork().getConnection(this.getUUID(), receiver);
+    }
+
+    // NBT stuff
+
     public static AbstractedTransmitter fromNBT(NbtCompound nbt) {
         return new AbstractedTransmitter(
                 NBTHandler.getUUID(nbt, "uuid"),

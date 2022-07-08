@@ -6,7 +6,9 @@ import net.minecraft.util.math.BlockPos;
 
 import java.util.UUID;
 
-public abstract class AbstractedNode {
+public abstract class AbstractedNode implements IAbstractedNetworkMember {
+
+    public Network network;
 
     private final UUID uuid;
     private final BlockPos pos;
@@ -26,6 +28,11 @@ public abstract class AbstractedNode {
         this.uuid = uuid;
         this.pos = pos;
         this.bandwidth = bandwidth;
+    }
+
+    @Override
+    public Network getNetwork() {
+        return this.network;
     }
 
     public NbtCompound toNBT() {

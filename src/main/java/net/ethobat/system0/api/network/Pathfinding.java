@@ -8,8 +8,8 @@ import java.util.HashSet;
 
 public final class Pathfinding {
 
-    public NetworkPath dijkstra(INetConnector start, INetConnector end) {
-        NetworkPath.Builder builder = new NetworkPath.Builder();
+    public NetworkPathDeprecated dijkstra(INetConnector start, INetConnector end) {
+        NetworkPathDeprecated.Builder builder = new NetworkPathDeprecated.Builder();
 
         final HashMap<INetConnector,Float> distances = new HashMap<>();
         final HashSet<INetConnector> visitedNodes = new HashSet<>(start.getConnectedNodes());

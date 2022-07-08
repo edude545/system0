@@ -21,6 +21,16 @@ public final class S0Items {
 
     public static class Crafting {
         public static final S0Item INDIGONITE_COMPOSITE = new MaterialItem("indigonite_composite");
+        public static final S0Item RAW_INDIGONITE = new MaterialItem("raw_indigonite");
+        public static final S0Item INDIGO_1 = new MaterialItem("indigo_1");
+        public static final S0Item INDIGO_2 = new MaterialItem("indigo_2");
+        public static final S0Item INDIGO_3 = new MaterialItem("indigo_3");
+        public static final S0Item INDIGO_4 = new MaterialItem("indigo_4");
+        public static final S0Item INDIGO_1_SHEET = new MaterialItem("indigo_1_sheet");
+        public static final S0Item INDIGO_2_SHEET = new MaterialItem("indigo_2_sheet");
+        public static final S0Item INDIGO_3_SHEET = new MaterialItem("indigo_3_sheet");
+        public static final S0Item INDIGO_4_SHEET = new MaterialItem("indigo_4_sheet");
+
         public static final S0Item GLAUCOUS_GOURD_SLICE = new MaterialItem("glaucous_gourd_slice");
         public static final S0Item SYMVINYL_SHEET = new MaterialItem("symvinyl_sheet");
         public static final S0Item PARA_TRILLIONS = new MaterialItem("para_trillions");
