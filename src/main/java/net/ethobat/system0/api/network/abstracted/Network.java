@@ -8,12 +8,32 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.UUID;
 
+/*
+Each network consists of a set of the following: transmitters, receivers, sources, drains, connections, and NetworkPaths.
+All links from transmitters to receivers that can possibly exist (given location & antenna properties) are called AbstractConnections.
+
+Energy flows through the network in the form of NetworkPaths. These are peer-to-peer links from AbstractedSources to AbstractedDrains.
+NetworkPaths themselves consist of a set of jumps from transmitters to receivers, occupying a certain amount of bandwidth with each jump.
+NetworkPaths may split and rejoin any number of times.
+Sources and drains may be members of multiple NetworkPaths. However, there can only be one NetworkPath for each source/drain pair.
+*/
 public class Network {
 
     private UUID uuid;
+
     private HashMap<UUID,AbstractedTransmitter> transmitters;
     private HashMap<UUID,AbstractedReceiver> receivers;
-    private HashSet<NetworkPath> paths;
+
+    private HashMap<UUID,AbstractedSource> sources;
+    private HashMap<UUID,AbstractedDrain> drains;
+
+    private HashMap<TransRecvPair,AbstractedConnection> connections;
+
+    private HashMap<SourceDrainPair,NetworkPath> paths;
+
+    public UUID getUUID() {
+        return this.uuid;
+    }
 
     public AbstractedTransmitter getTransmitter(UUID uuid) {
         return this.transmitters.get(uuid);
@@ -21,16 +41,27 @@ public class Network {
     public AbstractedReceiver getReceiver(UUID uuid) {
         return this.receivers.get(uuid);
     }
-    public HashMap<Pair<UUID,UUID>,AbstractedConnection> connections;
 
-    public AbstractedConnection getConnection(UUID start, UUID end) {
-        return this.connections.get(new Pair<>(start,end));
+    public AbstractedSource getSource(UUID uuid) {
+        return this.sources.get(uuid);
+    }
+    public AbstractedDrain getDrain(UUID uuid) {
+        return this.drains.get(uuid);
     }
 
+    public AbstractedConnection getConnection(UUID transmitter, UUID receiver) {
+        return this.connections.get(new TransRecvPair(transmitter,receiver));
+    }
+
+    public NetworkPath getPath(UUID source, UUID drain) {
+        return this.paths.get(new SourceDrainPair(source,drain));
+    }
+
+    // Establishes a connection if possible.
     public boolean tryConnection(AbstractedTransmitter start, AbstractedReceiver end) {
         // TODO: Penetration
         if (start.getPos().isWithinDistance(end.getPos(), start.getRange()*end.getSensitivity())) {
-            this.connections.put(new Pair<>(start.getUUID(), end.getUUID()), new AbstractedConnection(start, end));
+            this.connections.put(new TransRecvPair(start, end), new AbstractedConnection(start, end));
             return true;
         }
         return false;

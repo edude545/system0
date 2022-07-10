@@ -3,7 +3,9 @@ package net.ethobat.system0.api.network.abstracted;
 import net.ethobat.system0.api.energy.EnergyType;
 import net.ethobat.system0.api.energy.EnergyTypeMap;
 
-public class SimpleSource extends AbstractedSource {
+import java.util.UUID;
+
+public class SimpleMonoSource extends AbstractedSource {
 
     private final EnergyType type;
     private final long potentialEnergy;
@@ -11,7 +13,8 @@ public class SimpleSource extends AbstractedSource {
     // Amount of occupied energy.
     private final long usedEnergy;
 
-    public SimpleSource(EnergyType type, long potentialEnergy) {
+    public SimpleMonoSource(UUID uuid, EnergyType type, long potentialEnergy) {
+        super(uuid);
         this.type = type;
         this.potentialEnergy = potentialEnergy;
         this.usedEnergy = 0;

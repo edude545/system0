@@ -4,7 +4,7 @@ import net.ethobat.system0.api.energy.EnergyTypeMap;
 
 import java.util.HashMap;
 
-public class AbstractedConnection implements IAbstractedNetworkMember {
+public class AbstractedConnection {
 
     public final Network NETWORK;
 
@@ -12,11 +12,12 @@ public class AbstractedConnection implements IAbstractedNetworkMember {
     public final AbstractedReceiver RECEIVER;
 
     // Bandwidth of the connection.
-    private long potentialBandwidth;
+    private final long potentialBandwidth;
 
     // Represents energy flowing through the connection each tick.
     public EnergyTypeMap channels;
 
+    // Maps NetworkPaths to the bandwidth they occupy on this connection.
     public HashMap<NetworkPath,EnergyTypeMap> separatedChannels;
 
     public AbstractedConnection(AbstractedTransmitter transmitter, AbstractedReceiver receiver) {
@@ -26,9 +27,9 @@ public class AbstractedConnection implements IAbstractedNetworkMember {
         this.potentialBandwidth = Math.min(transmitter.getBandwidth(), receiver.getBandwidth());
 
         this.channels = new EnergyTypeMap();
+        this.separatedChannels = new HashMap<>();
     }
 
-    @Override
     public Network getNetwork() {
         return this.NETWORK;
     }

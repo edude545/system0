@@ -1,5 +1,10 @@
 package net.ethobat.system0.api.energy;
 
+import net.ethobat.system0.api.nbt.NBTHandler;
+import net.ethobat.system0.api.registry.S0Registry;
+import net.ethobat.system0.registry.S0EnergyTypes;
+import net.minecraft.nbt.NbtCompound;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -42,6 +47,30 @@ public class EnergyTypeMap extends HashMap<EnergyType, Long> {
     public static EnergyTypeMap singleType(EnergyType type, long amt) {
         EnergyTypeMap ret = new EnergyTypeMap();
         ret.put(type, amt);
+        return ret;
+    }
+
+    /*
+    NBT structure:
+    {
+        "system0:skeintillating" : 70_000_000,
+        "system0:blakronic" : 300_000,
+        "system0:liminesque" : 20_000
+    }
+     */
+    public NbtCompound toNBT() {
+        NbtCompound ret = new NbtCompound();
+        for (EnergyType type : this.keySet()) {
+            NBTHandler.genericPut(ret, type.getRegistryIDString(), this.get(type));
+        }
+        return ret;
+    }
+
+    public static EnergyTypeMap fromNBT(NbtCompound nbt) {
+        EnergyTypeMap ret = new EnergyTypeMap();
+        for (String typeName : nbt.getKeys()) {
+            ret.put(S0Registry.ENERGY_TYPE.get(typeName), nbt.getLong(typeName));
+        }
         return ret;
     }
 
