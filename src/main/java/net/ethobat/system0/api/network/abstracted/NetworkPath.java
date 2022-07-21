@@ -25,7 +25,7 @@ public class NetworkPath {
     }
 
     public NetworkPath build(IncompleteNetworkPath path) {
-        return new NetworkPath(path.NETWORK, path.SOURCE, path.DRAIN, path.JUMPS);
+        return new NetworkPath(path.NETWORK, path.SOURCE.getUUID(), path.DRAIN.getUUID(), path.JUMPS);
     }
 
     // NBT stuff
@@ -76,9 +76,9 @@ public class NetworkPath {
             NbtCompound cxnsNBT = jumpsNBT.getCompound(transmitterKey);
             for (String receiverKey : cxnsNBT.getKeys()) {
                 jumps.put(new AbstractedConnection(
-                        network.getTransmitter(),
-                        network.getReceiver()
-                ), NBTHandler.getEnergyTypeMap(cxnsNBT, receiverKey))
+                        network.getNode(UUID.fromString(transmitterKey)),
+                        network.getNode(UUID.fromString(receiverKey))
+                ), NBTHandler.getEnergyTypeMap(cxnsNBT, receiverKey));
             }
         }
 
@@ -87,7 +87,7 @@ public class NetworkPath {
                 NBTHandler.getUUID(nbt, "source"),
                 NBTHandler.getUUID(nbt, "drain"),
                 jumps
-        )
+        );
     }
 
 }

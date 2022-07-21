@@ -50,6 +50,14 @@ public class EnergyTypeMap extends HashMap<EnergyType, Long> {
         return ret;
     }
 
+    public static EnergyTypeMap maxAll() {
+        EnergyTypeMap ret = new EnergyTypeMap();
+        for (EnergyType energyType : S0Registry.ENERGY_TYPE.getAll()) {
+            ret.put(energyType, Long.MAX_VALUE);
+        }
+        return ret;
+    }
+
     /*
     NBT structure:
     {

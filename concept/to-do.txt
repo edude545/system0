@@ -1,0 +1,68 @@
+Get System0 to a playable state.
+
+	Get the network working.
+	
+		Add a network command station.
+	
+		Implement network pathfinding.
+		
+		Add a creative energy source.
+		
+		Implement a small GUI library to make writing ScreenHandlers easier.
+			
+			(Generate textures on the fly, if possible?)
+			Inventory slot widget.
+			Energy power bar widget.
+			Network connection widget.
+		
+		Add an Aggregator.
+		
+			Implement Mage Veins.
+			
+				Generate Petrionic Veins.
+				Generate Skeintillating Veins.
+				Generate Anbaric Veins.
+				Generate Lodestic Veins.
+		
+		Add some machines.
+		
+			Planar Reduction.
+			
+				Model.
+				Code.
+			
+			"First Arcanum" Exoticizer.
+			
+				Code.
+		
+		Add a network PDA.
+		
+			Code.
+		
+		Add some antennas.
+			
+			Add a small parabolic dish.
+			
+				Code.
+			
+			Add a powerful directed antenna.
+			
+				Model.
+				Code.
+			
+			Add a short-range omnidirectional antenna.
+			
+				Code.
+		
+		Add cables.
+		
+	Implement Psionics.
+	
+		Implement "Blakron Blast".
+		
+			Visuals.
+			Code.
+		
+		Add a Psionic Imprinter.
+		
+		Add a menu to assign keybindings to psionic schemas.

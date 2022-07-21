@@ -4,10 +4,10 @@ import net.minecraft.world.World;
 
 public class ConnectionContext {
 
-    public final IAntenna TARGET;
+    public final IAntennaDeprecated TARGET;
     public final World WORLD;
 
-    ConnectionContext(IAntenna target) {
+    ConnectionContext(IAntennaDeprecated target) {
         this.TARGET = target;
         this.WORLD = this.TARGET.getWorld();
     }

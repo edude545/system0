@@ -21,25 +21,28 @@ public class Network {
 
     private UUID uuid;
 
-    private HashMap<UUID,AbstractedTransmitter> transmitters;
-    private HashMap<UUID,AbstractedReceiver> receivers;
+    public HashMap<UUID,AbstractedNode> nodes;
 
-    private HashMap<UUID,AbstractedSource> sources;
-    private HashMap<UUID,AbstractedDrain> drains;
+    public HashMap<UUID,AbstractedSource> sources;
+    public HashMap<UUID,AbstractedDrain> drains;
 
     private HashMap<TransRecvPair,AbstractedConnection> connections;
 
     private HashMap<SourceDrainPair,NetworkPath> paths;
 
+    public static final String NBT_UUID_KEY = "uuid";
+    public static final String NBT_NODES_KEY = "nodes";
+    public static final String NBT_SOURCES_KEY = "sources";
+    public static final String NBT_DRAINS_KEY = "drains";
+
+    // getters
+
     public UUID getUUID() {
         return this.uuid;
     }
 
-    public AbstractedTransmitter getTransmitter(UUID uuid) {
-        return this.transmitters.get(uuid);
-    }
-    public AbstractedReceiver getReceiver(UUID uuid) {
-        return this.receivers.get(uuid);
+    public AbstractedNode getNode(UUID uuid) {
+        return this.nodes.get(uuid);
     }
 
     public AbstractedSource getSource(UUID uuid) {
@@ -57,18 +60,50 @@ public class Network {
         return this.paths.get(new SourceDrainPair(source,drain));
     }
 
+    //
+
+    // Methods used to add new elements to the network. *Not* used in reading network data from NBT.
+
+    public void register(IAbstractedNetworkMember member) {
+             if (member instanceof AbstractedNode           )   { this.registerNode         ( (AbstractedNode       ) member);  }
+        else if (member instanceof AbstractedSource         )   { this.registerSource       ( (AbstractedSource     ) member);  }
+        else if (member instanceof AbstractedDrain          )   { this.registerDrain        ( (AbstractedDrain      ) member);  }
+    }
+
+    public void registerNode(AbstractedNode node) {
+        this.nodes.put(node.getUUID(), node);
+        for (UUID otherNode : this.nodes.keySet()) {
+            this.tryConnection(node, otherNode);
+            this.tryConnection(otherNode, node);
+        }
+    }
+
+    public void registerSource(AbstractedSource source) {
+        this.sources.put(source.getUUID(), source);
+    }
+    public void registerDrain(AbstractedDrain drain) {
+        this.drains.put(drain.getUUID(), drain);
+    }
+
+    //
+
     // Establishes a connection if possible.
-    public boolean tryConnection(AbstractedTransmitter start, AbstractedReceiver end) {
+    public boolean tryConnection(AbstractedNode transmitter, AbstractedNode receiver) {
         // TODO: Penetration
-        if (start.getPos().isWithinDistance(end.getPos(), start.getRange()*end.getSensitivity())) {
-            this.connections.put(new TransRecvPair(start, end), new AbstractedConnection(start, end));
+        if (transmitter.getPos().isWithinDistance(receiver.getPos(), transmitter.getRange()*receiver.getSensitivity())) {
+            this.connections.put(new TransRecvPair(transmitter, receiver), new AbstractedConnection(transmitter, receiver));
             return true;
         }
         return false;
     }
-
-    public boolean tryConnection(UUID start, UUID end) {
-        return this.tryConnection(this.getTransmitter(start), this.getReceiver(end));
+    public boolean tryConnection(UUID transmitter, UUID receiver) {
+        return this.tryConnection(this.getNode(transmitter), this.getNode(receiver));
+    }
+    public boolean tryConnection(UUID transmitter, AbstractedNode receiver) {
+        return this.tryConnection(this.getNode(transmitter), receiver);
+    }
+    public boolean tryConnection(AbstractedNode transmitter, UUID receiver) {
+        return this.tryConnection(transmitter, this.getNode(receiver));
     }
 
     // ~~~~~~~~~~~
@@ -78,41 +113,41 @@ public class Network {
     public static Network fromNBT(NbtCompound nbt) {
         Network network = new Network();
 
-        HashMap<UUID,AbstractedTransmitter> transmitters = new HashMap<>();
-        HashMap<UUID,AbstractedReceiver> receivers = new HashMap<>();
+        HashMap<UUID,AbstractedNode> nodes = new HashMap<>();
+        HashMap<UUID,AbstractedSource> sources = new HashMap<>();
+        HashMap<UUID,AbstractedDrain> drains = new HashMap<>();
 
-        NbtCompound transmittersNBT = NBTHandler.getCompound(nbt, "transmitters");
-        NbtCompound receiversNBT = NBTHandler.getCompound(nbt, "receivers");
+        NbtCompound nodesNBT = NBTHandler.getCompound(nbt, NBT_NODES_KEY);
+        NbtCompound sourcesNBT = NBTHandler.getCompound(nbt, NBT_SOURCES_KEY);
+        NbtCompound drainsNBT = NBTHandler.getCompound(nbt, NBT_DRAINS_KEY);
 
-        for (String key : transmittersNBT.getKeys()) {
-            transmitters.put(UUID.fromString(key), AbstractedTransmitter.fromNBT(transmittersNBT.getCompound(key)));
+        for (String key : nodesNBT.getKeys()) {
+            nodes.put(UUID.fromString(key), AbstractedNode.fromNBT(nodesNBT.getCompound(key)));
         }
-        for (String key : receiversNBT.getKeys()) {
-            receivers.put(UUID.fromString(key), AbstractedReceiver.fromNBT(receiversNBT.getCompound(key)));
+        for (String key : sourcesNBT.getKeys()) {
+            sources.put(UUID.fromString(key), AbstractedSource.fromNBT(sourcesNBT.getCompound(key)));
+        }
+        for (String key : drainsNBT.getKeys()) {
+            drains.put(UUID.fromString(key), AbstractedDrain.fromNBT(drainsNBT.getCompound(key)));
         }
 
-        network.uuid = NBTHandler.getUUID(nbt, "uuid");
-        network.transmitters = transmitters;
-        network.receivers = receivers;
+        network.uuid = NBTHandler.getUUID(nbt, NBT_UUID_KEY);
+        network.nodes = nodes;
+        network.sources = sources;
+        network.drains = drains;
         return network;
     }
 
     public NbtCompound toNBT() {
         NbtCompound nbt = new NbtCompound();
 
-        NBTHandler.genericPut(nbt, "uuid", this.uuid);
+        NBTHandler.genericPut(nbt, NBT_UUID_KEY, this.uuid);
 
         NbtCompound tmp = new NbtCompound();
-        for (UUID uuid : this.transmitters.keySet()) {
-            tmp.put(uuid.toString(), this.getTransmitter(uuid).toNBT());
+        for (UUID uuid : this.nodes.keySet()) {
+            tmp.put(uuid.toString(), this.getNode(uuid).toNBT());
         }
-        nbt.put("transmitters", tmp);
-
-        tmp = new NbtCompound();
-        for (UUID uuid : this.receivers.keySet()) {
-            tmp.put(uuid.toString(), this.getReceiver(uuid).toNBT());
-        }
-        nbt.put("receivers", tmp);
+        nbt.put(NBT_NODES_KEY, tmp);
 
         return nbt;
     }

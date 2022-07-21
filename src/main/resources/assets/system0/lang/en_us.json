@@ -32,6 +32,8 @@
   "energy.system0.serendoompitous.death" : "met their fate",
   "energy.system0.gravital" : "Gravital",
   "energy.system0.gravital.death" : "was compressed into a singularity",
+  "energy.system0.morphyrian" : "Morphyrian",
+  "energy.system0.morphyrian.death" : "was transformed beyond recognition",
   "energy.system0.liminesque" : "Liminesque",
   "energy.system0.liminesque.death" : "fell into limbo",
   "energy.system0.mnemoline" : "Mnemoline",
@@ -40,6 +42,7 @@
   "energy.system0.odyssean.death" : "was apparently important enough to spend Odyssean Energy on",
   "energy.system0.phantasmagoric" : "Phantasmagoric",
   "energy.system0.phantasmagoric.death" : "was subjected to full-spectrum lemonade migraine obliteration",
+
 
 
   "itemGroup.system0.components" : "S0: Components",
@@ -64,6 +67,7 @@
   "item.system0.debug_tool" : "Debug Tool",
   "item.system0.vein_scouter" : "Vein Scouter",
   "item.system0.network_pda" : "Network PDA",
+  "item.system0.crowbar" : "Crowbar",
 
 
 
@@ -71,6 +75,16 @@
 
   "item.system0.indigonite_composite" : "Indigonite Composite",
   "item.system0.indigonite_composite.tooltip" : "Layered wafers of varied indigonite.\nMany applications in construction.",
+
+  "item.system0.raw_indigonite" : "Raw Indigonite",
+  "item.system0.indigo_1" : "Indigo 1",
+  "item.system0.indigo_2" : "Indigo 2",
+  "item.system0.indigo_3" : "Indigo 3",
+  "item.system0.indigo_4" : "Indigo 4",
+  "item.system0.indigo_1_sheet" : "Indigo 1 Sheet",
+  "item.system0.indigo_2_sheet" : "Indigo 2 Sheet",
+  "item.system0.indigo_3_sheet" : "Indigo 3 Sheet",
+  "item.system0.indigo_4_sheet" : "Indigo 4 Sheet",
 
   "item.system0.glaucous_gourd_slice" : "Glaucous Gourd",
   "item.system0.glaucous_gourd_slice.tooltip" : "Slice of a dull blue gourd.\nIts flesh has an unexpectedly useful composition.",
@@ -88,12 +102,20 @@
   "item.system0.nexxine_symbol.tooltip" : "Heavy red slab with a sigil engraved.",
 
 
+
   "itemGroup.system0.armors" : "S0: Armor",
 
   "item.system0.indigonite_helmet" : "Indigonite Mask",
   "item.system0.indigonite_chestplate" : "Indigonite Vest",
   "item.system0.indigonite_leggings" : "Indigonite Legplates",
   "item.system0.indigonite_boots" : "Indigonite Boots",
+
+
+
+  "itemGroup.system0.aggregators" : "S0: Aggregators",
+
+  "block.system0.trickle_aggregator" : "Trickle Aggregator",
+  "block.system0.debug_energy_source" : "Debug Energy Source",
 
 
 
@@ -121,7 +143,7 @@
   "psionicMantra.system0.bonfire_night" : "Piercing Sky Illuminations",
 
   "psionicSchema.system0.breakneck_blitz" : "Breakneck Blitz",
-  "psionicMantra.system0.breakneck_blitz" : "",
+  "psionicMantra.system0.breakneck_blitz" : "Peak Scampertude Intensifier",
 
   "psionicSchema.system0.tech_support" : "Tech Support",
   "psionicMantra.system0.tech_support" : "Particularizing Systems Investigator",

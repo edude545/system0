@@ -11,7 +11,7 @@ public final class TransRecvPair extends Pair<UUID,UUID> {
         super(transmitter, receiver);
     }
 
-    public TransRecvPair(AbstractedTransmitter transmitter, AbstractedReceiver receiver) {
+    public TransRecvPair(AbstractedNode transmitter, AbstractedNode receiver) {
         super(transmitter.getUUID(), receiver.getUUID());
     }
 

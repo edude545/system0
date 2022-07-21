@@ -2,7 +2,7 @@ package net.ethobat.system0.api.network.physical;
 
 import net.ethobat.system0.api.energy.EnergyType;
 
-public interface ITransmitterAntenna extends IAntenna {
+public interface ITransmitterAntenna extends IAntennaDeprecated {
 
     // Antenna info
     int getRange();             // Distance in blocks. Multiplied by receiver's sensitivity to get effective range.

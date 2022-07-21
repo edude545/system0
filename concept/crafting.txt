@@ -1,0 +1,32 @@
+"First Arcanum" Exoticizer:
+	gfg
+	fcf
+	fff
+g: Glass
+f: Sketch Framework
+c: Sketch Components
+	
+Trickle Aggregator:
+	fcf	
+	hch
+	fcf`
+h: Flashtin Hoop
+f: Sketch Framework
+c: Sketch Components
+
+Deleterious Disthusiator:
+
+	
+Flashtin Whip:
+	```
+	`fp
+	```
+p: Flashtin Pole
+f: Sketch Framework	
+
+Flashtin Dipole:
+	```
+	pfp
+	```
+p: Flashtin Pole
+f: Sketch Framework

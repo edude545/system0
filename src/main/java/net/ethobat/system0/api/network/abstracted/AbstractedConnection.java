@@ -8,8 +8,8 @@ public class AbstractedConnection {
 
     public final Network NETWORK;
 
-    public final AbstractedTransmitter TRANSMITTER;
-    public final AbstractedReceiver RECEIVER;
+    public final AbstractedNode TRANSMITTER;
+    public final AbstractedNode RECEIVER;
 
     // Bandwidth of the connection.
     private final long potentialBandwidth;
@@ -20,7 +20,7 @@ public class AbstractedConnection {
     // Maps NetworkPaths to the bandwidth they occupy on this connection.
     public HashMap<NetworkPath,EnergyTypeMap> separatedChannels;
 
-    public AbstractedConnection(AbstractedTransmitter transmitter, AbstractedReceiver receiver) {
+    public AbstractedConnection(AbstractedNode transmitter, AbstractedNode receiver) {
         this.NETWORK = transmitter.getNetwork();
         this.TRANSMITTER = transmitter;
         this.RECEIVER = receiver;

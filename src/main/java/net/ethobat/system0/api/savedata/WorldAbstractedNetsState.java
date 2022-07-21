@@ -11,7 +11,7 @@ import java.util.UUID;
 // When a network connector is placed, it tries to connect to other connectors in range, checking through this list.
 // This means potential connectees don't have to be loaded.
 // The abstract network also tracks all potential and current connections through the network, from sources to drains.
-public class WorldAbstractedNetsState extends PersistentState {
+public class WorldAbstractedNetsState {
 
     public HashMap<UUID, Network> networks;
 
@@ -31,13 +31,13 @@ public class WorldAbstractedNetsState extends PersistentState {
         return ret;
     }
 
-    @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
-        for (UUID uuid : this.networks.keySet()) {
-            nbt.put(uuid.toString(), this.networks.get(uuid).toNBT());
-        }
-        return nbt;
-    }
+//    @Override
+//    public NbtCompound writeNbt(NbtCompound nbt) {
+//        for (UUID uuid : this.networks.keySet()) {
+//            nbt.put(uuid.toString(), this.networks.get(uuid).toNBT());
+//        }
+//        return nbt;
+//    }
 
     public void createNetwork(UUID uuid) {
         this.networks.put(uuid, new Network());

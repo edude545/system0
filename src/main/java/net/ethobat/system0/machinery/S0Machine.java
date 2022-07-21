@@ -46,27 +46,29 @@ public abstract class S0Machine extends S0BlockWithEntity {
         }
     }
 
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        WidgetedBlockEntity.openScreenFromBlock(state, world, pos, player);
-        return ActionResult.SUCCESS;
-    }
+//    @Override
+//    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+//        WidgetedBlockEntity.openScreenFromBlock(state, world, pos, player);
+//        return ActionResult.SUCCESS;
+//    }
 
-    // reflection sorcery to make things clean
-    @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return (world_, pos_, state_, be_) -> {
-            try {
-                Object j = Class.forName("net.ethobat.system0.machinery.DebugMachine$BE");
-                j = Class.forName("java.lang.ClassLoader");
-                Class.forName(this.getClass().toString() + "$BE")
-                        .getMethod("tick", World.class, BlockPos.class, BlockState.class, BlockEntity.class)
-                            .invoke(null, world_, pos_, state_, be_);
-            } catch (NoSuchMethodException | ClassNotFoundException | IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace(); // net.ethobat.system0.machinery.DebugMachine$BE
-            }
-        };
-    }
+//    // reflection sorcery to make things clean (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧.:*･゜ﾟ･*☆
+//    // note to self: i wrote this a while ago and im not sure if its actually useful... DebugMachine just overrides this method with "return BE::tick"
+//    @Override
+//    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+//        return (world_, pos_, state_, be_) -> {
+//            try {
+//                System.out.println(this.getClass().getName());
+//                Object j = Class.forName("net.ethobat.system0.machinery.DebugMachine$BE");
+//                j = Class.forName("java.lang.ClassLoader");
+//                Class.forName(this.getClass().toString() + "$BE")
+//                        .getMethod("tick", World.class, BlockPos.class, BlockState.class, BlockEntity.class)
+//                            .invoke(null, world_, pos_, state_, be_);
+//            } catch (NoSuchMethodException | ClassNotFoundException | IllegalAccessException | InvocationTargetException e) {
+//                e.printStackTrace(); // net.ethobat.system0.machinery.DebugMachine$BE
+//            }
+//        };
+//    }
 
     public abstract static class BE extends WidgetedBlockEntity implements IS0Inventory {
 

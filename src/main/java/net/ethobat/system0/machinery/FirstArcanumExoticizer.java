@@ -35,6 +35,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -65,6 +66,10 @@ public class FirstArcanumExoticizer extends S0Machine {
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return BE::tick;
+    }
+
+    public boolean isTranslucent(BlockState state, BlockView world, BlockPos pos) {
+        return true;
     }
 
     public static class BE extends S0Machine.BE {

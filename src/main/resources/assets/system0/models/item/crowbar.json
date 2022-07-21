@@ -1,0 +1,6 @@
+{
+  "parent" : "item/handheld",
+  "textures" : {
+    "layer0" : "system0:item/crowbar"
+  }
+}

@@ -1,0 +1,1060 @@
+All systems are built on top of other systems. System 0 is nature.
+
+System0 is similar to Chromaticraft in concept - it's a far-reaching magic mod that is also basically a vessel for all the ideas I want to implement in Minecraft.
+
+The concept of the mod is there is some precursor, "alien" presence behind the universe, a system to harness the forces of the universe built in some other dimension. This world is normally isolated from other worlds, but the forces harnessed by the system are so great that the system, being self-propagating, can bleed through into other universes under special circumstances. Music discs, among some other phenomena, are manifestations or reflections of these forces.
+
+The 12 vanilla music discs are each associated with some concept:
+	
+	13		- Echoes, reverberation, emptiness, canvases for other things to exist on.
+	cat		- An avatar of music itself. For this reason it is also associated with recursion, reproduction, and self-reflection.
+	blocks	- Construction, creativity, inspiration.
+	chirp	- Nostalgia; the past is observed through the lens of chirp.
+	far		- Represents the Far Lands, exploration, curiosity, and wonder.
+	mall	- Means "template" or "pattern" in Swedish. Mall represents geometry and order.
+	mellohi	- Mellohi represents alienation and isolation.
+	stal	- Vibrations; energy in its various forms, particularly kinetic energy and heat.
+	strad	- Cycles, iteration, rebirth and mutation; strad always repeats, but its lives are never quite the same.
+	ward	- Unknown or associated with many things; metamorphosis, mystery, inquiry, and deception.
+	11		- A chaotic, corrupted manifestation of the positive forces harnessed by the system. Also represents corruption and evil itself.
+	wait	- Freedom, independence, consciousness.
+	
+
+	
+	
+	
+Vague ideas:
+
+	Thing that lets you b-hop as an alternative to sprinting
+	
+	Handheld thrusters that act like a reusable firework for the elytra. You could also hold down rmb to "use" the firework continuously
+	
+	BEES except they're little automatons and there's breeding and genetics and stuff like in forestry but there's a much larger emphasis on genetic manipulation
+	
+	The Far Lands
+	
+
+	
+
+	
+Modular Hardware:
+
+	Items classified as "Modular Hardware" can be placed in the MHW Workshop to replace parts like the IE engineering table.
+	
+	Modules: "Hardware Module. Used in MHW Workshop."
+		Arcoplexer: "Controls flow in high-energy circuits."	
+			Pyramid Arcoplexer
+			Toroplex
+		Capacitors: "Stores energy for devices to use."
+			(type) Dual-Cell
+				Increased capacity and exceedingly fast drain speed.
+			Bismuth Capacitor
+				Frequencies: All
+				Capacity: 30ka
+				Power: 10a/s
+			Celadon Battery
+				Frequencies: All
+				Capacity: 2ka
+				Power: 30a/s
+			Victide Capacitor
+				Frequencies: All
+				Capacity: 45ka
+				Power: 500a/s
+			Orgimex Dual-Cell
+				Frequencies: All
+				Capacity: 240ka
+				Power: 2000a/s
+		Deck Module: "Allows "Augment Cards" to be played, temporarily enhancing function of a device."
+		Hardlight Projectors: "Uses magic energy to conjure a solid surface."
+			(type) Hi-Lu Projector
+				"An especially hard beam is created at higher cost."
+			(type) Super Range Projector
+				"Projector effective at greater distance than most."
+		Immaterializer: "Manifests energy into a physical phenomenon."
+		Implementation Sigils: "Worked instinct symbols. Determines nature of a device's function."
+			I-Sigil Conquer
+			I-Sigil Create
+			I-Sigil Destroy
+			I-Sigil Learn
+			I-Sigil Love
+			I-Sigil Protect
+			I-Sigil Terrify
+		Marble Receptacle: "Stores "Auxiliatrix Marbles" to enhance function of a device."
+			(type) Flexceptacle:
+				Receives Marbles and allows their bonuses to be used.
+			(type) Integreceptacle:
+				Marbles placed into an Integreceptacle can never be removed, but their bonuses are increased.
+		Progressive CPU: "Pentagonal anbaric processor. Performs advanced logic to control complex devices."
+		Perceptron: "Computerized array of sensors."
+		Synthboard: "Synthesizes energy into a Signal."
+		Ultradiode: "Energy conduction component."
+		
+	List of MHW:
+	
+		Hardlight Blade:
+			"Projects energy into a deathly sharp blade."
+			Module slots:
+				Capacitor					- Determines energy storage and power.
+				Hardlight Projector 		- Determines stats. Harder beam = more damage, longer beam = more reach
+				Implementation Sigil		- Optional. Specializes the blade:
+												Conquer 	- "Iconoclance" only works in network coverage.
+												Create		-
+												Destroy		- "Gigaton Buster" annihilates in swathes, destroying drops.
+												Learn		- "Dharmakhanda" becomes stronger with each unique enemy killed.
+												Love 		- "Asuterosaberu" backfires if used against passive and neutral mobs.
+												Protect		- "Aegestoc" attacks while a shield is raised.
+												Terrify		- 
+					
+				
+		Bass Blaster:
+			Portable Sorcery Synth.
+			Module Slots:
+				Capacitor					- Determines energy storage. Bottlenecks power.
+				Arcoplexer					- Bottlenecks power.
+				Synthboard					- Determines signal complexity. Bottlenecks power.
+				
+		Zing Bolter
+			"Primitive firearm. Flexible and can be powered by many energy types."
+			Module slots:
+				Capacitor					- Determines energy storage. Bottlenecks power.
+				Immaterializer				- Bottlenecks power.
+				
+		Lighting Gungnir
+			"Modular polearm capable of delivering anbaric shocks."
+			"Optional: When upgraded, capable of channeling PSI/Lightning Spear."
+			Module slots:
+				Capacitor					- Determines energy storage. Bottlenecks power.
+				
+		Seraph Habit
+			"Hallowed angelic exosuit. Provides its wearer with unearthly mobility and power."
+			Seraph Headwear
+			Seraph Bodysuit
+			Seraph Leggings
+			Seraph Tracers
+			
+		Coils of Phantasm
+			"Ecliptic gradient firearm; ultra rapid-fire anbarolodestic mass driver. Launches 'cryonic haunted bullets' at supraliminal speeds."
+			
+		Devil Demon Blackstar Nodachi
+			"Enormous curved black-and-ruby blade. Affords its wielder infernal agility and demonic killing potential."
+
+		Larynx of Anumidium:
+			"Superreal artifact. Denies things out of existence."
+
+			
+		
+Miscellaneous items:
+
+	The Sword the Size of a Planet:
+		"Ultra greatsword forged from Exodic Gigasteel. Extrapolation magic enlarges it to absurd sizes. Most of its mass is located in hyperspace."
+
+
+	
+Many different frequencies of magical "Energy" can be drawn from almost any location in the overworld using a beacon-like structure called an aggregator.
+The physical position of the aggregator determines the type of energy it draws; that is, the energy type is a function of the aggregate's coordinates and dimension.
+Different energy types appear in different shapes, called "Mage Veins". Points in a Vein can be "deeper" than others, allowing a wider connection to the source of the energy and thus a greater collection rate.
+
+Misc energy items:
+
+	Vein Compass:
+		"Locates Mage Veins."
+		"Shift right click to select frequency"
+		Indicates the location of a specific vein type. Can only detect known frequencies.
+	
+	Vein Scouter:
+		"Allows the wearer to perceive Mage Veins."
+		"Shift right click to select frequency"
+		Head-mounted visor-headphone combination. Can be worn as a helmet or a bauble.
+		
+	Cloud Chamber:
+		"Mage Veins become visible within."
+		Glass-like block with a connected texture. Vein particles are rendered inside of it. Sounds can also be heard when near.
+
+Energy types:
+
+	Unifications:
+		Some energy types can be associated together in pairs, triads, etc. and a single type can be in many unifications.
+		
+		Space Fundaments:
+			Greenular ~ Skeintillating ~ Spiraculous
+			GR ~~ SK
+			 ~    ~
+			  ~  ~
+			   SP
+			Points, distance, and direction.
+		
+		Anbarolodestic Force:
+			Anbaric ~ Lodestic
+			A~L ~~~ A~L
+			
+		Abyss Column:
+			Tidalizing ~ Chorromatic
+			T
+			|
+			C
+			|
+			|
+			|
+			|
+			T
+		
+	--- --- --- --- ---
+
+	Greenular Energy:
+		Aesthetic: Dark green. Greenular energy forms small grains of similar size - resistant to forming large masses. 
+		Occurs in common but small "dust clouds" of varying frequencies.
+		Keywords: Point, powder, dust, clouds, grains, particles, physical reduction, shrinking, disintegration.
+		
+	Skeintillating Energy:
+		Aesthetic: Orange-brown. Forms long, lashing bands and whip sounds.
+		Occurs in long, thin lines stretching across the world. Very deep.
+		Keywords: Distance, whips, lines, lengths and bands, stripes, elasticity, extension, range, reaching around the world.
+		
+	Spiraculous Energy:
+		Aesthetic: Red-black. Forms long, curling spirals and loops.
+		
+		Keywords: Turning, rotation, looping, mutant circles.
+		
+	Blakronic Energy:
+		Aesthetic: Burgundy/black. Forms continuous "eversplosions."
+		Occurs in large hollow spheres.
+		Keywords: Directionless explosions, destruction, blasting, violent outwards disintegration.
+		
+	Petrionic Energy:
+		Aesthetic: Dark brown/gray. Heavy and resistant to movement. Makes rocky scraping and rumbling sounds.
+		Occurs in deep, flat slabs, mostly inside bedrock.
+		Keywords: Stasis, weight, massive geological formations, construction.
+		
+	Tidalizing Energy:
+		Aesthetic: Cyan/navy. Rolls around in powerful crashing waves.
+		Occurs on beaches.
+		Keywords: Might of the ocean, tidal waves, the roiling sea, pummelling aquatic force, strength, power.
+		
+	Chorromatic Energy:
+		Aesthetic: Five coral colors; blue, pink, purple, red and yellow. Makes bumpy tree formations. Bubbling sound.
+		Occurs in coral reefs in warm oceans.
+		Keywords: Jagged coral, expansive reefs, highly intricate city of spikes.
+
+	Glimmeral Energy:
+		Aesthetic: Pink-gold sparkles. Twinkling sound.
+		Occurs in groups of single blocks. Infrequent but very deep.
+		Keywords: Glittering stones and powders, glimmering light and shining mirrors.
+
+	Lodestic Energy:
+		Aesthetic: Dark gray-navy. Forms rings around Anbaric wires. Produces a magnetic I mean lodestic hum.
+		Occurs in rings around Anbaric energy wires. Greater intensity closer to the wires. Rather deep.
+		Keywords: Force at a distance, high force at short range, Anbaric energy.
+		
+	Anbaric Energy:
+		Aesthetic: Amber-coloured. Forms long, thin wires. Makes an electrical I mean anbaric hum.
+		Occurs in single-block columns from bedrock to world height. Very deep.
+		Keywords: Flowing energy, radiant energy, Lodestic energy.
+		
+	Cushastic Energy:
+		Aesthetic: Beige. Forms soft, lumpy masses. Makes "poof" sounds when disturbed.
+		Occurs in rare pulvinoform veins on the surface.
+		Keywords: Softness, give, static resistance, pushing back against a force.
+		
+	Fulvinant Energy:
+		Aesthetic: Neon orange. Crackles and fizzes.
+		Occurs in extremely high-intensity veins following lightning strikes.
+		Keywords: Crackling heat, lightning, violent, instantaneous outbursts of energy.
+		
+	Monstrotic Energy:
+		Aesthetic: Purple and green. Clusters together in lashing shapes and emits a rumbling growl.
+		Occurs in dungeons.
+		Keywords: Abominations, monstrous creations, fear, outbreaks.
+		
+	Sanguineous Energy:
+		Aesthetic: Dark red/crimson. Viscous but elegant.
+		Occurs in populated villages.
+		Keywords: Lifeforce, blood, heart, tenacity, humanity.
+		
+	Harlequious Energy:
+		Aesthetic: Red, white and black. Forms layered spirals and a whimsical tune.
+		Occurs in moderately deep spirals, high in the sky.
+		Keywords: Mirth and levity, deception, foolishness, trickery, mischief, vaudevillainy.
+		
+	Serendoompitous Energy:
+		Aesthetic: Gold and purple. Forms mystifying shapes.
+		???
+		Keywords: Destiny, the future, fate, decision, duality, contrast.
+		
+	Gravital Energy:
+		Aesthetic: Hot pink/purple. Clusters together and forms gigantic orbs.
+		Occurs in very rare but massive orbs.
+		Keywords: Attraction, gravitation, orbital mechanics, weak but high potential.
+		
+	Liminesque Energy:
+		Aesthetic: Very dark. Forms size-changing, spinning needles that flicker in and out of existence. Hums quietly and ominously.
+		Occurs in 3 large Veins surrounding the world's End Portals.
+		Keywords: The threshold, the boundary between worlds, portals, limits, exotic spaces, transposition, space.
+		
+	Mnemoline Energy:
+		Aesthetic: Glowing light blue. Flows like water.
+		Occurs in chunks players have spent a lot of time in.
+		Keywords: Experiences, memory, recollection, consciousness, time, sleep.
+		
+	Morphyrian Energy:
+		Aesthetic: Takes on the appearance of other energies. Otherwise light blue/dull gray.
+		
+		Keywords: Change, identity shift, chameleon, flux
+		
+	Odyssean Energy:
+		Aesthetic: Golden-brown and weathered. Faint music can be heard.
+		Occurs exactly when it is needed.
+		Keywords: Journeys, secrets, magic, exoticism, stories, mystery.
+		
+	Phantasmagoric Energy:
+		Aesthetic: Shifts and flows rapidly in all colours. Emits random bleeps and zaps.
+		Occurs... who knows where?
+		Keywords: Chaos, everything, mixture.
+		
+		
+		
+Sorcery Synths can be used to synthesize multiple energy types into Signals, which are treated somewhat like artificial energy types. However, Signals cannot be stored, and must be used immediately upon synthesis.
+The Synth interface has a switchboard where different energy frequencies are combined to synthesize a Signal.
+Signals can be projected for various effects, or used to power certain machinery.
+MHW "Bass Blaster" can synthesize signals in the field.
+		
+Known signals:
+	
+	Signal "Good Vibes"
+		>> Cushastic > Glimmeral > Tidalizing >>
+		Broadcast to increase baby animal growth rate, plant growth rate, and provide regeneration to all entities. Any entities taking damage will harsh the vibes, decreasing the effect and wasting energy.
+		
+	Signal "Good Ol' Days"
+		>> Mnemoline > Petrionic >>
+		Broadcast to regenerate damaged terrain, erasing everything to how it was on worldgen. Has many other effects, like reverting nether bastions to their original grandeur...
+		
+	Signal "Paraquadrangulation"
+		>> Liminesque > Skeintillating > Fulvinant > Glimmeral > Odyssean >>
+		Allows the Threshold Spires to calculate the location of the Paraworld. Once known to a network, the Hyperspace Junction can patch into a Paraworld junction. Must be broadcast simultaneously to all Spires.
+		
+		
+		
+		
+Energy manipulators:
+
+	Energy can be drawn from Mage Veins by Aggregators into a network to be used by machines.
+	
+	Aggregators:
+		Energy Aggregators collect energy from Mage Veins. They are bottlenecked by their bandwidth and the depth of the Vein.
+		Aggregators cause energetic disturbance, and massively reduce the efficiencies of other aggregators in the same vein. Due to disturbance feedback, it is usually only viable to use a single aggregator for each vein.
+		
+		Basic Aggregator:
+			Bandwidth: 8u
+			Disturbance: 8 metres
+			Single block. Slowly draws energy from the single tile it's placed at.
+			Cubic frame with a window into a hollow centre, where the drawn energy can be seen.
+			
+		Area Aggregator:
+			Bandwidth: 3u
+			Disturbance: 12 metres
+			Aggregation Range: 2 metres (5x5x5)
+			Lower bandwidth per block than Basic Aggregator, but draws energy from an area.
+			2-block pillar, drawing particles into a pinnacle at the top.
+			
+			
+Network:
+
+	Almost all devices can be connected together by network connectors.
+	
+	Antennas have many different variants, specialized for different tasks.
+	Connection type	- mode of connection, e.g. contact, aerial, or remote.
+	
+	Specification:
+		- When a connector is placed, it will automatically connect to all other nodes within range.
+		- Energy is routed through the network from providers to consumers. Consumers are given energy based first on priority, then on the magnitude of their demand.
+	
+	There are two technical problems with designing the network, connection and pathfinding:
+		
+		Effective range is calculated with both the transmitter's and the receiver's properties.
+		Therefore, to establish connections, a dimension-wide list of all network connectors must exist. This can basically be a HashSet<BlockPos> that is always loaded (i assume a set of BEs would cause them to never unload, which would be problematic).
+		
+	Networks are identified by metaphysical infoconstructs that can be made unusable by their owners, making all security obsolete.
+	
+	Conductors:
+		Energy Conductors transfer energy from one point to another. Most conductors work with all energy types, but some have special conditions.
+		
+		Optic Cables:
+			Cables must be directly connected to each other. High bandwidth but expensive to use over long distances.
+			
+		Antennas:
+		
+			Transmission Range			- Distance of connection where reception sensitivity = 1. Antenna's transmission range.
+			Reception Sensitivity		- Float. Multiplied by transmitter's range to get effective connection range, e.g. dish with 1.2x sensitivity can pick up signals from 1.2km of a 1km transmitter.
+			Bandwidth					- Maximum transmission in energy units per second. Property of both transmitters and receivers. Effective bandwidth of a connection is the lower of the two.
+			Transmission Penetration	- Float. Determines loss of effective bandwidth per hardness per block. Irrelevant when path is clear.
+			
+			Whip Antenna:
+				Tiny, versatile omnidirectionals. Decent reception, very poor transmission. Extremely cheap.
+				
+			Dipole Antenna:
+				Midsize omnidirectional transceivers. Cheap & moderate bandwidth at short range.
+				
+			Array Antenna:
+				Large & fairly expensive. High bandwidth at moderate range, but poor penetration. Good for connecting separate parts of a large base.
+				e.g. Yagi-Uda Aerial
+				
+			Loop Antenna:
+			
+			Helix Antenna:	
+				Wire wrapped around a central pole in a helix. Broadside mode works similar to a dipole, end-fire mode works as a long-range transmitter.
+				
+			Ultra Range Broadcaster:
+				Extremely large structure that broadcasts energy over dozens of kilometres, but only within a single dimension.
+				
+			Parabolic Dish:
+				Exclusively receives. Very sensitive and high bandwidth, but expensive. Can vary in size greatly.
+		
+		Remotes:
+			
+			SDET Arcanum:
+				Spatial Discontinuity Energy Transmission device that can conduct energy between dimensions at a very low efficiency.
+				
+		
+		
+		
+		
+Magical machinery can be salvaged or engineered to serve many purposes, many impossible without machines.
+
+	Pyrectifier:
+		"Heats and reshapes a damaged item, restoring it to full durability."
+		"Item will explode if pyrectified too many times."
+		
+	Dragon Egg Annihilator:
+		Breaks bedrock below it, allowing access to the exotic resources beneath. Teleports the egg back up when done. Only works when not observed.
+		Inspired by the dragon egg glitch that causes the egg to overwrite all blocks when falling.
+		
+	Condor Beacon:
+		Multiblock. Provides unlimited creative flight to players. Energy consumption increases with player range. Unlimited range.
+	
+	The Forgeworks:
+		A Forgeworks is a collection of machinery designed to repair and enhance equipment to incredible degrees. Forgeworks machinery uses Forge Magma as an energy source.
+		It is modular and most modules are multiblock structures, so it can potentially be very large.
+		Magma has 4 properties: Heat, Density, Purity, and Charge. If two units of magma exist in the same machine or tube, they will mix, resulting in two units with the average of their properties.
+		
+		Forgeworks Magma Pump:
+			Moves magma in or out of Forgeworks machinery when given redstone power.
+			Magma can only pass through when powered.
+			Right-click with empty hand to switch direction.
+			
+		Forgeworks Magma Tube:
+			Transports Forge Magma. Magma extraction is done with magma pumps.
+			
+		Forgeworks Magma Vacuum:
+			Actively drains magma from a Forgeworks system.
+			Magma can only pass through when powered.
+			Right-click to switch direction.			
+
+		Forgeworks Mix Melter:
+			"Synthesises Forge Magma. Needs a rocky base and optional enriching agents."
+			Base: A rocky material that is molten to form the lava that acts as the base for the Forge Magma.
+				Cobblestone -> Obsidian
+			
+		Forgeworks Magma Chamber:
+			Stores Forge Magma.
+						
+		Forgeworks Enrichment Chamber:
+			Improves low-quality Forge Magma with new materials.
+			
+		Forgeworks Lodestic Induction Conduit:
+			"Increases magma charge. Decreases heat significantly. Requires Lodestic energy."		
+			Submodules:
+				- Anbaromagnetization Solenoids: Negates heat loss. Requires Anbaric energy.
+			
+		Forgeworks Magma Anvil:
+			"'Works' items, increasing their base damage and mining speed up to a certain limit."
+			+ Base stat
+			+++ Fatigue
+			- Magma
+			: Limit depends on high heat and high density
+			Takes time to work. Amount of time is multiplied by the amount of damage/mining speed the operation is adding.
+			Submodules:
+				- Skeintillating Lash Engraver: +5% point limit. Requires Skeintillating.
+				- Blakronic Implosion Chamber: +10% point limit. Requires Blakronic.
+				- Petrionic Quake Hammer: +15% point limit. Requires lots of Petrionic.
+				- Tidalizing Abyss Compressor: +15% point limit. Requires lots of Tidalizing.
+				
+		Forgeworks Terror Lathe:
+			"Greatly increases effectiveness at the cost of durability."
+			+ Base stat
+			+ Fatigue
+			- Durability
+			- Magma
+			Submodules:
+				- Reef Barb Acuminator: Greatly reduces fatigue cost. Requires Chorromatic.
+				
+		Forgeworks Vitality Gel Applicator:
+			"Applies regenerating protective gel to an item."
+			+ Max health
+			- Vitality Gel Capsules
+			- Magma
+			: Limit depends on high purity and high charge
+			: Vitality gel efficiency depends on low charge
+			
+		Forgeworks Telekinanite Console
+			"Adds 'telekinetic capabilities' to an item."
+			+ Reach
+			- Telekinanite Fluid
+			- Magma
+			: Limit depends on high purity, high charge and low heat
+			: Telekinanite efficiency depends on low heat
+			
+	Atheneum:
+		Umbrella term for a collection of devices used to outsource development and recording of abstract concepts.
+		
+		Triumvirate Engine:
+			Trinity of gestalt intelligences devoted to developing concepts within the Atheneum. A sufficiently powerful Engine can think radically complex, irreducible ideas, necessitating construction of such an Engine to advance past a certain tech level.
+			The diligent Cogitrix perceives and catalogues data into meaningful ideoforms, feeding them into the Ideatrix.
+			The creative Ideatrix analyzes and reassembles ideoforms, creating new, original ideas and teaching them to the Meditrix.
+			The silent Meditrix ponders the meaning of abstract ideoforms.
+			
+	Samsara Device:
+		Large multiblock. Viable spawn point for players. Grants respawning players "Kalpic Knowledge", reducing downsides of death in various ways.
+		Respawned players keep Soul Energy and experience scaling with Kalpic Knowledge. It also provides a chance for each item slot to keep that item stack on death.
+		The Samsara Device must be supplied with energy to function, with the demand scaling exponentially with KK.
+		
+		
+		
+		
+		
+Through system magic, many physical and chemical processes can be achieved that were otherwise impossible.
+Recipes are displayed based on processes, instead of specific machines.
+There are many machines that do different processes with varying efficiencies.
+
+	Disthusiation:
+		"Homogenization of magic into raw energy."
+		Any type of energy -> raw energy
+		Machines:
+			Deleterious Disthusiator: Inefficient early-game disthusiator. 2:1 ratio of energy to raw energy.
+			Direct Disthusiator: More efficient upgrade to the Deleterious Disthusiator. 1:1 ratio.
+			
+
+	Wireframe Fusion:
+		"Firm bonding together of materials."
+		e.g. Indigo Hyperleaf -> Indigonite Composite
+		
+	Planar Reduction:
+		"Compaction of objects into a 2-dimensional form."
+		e.g. Gold -> Gold Hyperleaf, Diverse Indigonite -> Indigo Hyperleaf
+		
+	Powder Agglomeration:
+		"Assembly of small particles into a continuous solid."
+		e.g. Redstone -> Redstone Pellet, Glowstone -> Glowstone Pellet
+
+	Precision Laserization:
+		"High-definition lossless destructive material reshaping."
+		
+	Exoticization:
+		"Transmutation of material into something completely new."
+		e.g. Lapis Lazuli -> Indigonite, Emerald -> Smaragdinoid, Gold -> Aurichalcum
+		Machines:
+			"First Arcanum" Exoticizer: Belljar with a small platform that fits a single item. 1 input -> 1 output.
+		
+	Magic Statification:
+		"Introduction of magic into material substrate."
+		Requires a Form Instructor and a substrate (like Protofilm).
+		
+	Thoughtform Metareaction:
+		"Artificially induced interplay between developed concepts."
+		
+	Sination-Cosination:
+		"Conversion of materials into a circular or spherical form."
+		
+	Derivation/Differentiation & Integration:
+		"Regression of an advanced material into a more primitive form." / "Reassembly of a base and a substrate into a more complex form."
+		e.g. d(Iron)/dx = Metal, d(Metal)/dx = Material, d(Material)/dx = Stuff, d(Stuff)/dx = Perfectly Generic Object
+		e.g. Integral (Material) dx + Bone = Kalkium
+		Most items are polynomial functions, so repeatedly deriving them will eventually yield 0 - a Perfectly Generic Object.
+		In integration, a base (function; any item) and a substrate (constant; item w/ derivative=0) are combined to form an integral. A base may be combined with different substrates to form various different integrals. When differentiating an item, the result is the base, and the substrate is "lost".
+		
+	Reciprocal Inversion:
+		"Reversal of a material into its antithesis."
+		
+	Contrasynthesis:
+		"Re-genesis of contradictory concept-matters into a paradoxically stable whole."
+		e.g. Bismuth + Iridium -> Bismiridium
+
+	Itemitosis:
+		An item with a durability bar is cloned, forming two items with half durability.
+		Only available in the endgame because this is basically duping.
+		
+		
+		
+		
+		
+System magic can be used to synthesise many exotic materials.
+
+	Auto: 
+		Indigonite 					- Indigo-coloured exotic of lapis lazuli. Usually used in a multi-layered, hard and rigid composite. Early game material.
+		Flashtin					- Bright blue, slightly translucent metal. Useful material for antennas. Flashes and lights up when conducting energy.
+		Ovulum 						- A hard, heavy metal. Cream coloured, and usually comes in a unique elongated ellipsoid shape. Ultimate derivative of most animal life.
+		Celluline 					- Low-mass green substance. Solid at room temperature. Combusts, making it a useful fuel. Ultimate derivative of most plant life.
+		Bismuth 					- Weak metal that forms beautiful right-angled crystals. Reflects most magic while absorbing a small amount of it, trapping and storing it very efficiently. Normally dull, but an iridescent sheen is visible when storing a lot of energy. Comes in many different colours.
+		Celadon						- Jade-coloured ceramic, conductive to magical energy.
+		Smaragdinoid				- Exoticized emerald.
+		Kaput						- Rusty reddish-black alchemical waste.
+		
+		Indigonite Composite		- Layered wafers of varied indigonite.
+		Flashtin Pole				- Thin translucent pole that resonates with magic.
+		Skein Whip					- Skeintillating manifestation. Long and extremely elastic object.
+		Polyskeintithane			- Skeintillating energy-infused polymer. Extremely resistant to tearing.
+		Anbarolodestone				- Metal coiled in anbaric wires to emulate a lodestic effect.
+		Anbaric Components			- Parts for primitive anbaric circuits.
+		Lodestone					- Naturally lodestically charged metal.
+		Synergy Cells				- Modular power cells for machinery.
+		Navigation Computer			- Component of vehicles.
+		Lunar Index					- Thick metal crescent. Engraved with astrological data.
+	
+	Systemic:
+		Para Trillions				- Currency of the Paraworld. Trillion-cut clear & glittering gemstones. Immutable material.
+		Victide 					- Brittle multicolored metal with a high capacity for magic. Integrated from coral. (reference to calamity)
+		Kalkium 					- Brittle off-white metal, synthesised in metareaction vaguely involving bones.
+		Aureolim					- Opaque bright yellow liquid.
+		Symvinyl					- Cheap, glossy plastic. Construction material.
+		Woven Air					- Extremely lightweight low-density plastic.
+		Glaucous Gourd				- Plant with a flesh that when dried is a useful material for machinery.
+		Fulvous Quill				- Striking orange feather produced by Peachquill Mallards.
+		Kiratin						- Hard light-gray protein with a characteristic sparkling surface. (kirakira + keratin)
+		Bismiridium 				- Iridium with a distinct iridescent sheen. Contrasynthetic of Iridium and Bismuth.
+		Unicorn Tears				- Teardrops of a unicorn.
+		
+		Hypersporadic Violet Cell	- Half-matter indigo pseudosphere. Tetration of Indigonite Composite.
+		Superenergized Quill		-
+		Prime Refractor Mirror		- Bismiridium pane.
+		Glamorocycle				- Circular Glimmeral manifestation. Optics component.
+		
+	Exodus:
+		Nexxine 					- Dark crimson metal. Hard and brittle.
+		Squippyclink Ore			- Mined from the famous whooping volcanoes of the distinguished Maximillion Hotpocket Puckershuttle Junior.
+		Gigasteel 					- Extraordinarily dense, rigid and tough metal alloy. Difficult to work due to its absurdly high melting point.
+		Cosmilite 					- Blue-purple gradient shimmering metal. (calamity cosmilite)
+		Phloxol						- Vivid violet plasma.
+		Hapax Ultragon				- Highly complex polytope frame. Telekinetic properties allow them to contain singularities.
+		Liquid Negrocity			- Perfectly black liquid. Absorbs all light that hits it.
+		Crystal Albinity			- Perfectly reflective crystal. Emits light of all colours.
+		Xenotic Xurkhitry			-
+		Black Liquid Sorrow			- Concentrated unicorn tears, blacker than pitch.
+		
+		Cyber Soulware				-
+		Psycho-Cyber Blasphemoid	-
+		Nexxine Symbol				- Small, heavy and deeply engraved runestone.
+		Fenestrated Plane			- Windowed portal to another plane.
+	
+	Superreal:
+		Phantasmagorium 			- Chaotic and amorphous fluid. Variable viscosity. Naturally radiates energy as bright flashing lights and atmospheric disturbance.
+		The Salt Our Matter, Hermes Bird, White Eagle, The Green and Red Lions, The Celestial Ruby, Magnesia, Vessel of the Philosophers, Our Blessed Stone, The Magnum Opus, the Philosopher's Stone, and True Knowledge, or, the Amulet of Yendor; THE SAMPO
+									- Alchemical mytheme that eludes study. Incredibly hard to come by, with equally incredible properties.
+		Quintessence				- Phenomenonal total metaphysical purity.
+		
+		Array Sheet					- Flat cellular matrix of transmitter lights.
+
+		
+Entities:
+
+	Unicorns:
+		Majestic single-horned ungulate with glossy white fur and pink manes. Resides in the great plains of the Unicorn Dimension.
+		Horns are composed of kiratin, a unique fibrous protein flecked with metastable Glimmeral immaterializations and very valuable material.
+
+	"Lepidopter" Conflagration Angle:
+		Humanoid entities with large, elegant butterfly wings and bodies composed of red-hot material with extremely sharp angles and long limbs. Heads are tall and upside-down-kite-shaped, and appear to be on fire. Hands are two-fingered like a mitten, and left hand has large, flat palm.
+	
+	Wisp-o'-the-Where:
+		Strange luminous apparition that can never be observed from up close. Glows tantalizingly in the distance.
+
+
+Schemas are abilities programmed into the player's body. Once programmed, a player must "meditate" on the schema under certain conditions to unlock it.
+Each Schema has an experience bar. Using a Schema a lot will improve its energy cost and effectiveness.
+Unless keepInventory is enabled, when a player dies, they will lose all Schemas programmed into their body and all Schema experience. Schemas can be programmed back into the body and the player won't have to meditate on them again, but they will have to earn back all Schema experience.
+They can be used through a central radial menu, through a keybind, or through a dedicated channelling item such as "Gungnir DX".
+
+Grades:
+	Auto		- Made with materials available in the Overworld.
+	Systemic	- Made with technology salvaged from the Paraworld.
+	Exodus 		- Made with artefacts won from the early universe.
+	Superreal	- Retrieved from a higher reality.
+
+	
+	Auto/Schema: "Blakron Blast"
+	Projectile Splinterization Impeller
+		"Launch a volatile bundle of energy that detonates upon the slightest touch."
+		"Meditate at the centre of a high-energy explosion."
+		>> Blakronic >>
+		
+	Auto/Schema: "Skeintillating Admonishment"
+	Punishing Skein Implement
+		"Summon energy to form a long, lashing whip."
+		"Meditate with a high horizontal velocity."
+		>> Skeintillating >>
+		
+	Auto/Schema: "Malicious Rail"
+	Plutonic Sentry's Ignition
+		"Unleash a beam of Hell Energy that explodes hit objects."
+		>> Fulvinant > Petrionic >>
+		
+	Auto/Schema: "Redstone Disruption"
+	Primitive Systems Inhibitor
+		"Create a wave of random redstone impulses, disrupting machinery."
+		
+	Auto/Schema: "Fire, At Will"
+	Pyromaniac's Surging Inferno
+		"Shoot a wild gout of flame."
+		"Meditate unharmed in a massive inferno."
+		
+	Auto/Schema: "Bonfire Night"
+	Piercing Sky Illuminations
+		"Launch a group of fireworks."
+	
+	Auto/Schema: "Breakneck Blitz"
+	Peak Scampertude Intensification
+		"Dash across the earth at a breakneck pace."
+		"Meditate while exhausted from sprinting."
+		
+	Auto/Schema: "Tech Support"
+	Particularizing Systems Investigator
+		"Diagnose problems with machinery."
+		"Meditate on broken hardware."
+		
+	Auto/Schema: "Personal Civil Engineer"
+	Prefabricated Site Illustrator
+		"Conjure modular habitation/production structures."
+		"Meditate in a grand structure."
+		>> Anbaric > Lodestic > Petrionic >>
+		
+		
+		
+	Systemic/Schema: "Weather Forecast"
+	Prognosticant Situation Informer
+		"Predict upcoming events in the Paraworld."
+		"Meditate in the Paraworld."
+	
+	Systemic/Schema: "Lightning Spear"
+	Partizan Shock Impaler
+		"Wield and hurl crackling lightning."
+		>> Fulvinant > Anbaric >>
+	
+	Systemic/Schema: "Tektonyx"
+	Proximity Seismic Initiator
+		"Stand at the epicenter of a supernatural earthquake."
+		"Meditate at a pressure point of the earth."
+		>> Blakronic > Petrionic >>
+		
+	Systemic/Schema: "Singularity Rifle"
+	Precision Sunder Impact
+		"Manifest a high-velocity rod of energy towards a distant target."
+		
+	Systemic/Schema: "Revelation Ray"
+	Purifying Seraph's Immolator
+		"Conjure a cruciform beam of holy destructive light."
+		
+		
+		
+	Exodus/Schema: "Tektonyx DX"
+	Planetary Stability Inversion
+		"Stand at the epicenter of a supernatural earthquake."
+		"Meditate in a resonant earthquake."
+		
+	Exodus/Schema: "Ebonpyre"
+	Paroxysmic Shadow Inferno
+		"Conjure a whirling storm of black fire."
+		
+	Exodus/Schema: "Gold Pilot"
+	Psionic's Superluminal Inheritance
+		"Become the Gold Pilot and take flight."
+		"Meditate with a progenitor psionic."
+		Causes the user to lose their body and become the Gold Pilot, a mass of sparkling golden energy. Worldgen and chunkloading are *totally disabled* for the Gold Pilot, and the skybox is replaced with a colourful starfield.
+		While active, the user will accelerate in the direction they are facing with no upper limit on their velocity, harmlessly phasing through everything at an otherwise impossible speed.
+		W/S will throttle the acceleration, and shift will hold the user in place. Energy consumption increases cubically with acceleration.
+		(i have no fucking idea how to disable chunkloading but this is how proxima's lumen streams work in chromaticraft. need to find out how reika did it)
+		
+	Exodus/Schema: "Lalassu Xul"
+	Phantom Sovereign's Immaculation
+		"Become an avatar of the Evil Spectre."
+		While active, the avatar is afforded unlimited flight at very high speeds, as well as the ability to control gravity. All abilities must be used with an empty hand.
+		Just looking at entities will levitate and suspend them before you, in a helpless mass of bodies. Hold LMB to shred the held entities with gravitational waves. RMB will blast them away from you, dealing high kinetic damage.
+		While holding shift the telekinesis is suspended, and a persistent gravitational force field begins to form around you, making you impervious to attack. The force field persists when not holding shift, though it will slowly decay. Shift-left clicking will release all its energy at once, creating an enormous explosion that can destroy terrain. Holding Shift+RMB causes the force field to aggressively expand outwards and fire particle beams at encroachers.
+		A force field of significant size will collapse inwards, forming a black hole.
+		A player using "Lalassu Xul" appears to wear a set of armor and fearsome mask made of a blue spectral metal. A halo of spiralling light appears behind their head.
+		(just look at the lugal ki en album cover. rings of saturn. its that guy)
+		
+	Exodus/Schema: "Pale Rapture"
+	
+		
+	Exodus/Schema: "Ballista Harmonia"
+	Projectile Symphonic Incidence 
+		"Harness a godly amount of acoustic energy to launch a bolt of pure music."
+		
+		
+		
+	Superreal/Schema: "SEPULCHRITUDE"
+	Pulchritude Super Inundation
+		"Righteous fire of charisma. Consumes recipient, host, and all who surround in scathing cyclone of personal charm."
+		"Meditate in the Great White Rift."
+		
+	Superreal/Schema: "4T0MYKK 8R34KD0WN"
+	Protonic Schism Impulse
+		"Cause all nearby matter to instantly undergo fission."
+		"Meditate in the Great White Rift."
+		
+	Superreal/Schema: "GHARTOK PADHOME"
+	Psijic Symbols Incandescence
+		"Reach forth with the Hands of PSJJJJ."
+		"Meditate in the Great White Rift."
+		
+	Superreal/Schema: "Nihility Theorem"
+	Perfected Sepulchre Ideals
+		"Mathematically dispel existence."
+		"Meditate in the Great White Rift."
+		(hold right click to use. has an effect where a bunch of equations with weird symbols and shit are drawn in front of the player and "Q.E.D." is written at the bottom just before the schema activates and erases everything nearby)
+	
+	Superreal/Schema: "Dazzling Rainbow Fruitcake Lobotomy"
+	Pandaemonium's Screaming Imminence
+		"Open the floodgates of infinity."
+		"Meditate in the Great White Rift."
+		>> Phantasmagoric >>
+		
+		
+		
+Dimensions:
+		
+	Paraworld:
+		Dimension that connects all other worlds. Acts as a hub zone for other S0 content.
+		
+		3 Threshold Spires must be built at the 3 Liminal Mage Veins (at the three strongholds of the Overworld). Once animated with "Paraquadrangulation" Signal, the location of the Paraworld will be revealed. A Hyperspace Junction can then temporarily connect to another junction in the Paraworld.
+		
+		Paraworld is split into differently-shaped "sectors" assembled from modular "subsectors". Every subsector represents an individual building/facility, usually with an extensive underground component. Each sector has between 10 and 40 subsectors, normally distributed.
+		
+		Players can hijack and claim a sector, allowing control over the sector's machinery and allowing a permanent link between a Paraworld junction and an Overworld junction.
+		
+		Some sectors are Arteries - massive rushing conduits of energy so powerful that it can be seen without a scouter. With sufficient technology some energy can be harnessed from the Arteries, but the machinery required to do it is expensive and requires a great amount of maintenance.
+		
+		Subsectors:
+			
+			Hyperspace Junction:
+				- One in each sector.
+		
+		# PERFORMING BACKGROUND PARAWORLD SURVEILLANCE
+		# WARNING: JUNCTION WILL BE OPEN FOR ESTIMATED [...] *15 SECONDS* BEFORE DETECTION BY PARAWORLD DEFENCE MECHANISMS
+		# BEGIN CONNECTION PROTOCOL? (Y/N)
+		> Y
+		# LOCATING VULNERABLE SECTOR...
+		# LOCATED VULNERABLE SECTOR
+		# HJUNCTION VULNERABILITY IDENTIFIED
+		# SECTOR DEFENCE MECHANISMS SUPPRESSED
+		# FORCING SECTOR JUNCTION COUPLING...
+		# METASTABLE CONNECTION ESTABLISHED; JUNCTION OPEN FOR TRANSIT
+		# ESTIMATED TIME TO LINK REJECTION: [00:15]
+		
+	Exodus:
+		Birth of the universe, accessed through the 5D Hyperjunction. The 5DHJ can dial forwards through time, but not backwards. But maybe there is a loophole...
+		With sufficient energy, 5DHJ can tunnel through the [Great Black Hole after the Death of Heat] into the [Great White Rift at the Dawn of Time] (i.e. Exodus Reacharound Manoeuvre).
+		
+		# 5DHJ SYSTEMS FULLY OPERATIONAL
+		# CALCULATIONS FOR EXODUS REACHAROUND MANOEUVRE COMPLETE
+		# CHANCE OF SURVIVAL... 100%
+		# RETURN TO SLIME? (Y/N)
+		> Y
+
+
+ 
+Demirail Transit
+
+	Automatic transport network consisting of levipods levitating over modular demirail components. Pod navigation computers automatically path along the network.
+	
+	Different types of demirails are available for different purposes.
+		- Basic demirails are cheap and relatively slow (a little faster than sprinting).
+		- DX demirails are expensive but faster.
+		- Hyped demirails are very fast but need energy to convey pods.
+		- Hardlight demirail projectors manifest solid energy rails in a straight line until hitting a hardlight receptor. Needs hardlight signal. Can be throttled to make faster rails.
+
+
+
+Z-Droids / "Zees"
+
+	These are little colonies of quasi-biological self-replicating drones that independently carry out a certain task. They are a mechanic similar to bees from Forestry, but with more flexibility, a greater emphasis on genetic manipulation, and much more complicated.
+	
+	Zees have genomes of 24 gene "slots", named after the 24 traditional letters of the Greek alphabet. For each gene they have 2 alleles, meaning a zee colony is defined by a set of 48 alleles. The genes themselves do not have any specific purpose (i.e. there are no discrete gene slots for "species" or "fertility"/"replication rate"), so instead each allele provides the colony with a certain set of effects. Like in real genetics, alleles can be dominant or recessive, with the expressed phenotype dependent on this.
+	
+	An example of an allele is Gamma-Dom-47Uno. As the name suggests, this is a dominant allele that exists in the Gamma gene. It provides the colony with the ability to make Indigonite into Indigonite Combs, increases the colony's production rate slightly, and greatly decreases replication rate. Tau-Rec-86Rama is a recessive Tau gene that allows the colony to make Indigonite combs and decreases production slightly.
+	
+	Z-Droid colonies can be found in the Paraworld and sampled once their sector has been subjugated. Individual Zee samples can be taken back and sequenced to discover their genome. Each allele can then be harvested, stored, and transplanted into other Zees.
+	
+	Once an individual Zee has been inoculated with the desired alleles, it can be placed into a Zee House where it will automatically begin to self-replicate and produce its products. Each Zee House can only hold a colony of a certain size, and the production and replication rates depend on the existing population of the colony. If multiple Zee colonies are desired, a sample of Zees can be taken from an existing colony and introduced into a new one.
+	
+	Many different Zee Houses exist, with varying effects on the inhabiting colony. Some are bigger than others and can sustain greater populations, while some allow a colony to produce faster at a high magic cost.
+
+	Gene names:
+		Alpha Anubis Asimov Atum
+		Baobab Bastet Biker Bingo Bean Bravo
+		Cabal Chariot Charlie Cycle Cyrex
+		Death Delta Dollar Doppler
+		Eagle Easel Echo Egad Eyrie
+		Fade Fool Foxtrot
+		Gamma Goblin Golf Gremlin Grinch
+		Hang Hermes Hike Horus Hotel Hush
+		India Isis Ithaca
+		Jar Judge Juliet Jump
+		Khnum Kilo Kino King Kook
+		Lancer Light Lima Lore Lover Lull
+		Macho Mama Maker Mike
+		Nollie Noun November
+		Oar Omega Oscar Osiris
+		Papa Platoon Priest Punish
+		Qat Quash Quebec Quack Query
+		Radius Rama Rave Reaver Resin Rock Romeo
+		Scram Screw Set Sierra Slate Sobek Star
+		Tango Tefnut Tensor Thoth Tower
+		Umbrella Uniform Uno
+		Vibe Vice Victor Vivid
+		Whirl Whiskey Wild Wizard Wowza
+		XRay Xylophone
+		Yankee Yikes
+		Zane Zonk Zulu
+
+
+		
+Augment Cards:
+	
+	Can be "played" in devices with a Deck Holder to temporarily improve their function.
+	
+	Decks:
+		
+		Tarot Cards
+			Locks:
+				Each Lock format (suit) has the following cards: 0/Cipher, 1/Ace, 2/Deuce, 3/Triplex, 4/Tetrad, 5/Lustrum, 6/Semester, 7/Hebdomad, 8/Octave, 9/Ennead, 2#Mask, 1#Wish, 0#Crown
+				Disks: The manifold firmaments.
+				Conduits: The energy manifolds.
+				Vessels: The mutation energies.
+				Swords: The firmament mutations.	
+			Riddles:
+				0 : The Avatar			- The protagonist, the player, the hole in the wall.
+				1 : The Wizard			- The discovery and the initial engineer.
+				2 : The Operator		- The architect, the schemer, the woman of the apocalypse.
+				3 : The Sculptor		- Power over life and the world; mastery over their surrounding environment.
+				4 : The Superuser		- Sterile regulation, the ruler of the world.
+				5 : The Trinity			- The intelligence ruler.
+				6 : The Lovers			-
+				7 : The Victor			-	
+				8 : The Machine			-
+				9 : The Seer			-
+				10: The Breadth			-
+				11: Energy				- Power, force, will.
+					(The device's energy is massively multiplied, allowing a machine practically unlimited energy for a brief moment.)
+				12: The Martyr			-
+				13: Mutation			-
+				14: Art					-
+				15: The Capricious		-
+				16: The Tower			-
+				17: The Signals			-
+				18: The Gaps			-
+				19: The Rifts			-
+				20: Absolution			- Finality, ending, ultimate.
+				21: The Galaxy   		- The culmination, the journey, the world.
+			Enigmas:
+				C: Fulcrum Card (Edge)
+				M: Host Card (Noise)
+				Y: All-In Card (Blur)
+				K: Wild Card (Blend)
+	
+
+	
+Auxiliatrix Marbles:
+	
+	Can be placed in devices with a Marble Receptacle to improve their function. All marbles have unique characteristics and bonuses.
+	Marble patterns are either clear or opaque. Clear marbles provide percentage-based bonuses, opaque marbles are fixed.
+	
+	Glaze:
+		matte						- cloud
+		shiny						- luster
+		fractal						- fractal
+	
+	Patterns:
+		Clear:
+			cat's-eye				- eye
+			swirl					- swirl
+		Opaque:
+			speckled				- speckle
+			laminated				- lamina
+			zebra					- zebra
+	
+	Substrate:
+		glass						- glass
+		HDSV						- plastic
+		agate						- agate
+		smaragdinoid				- smarag
+		celadon						- celadon
+		victide						- victide
+		aureolim cell				- aureolim
+		bismiridium					- bismiridium
+		unicorn tear				- unicorn
+		kiratin						- kiratin
+		nexxine						- nexxine
+		phloxol cell				- phloxol
+		negrocity cell				- negrotic
+		albinity					- albinic
+		BLS cell					- sorrow
+		cosmilite					- cosmic
+	
+	Aux Marbles' names are generated by a formula, [glaze][pattern] [substrate] Marble, where each glaze, pattern and substrate is associated with a word.
+	Examples:
+		Lusterswirl Sorrow Marble
+		Cloudlamina Smarag Marble
+		Fractalspeckle Cosmic Marble
+
+		
+		
+Hyperspace
+
+	Between worlds is a zone called hyperspace. Reality here does not support conventional structures of matter, and radical redesigns of existing technology must be made to traverse it.
+	Though the player unable to safely enter hyperspace, 
+
+
+
+Research:
+
+	Fundamental Research:
+		Discovery of System0 in the Overworld. Ends with invention of Aggregators and antennas to harness energy.
+	
+	Autotronic Research:
+		Enhancement of autotronic technology to the limits of the Overworld. Ends with invention of the Hyperspace Junction.
+		
+	Zenith Research:
+		Discovery of Paraworld-adjacent alien dimensions and exotic materials. Enhancement of Para technology to the limits of available materials. Ends with invention of the Triumvirate Engine.
+	
+	Transcendental Research:
+		Technology developed by the Triumvirate Engine from incomprehensibly complex and profound principles. Invention of temporal traversal via 5DHJ.
+		Concepts:
+			> Omniversal Calculus
+				> Retrocausality
+					> Retrocausality: Spirit Corollary
+				> Waveform Convolution
+				> Circumstantial Simultaneity
+				> True Nature of Color
+					> Conceptual Singularity
+			> Cryptoharmonics
+				> Ligma Theory
+		
+			
+
+Death messages:
+
+	Lethal time acceleration: 	[player] died of natural causes
+	Antimatter annihilation: 	[player] was annihilated
+	De-evolution:				[player] returned to slime
+	Total annihilation:					 ceased to exist
+	
+	Greenular damage: 			[player] turned to dust
+	Skeintellating damage: 		[player] got metaphysical whiplash
+	Blakronic damage: 			[player] was exploded
+	Petrionic damage: 			[player] experienced tectonic uplift
+	Tidalizing damage:			[player] was crushed by tidal forces
+	Chorromatic damage:			[player] was lacerated by coral
+	Glimmeral damage:			[player] was lethally dazzled
+	Lodestic damage:			[player] was polarized
+	Anbaric damage: 			[player] was anbarocuted
+	Cushastic damage:			[player] was smothered
+	Monstrotic damage:			[player] was zombified
+	Harlequious damage:			[player] couldn't keep down the clown
+	Phantasmagoric damage:		[player] was {random characters}

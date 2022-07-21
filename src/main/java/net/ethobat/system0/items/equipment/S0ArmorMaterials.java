@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 public enum S0ArmorMaterials implements ArmorMaterial {
 
-    INDIGONITE("indigonite", 22, new int[] {2, 5, 6, 2}, 10, SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 0.0F, 0.0F, Ingredient.ofItems(S0Items.Crafting.INDIGONITE_COMPOSITE));
+    INDIGONITE("indigonite", 22, new int[] {2, 5, 6, 2}, 10, SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 0.0F, 0.0F, Ingredient.ofItems(S0Items.INDIGONITE_COMPOSITE));
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
     private final String name;

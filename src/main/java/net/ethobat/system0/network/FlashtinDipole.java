@@ -1,7 +1,7 @@
 package net.ethobat.system0.network;
 
 import net.ethobat.system0.api.energy.EnergyType;
-import net.ethobat.system0.api.network.physical.be.AbstractBETransceiver;
+import net.ethobat.system0.api.network.physical.be.AbstractBETransceiverDeprecated;
 import net.ethobat.system0.auxiliary.S0Block;
 import net.ethobat.system0.registry.S0BlockEntityTypes;
 import net.minecraft.block.Block;
@@ -17,7 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
-public class FlashtinDipole extends S0Block implements BlockEntityProvider {
+public class FlashtinDipole extends S0NetworkBlock {
 
     public static final DirectionProperty FACING = DirectionProperty.of("south");
 
@@ -46,7 +46,7 @@ public class FlashtinDipole extends S0Block implements BlockEntityProvider {
 //        return BE::tick;
 //    }
 
-    public static class BE extends AbstractBETransceiver {
+    public static class BE extends AbstractBETransceiverDeprecated {
 
         public BE(BlockPos pos, BlockState state) {
             super(S0BlockEntityTypes.FLASHTIN_DIPOLE, pos, state);

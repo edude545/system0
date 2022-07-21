@@ -1,5 +1,6 @@
 package net.ethobat.system0.api.nbt;
 
+import net.ethobat.system0.api.energy.EnergyTypeMap;
 import net.minecraft.nbt.*;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
@@ -133,7 +134,10 @@ public class NBTHandler {
     }
 
     public static UUID getUUID(NbtCompound nbt, String key) {
-        return UUID.fromString(NBTHandler.getString(nbt, key));
+        return UUID.fromString(nbt.getString(key));
+    }
+    public static EnergyTypeMap getEnergyTypeMap(NbtCompound nbt, String key) {
+        return EnergyTypeMap.fromNBT(nbt.getCompound(key));
     }
 
     public static void putNBTForItem(NbtCompound nbt, String key, Object obj) {
@@ -154,6 +158,7 @@ public class NBTHandler {
 //        else if (obj instanceof Integer[]    ) { putNBT(nbt, key, (Integer[]     ) obj); }
 //        else if (obj instanceof Long[]       ) { putNBT(nbt, key, (Long[]        ) obj); }
         else if (obj instanceof UUID         ) { putNBT(nbt, key, obj.toString());       }
+        else if (obj instanceof EnergyTypeMap) { putNBT(nbt, key, ((EnergyTypeMap) obj).toNBT()); }
         else {
             throw new IllegalArgumentException("Can't write object of type \"" + obj.getClass().toString() + "\" to NBT!");
         }

@@ -8,10 +8,13 @@ import net.ethobat.system0.auxiliary.S0Item;
 import net.ethobat.system0.machinery.DebugMachine;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class DebugTool extends S0Item {
@@ -20,6 +23,17 @@ public class DebugTool extends S0Item {
 
     public DebugTool() {
         super(new Settings().group(System0.ITEM_GROUP_TOOLS).maxCount(1), "debug_tool");
+    }
+
+    @Override
+    public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
+        if (!user.world.isClient()) {
+            MessageHandler.say(entity.getName() + " @ " + entity.getBlockPos().toShortString(), user);
+            MessageHandler.say("Health: "+ entity.getHealth(), user);
+            MessageHandler.say("Armor: "+ entity.getArmor() + "/" + entity.getMaxHealth(), user);
+            //MessageHandler.say("Attributes: "+entity.getAttributes().toString(), user);
+        }
+        return super.useOnEntity(stack, user, entity, hand);
     }
 
     @Override
