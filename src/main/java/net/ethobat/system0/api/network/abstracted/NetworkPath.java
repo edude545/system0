@@ -76,12 +76,12 @@ public class NetworkPath {
             NbtCompound cxnsNBT = jumpsNBT.getCompound(transmitterKey);
             for (String receiverKey : cxnsNBT.getKeys()) {
                 jumps.put(new AbstractedConnection(
+                        network,
                         network.getNode(UUID.fromString(transmitterKey)),
                         network.getNode(UUID.fromString(receiverKey))
                 ), NBTHandler.getEnergyTypeMap(cxnsNBT, receiverKey));
             }
         }
-
         return new NetworkPath(
                 network,
                 NBTHandler.getUUID(nbt, "source"),

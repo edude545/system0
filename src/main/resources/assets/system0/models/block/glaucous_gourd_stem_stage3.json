@@ -1,0 +1,6 @@
+{
+  "parent": "block/stem_growth3",
+  "textures": {
+    "stem": "system0:block/glaucous_gourd_stem"
+  }
+}

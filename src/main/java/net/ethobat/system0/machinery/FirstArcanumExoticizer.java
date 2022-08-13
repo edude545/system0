@@ -1,5 +1,6 @@
 package net.ethobat.system0.machinery;
 
+import net.ethobat.system0.api.geometry.Shapes;
 import net.ethobat.system0.auxiliary.S0Block;
 import net.ethobat.system0.registry.S0BlockEntityTypes;
 import net.ethobat.system0.registry.S0ScreenHandlerTypes;
@@ -7,34 +8,29 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -70,6 +66,11 @@ public class FirstArcanumExoticizer extends S0Machine {
 
     public boolean isTranslucent(BlockState state, BlockView world, BlockPos pos) {
         return true;
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState blockState, BlockView blockView, BlockPos blockPos, ShapeContext shapeContext) {
+        return Shapes.TALL_CUBOID;
     }
 
     public static class BE extends S0Machine.BE {
@@ -131,7 +132,7 @@ public class FirstArcanumExoticizer extends S0Machine {
         }
 
         @Override
-        public ScreenHandlerType<?> getScreenHandlerType() {
+        public ScreenHandlerType<?> getType() {
             return S0ScreenHandlerTypes.FIRST_ARCANUM_EXOTICIZER;
         }
 
@@ -141,12 +142,7 @@ public class FirstArcanumExoticizer extends S0Machine {
 
         public HS(ScreenHandler handler, PlayerInventory inventory, Text title) {
             //super((SH) handler, inventory, new LiteralText(String.valueOf(((BE) ((SH) handler).getBlockEntity()).on)));
-            super((SH) handler, inventory, new LiteralText(((SH) handler).pos.toShortString()));
-        }
-
-        @Override
-        public Identifier getTextureIdentifier() {
-            return new Identifier("minecraft", "textures/gui/container/dispenser.png");
+            super((SH) handler, inventory, Text.literal(((SH) handler).pos.toShortString()));
         }
 
     }

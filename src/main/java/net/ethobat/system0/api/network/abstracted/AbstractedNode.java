@@ -6,23 +6,34 @@ import net.minecraft.util.math.BlockPos;
 
 import java.util.UUID;
 
-public class AbstractedNode implements IAbstractedNetworkMember {
+public class AbstractedNode extends AbstractedNetworkMember {
 
-    public Network network;
+    public static final String NBT_POS_KEY = "pos";
+    public static final String NBT_BANDWIDTH_KEY = "bandwidth";
+    public static final String NBT_RANGE_KEY = "range";
+    public static final String NBT_SENSITIVITY_KEY = "sensitivity";
 
-    private final UUID uuid;
     private final BlockPos pos;
-
     private final long bandwidth;
     private final int range;
     private final float sensitivity;
 
     public AbstractedNode(UUID uuid, BlockPos pos, long bandwidth, int range, float sensitivity) {
-        this.uuid = uuid;
+        super(uuid);
         this.pos = pos;
         this.bandwidth = bandwidth;
         this.range = range;
         this.sensitivity = sensitivity;
+    }
+
+    @Override
+    public void subscribe(Network network) {
+        this.network = network;
+    }
+
+    public AbstractedNode silentSubscribe(Network network) {
+        this.network = network;
+        return this;
     }
 
     public boolean tryConnectionTo(AbstractedNode receiver) {
@@ -39,13 +50,6 @@ public class AbstractedNode implements IAbstractedNetworkMember {
         return this.getNetwork().getConnection(transmitter, this.getUUID());
     }
 
-    @Override
-    public Network getNetwork() {
-        return this.network;
-    }
-    public UUID getUUID() {
-        return this.uuid;
-    }
     public BlockPos getPos() {
         return this.pos;
     }
@@ -59,25 +63,23 @@ public class AbstractedNode implements IAbstractedNetworkMember {
         return this.sensitivity;
     }
 
-    // NBT stuff
-
     public static AbstractedNode fromNBT(NbtCompound nbt) {
         return new AbstractedNode(
-                NBTHandler.getUUID(nbt, "uuid"),
-                NBTHandler.getBlockPos(nbt, "pos"),
-                NBTHandler.getLong(nbt, "bandwidth"),
-                NBTHandler.getInt(nbt, "range"),
-                NBTHandler.getFloat(nbt, "sensitivity")
+                NBTHandler.getUUID(nbt, NBT_UUID_KEY),
+                NBTHandler.getBlockPos(nbt, NBT_POS_KEY),
+                NBTHandler.getLong(nbt, NBT_BANDWIDTH_KEY),
+                NBTHandler.getInt(nbt, NBT_RANGE_KEY),
+                NBTHandler.getFloat(nbt, NBT_SENSITIVITY_KEY)
         );
     }
 
     public NbtCompound toNBT() {
         NbtCompound nbt = new NbtCompound();
-        NBTHandler.genericPut(nbt, "uuid", this.uuid);
-        NBTHandler.genericPut(nbt, "pos", this.pos);
-        NBTHandler.genericPut(nbt, "bandwidth", this.bandwidth);
-        NBTHandler.genericPut(nbt, "range", this.range);
-        NBTHandler.genericPut(nbt, "sensitivity", this.sensitivity);
+        NBTHandler.genericPut(nbt, NBT_UUID_KEY, this.uuid);
+        NBTHandler.genericPut(nbt, NBT_POS_KEY, this.pos);
+        NBTHandler.genericPut(nbt, NBT_BANDWIDTH_KEY, this.bandwidth);
+        NBTHandler.genericPut(nbt, NBT_RANGE_KEY, this.range);
+        NBTHandler.genericPut(nbt, NBT_SENSITIVITY_KEY, this.sensitivity);
         return nbt;
     }
 

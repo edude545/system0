@@ -4,18 +4,34 @@ To set up a screen that uses widgets:
 
     - Your `ScreenHandler` (SH) class must extend `WidgetedScreenHandler`.
     - Widgets are represented as fields in the SH class, so declare them.
-    - Initialize widgets in the SH constructor.
-    - Call `WidgetedScreenHandler#addWidget` for each widget.
+    - Initialize widgets in the main SH constructor.
+    - Call `WidgetedScreenHandler#addWidget` for each widget you declared as a field.
+    - Make another constructor in your SH that takes a PacketByteBuf argument. This is the constructor used on the client, in preparation to receive data from the server. This constructor should give an "empty" ScreenHandler with "dummy" data - e.g. if your machine has 2 inventory slots, pass `new SimpleInventory(2)`. Then. call `this.updateWidgetsFromNbt(buf.readNbt())` to update the dummy ScreenHandler with data from the server.
 
     - Your `HandledScreen` (HS) class must extend `WidgetedScreen`. Nothing else needs to be done here.
 
-    - Your `BlockEntity` (BE) class must implement `IWidgetNBTProvider`.
-    Each widget class should have a static method `writeNBT`.
-    - In your implementation of `IWidgetNBTProvider#createWidgetNBT`, for each widget you defined in your SH class, pass the `nbt` argument, the widget's name, and any other parameters to the `writeNBT` static method. This will write the relevant data under that widget's name.
+To use the screen with a BlockEntity:
+
+    - Your BlockEntity (BE) class must extend `WidgetedBlockEntity`.
+    - In your implementation of `createWidgetNBT`, for each widget you defined in your SH class, pass the `nbt` argument, the widget's name, and any other parameters to the widget's `writeNBT` static method. This will write the relevant data under that widget's name.
     - In your implementation of `ExtendedScreenHandlerFactory#writeScreenOpeningData`, you can now call `createWidgetNBT` to sync the BE's data during that tick.
+    - Implement createMenu `return new MyScreenHandler(syncId, playerInv, this);`
+
+    To open the screen, call WidgetedBlockEntity#openScreenFromBlock. You probably want to do this by overriding AbstractBlock#onUse.
 
     However, to display the screen in real time, data must be synced each time the BlockEntity has new data to display. Obviously you can just do this every tick, but there is room for optimization.
 
     - On the server side of the BE, call `GUINetworkingHandler#sendWidgetData` with the user to be synced to and the result of `createWidgetNBT`. A packet will be sent to the client to update the widgets on the client's SH.
 
-`S0BlockEntityWithScreen` is an example implementation of
+To use the screen with an Item:
+
+    - Your Item class must extend `WidgetedItem`.
+        - Implement `createItemStackProxy`, e.g. `return new ISP(stack);`
+
+    - Extend `ItemStackProxy`. This is a class that implements `ExtendedScreenHandlerFactory` to allow a screen to be created from an ItemStack.
+        - Implement `createMenu`, e.g. `return new MyScreenHandler(syncId, playerInv, this);`
+        - In your implementation of `createWidgetNBT`, for each widget you defined in your SH class, pass the `nbt` argument, the widget's name, and any other parameters to the widgets' `writeNBT` static method. This will write the relevant data under that widget's name. ItemStackProxy is created with a reference to the ItemStack (`ItemStackProxy#STACK`). Use this to read the ItemStack's NBT to write widget data.
+
+To create widgets:
+
+    - Each widget class should have a static method `writeNBT`.

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "system0:block/attached_glaucous_gourd_stem",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "system0:block/attached_glaucous_gourd_stem",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "system0:block/attached_glaucous_gourd_stem",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "system0:block/attached_glaucous_gourd_stem"
+    }
+  }
+}

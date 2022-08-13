@@ -2,15 +2,13 @@ package net.ethobat.system0.api.gui.widgets;
 
 import net.ethobat.system0.api.gui.WidgetedScreen;
 import net.ethobat.system0.api.gui.WidgetedScreenHandler;
-import net.ethobat.system0.api.visuals.S0Renderer;
+import net.ethobat.system0.api.rendering.S0Drawing;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.Identifier;
-
-import java.util.HashSet;
 
 public class WSlotGrid extends GUIWidget {
 
@@ -54,7 +52,7 @@ public class WSlotGrid extends GUIWidget {
 
     @Override
     public void draw(WidgetedScreen<?> screen, MatrixStack matrices, int mouseX, int mouseY) {
-        S0Renderer.prepareTexture(SGSlot.texture);
+        S0Drawing.prepareTexture(SGSlot.texture);
         for (SGSlot slot : this.slots) {
             slot.draw(screen, matrices);
         }
@@ -100,6 +98,7 @@ public class WSlotGrid extends GUIWidget {
         }
 
         public void draw(WidgetedScreen<?> screen, MatrixStack matrices) {
+            // Assumes texture was already loaded. This happens in WSlotGrid#draw.
             DrawableHelper.drawTexture(matrices, this.screenX+screen.getX(), this.screenY+screen.getY(), 0, 0, 18, 18, 18, 18);
         }
 

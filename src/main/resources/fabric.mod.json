@@ -23,16 +23,25 @@
     ],
     "client": [
       "net.ethobat.system0.System0Client"
+    ],
+    "cardinal-components": [
+      "net.ethobat.system0.registry.S0Components"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "system0.mixins.json"
   ],
+
+  "custom": {
+    "cardinal-components" : [
+      "system0:networks"
+    ]
+  },
 
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": "1.17.x"
+    "minecraft": "1.19.x"
   },
   "suggests": {
     "another-mod": "*"

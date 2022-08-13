@@ -1,16 +1,12 @@
 package net.ethobat.system0.machinery;
 
-import net.ethobat.system0.System0;
-import net.ethobat.system0.api.color.RGB;
 import net.ethobat.system0.api.energy.SimpleEnergyContainer;
 import net.ethobat.system0.api.gui.widgets.PowerBar;
 import net.ethobat.system0.api.gui.widgets.WPowerBarMediumVert;
 import net.ethobat.system0.api.gui.widgets.WSlot;
-import net.ethobat.system0.api.util.MessageHandler;
 import net.ethobat.system0.registry.S0BlockEntityTypes;
 import net.ethobat.system0.registry.S0EnergyTypes;
 import net.ethobat.system0.registry.S0ScreenHandlerTypes;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -18,8 +14,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -93,10 +87,9 @@ public class DebugMachine extends S0Machine {
         }
 
         @Override
-        public NbtCompound writeNbt(NbtCompound nbt) {
+        public void writeNbt(NbtCompound nbt) {
             super.writeNbt(nbt);
             nbt.putLong("skeinPower", this.skeinPower.amt);
-            return nbt;
         }
 
         @Override
@@ -125,7 +118,7 @@ public class DebugMachine extends S0Machine {
         }
 
         @Override
-        public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInv, PlayerEntity player) {
+        public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInv, PlayerEntity playerEntity) {
             return new SH(syncId, playerInv, this);
         }
 
@@ -169,13 +162,9 @@ public class DebugMachine extends S0Machine {
         }
 
         @Override
-        public ScreenHandlerType<?> getScreenHandlerType() {
+        public ScreenHandlerType<?> getType() {
             return S0ScreenHandlerTypes.DEBUG_MACHINE;
         }
-
-//        public long getEnergy() {
-//            return 3000;
-//        }
 
     }
 
@@ -183,17 +172,6 @@ public class DebugMachine extends S0Machine {
 
         public HS(SH handler, PlayerInventory inventory, Text title) {
             super(handler, inventory, title);
-        }
-
-        @Override
-        public Identifier getTextureIdentifier() {
-            return new Identifier("system0", "textures/gui/simple_machine.png");
-        }
-
-        @Override
-        public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-            super.render(matrices, mouseX, mouseY, delta);
-            //textRenderer.draw(matrices, String.valueOf(handler.getEnergy()), 0, 0, new RGB(0,255,0).asInt());dr
         }
 
     }

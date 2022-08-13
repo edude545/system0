@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.ethobat.system0.mixin",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "DebugMixin",
+    "LivingEntityMixin",
+    "ShulkerEntityMixin"
+  ],
+  "client": [
+    "PlayerEntityMixin",
+    "TitleScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

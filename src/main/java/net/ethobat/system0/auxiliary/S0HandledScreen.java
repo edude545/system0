@@ -1,9 +1,8 @@
 package net.ethobat.system0.auxiliary;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.ethobat.system0.api.gui.GUIBackground;
 import net.ethobat.system0.api.gui.WidgetedScreen;
-import net.minecraft.client.render.GameRenderer;
+import net.ethobat.system0.api.rendering.S0Drawing;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
@@ -38,13 +37,21 @@ public abstract class S0HandledScreen<SH extends S0ScreenHandler> extends Widget
     }
 
     @Override
+    protected void drawForeground(MatrixStack matrixStack, int i, int j) {
+//        this.textRenderer.draw(matrixStack, this.title, this.titleX, this.titleY, 4210752);
+        this.drawTitle(matrixStack);
+    }
+
+    protected void drawTitle(MatrixStack matrixStack) {
+        S0Drawing.drawText(matrixStack, this.title, this.titleX, this.titleY);
+    }
+
+    @Override
     protected void init() {
         super.init();
         // Center the title
         this.titleX = (this.backgroundWidth - this.textRenderer.getWidth(this.title)) / 2 - 5;
     }
-
-    public abstract Identifier getTextureIdentifier();
 
     public abstract int getBGWidth();
     public abstract int getBGHeight();

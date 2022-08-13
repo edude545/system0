@@ -13,20 +13,22 @@ import net.minecraft.util.ActionResult;
 public class CapacitorItem extends ComponentItem implements IItemEnergyContainer {
 
     public final long maxAmount;
+    public final long ioRate;
 
-    public CapacitorItem(Settings settings, long maxAmount) {
+    public CapacitorItem(Settings settings, long maxAmount, long ioRate) {
         super(settings);
         this.maxAmount = maxAmount;
+        this.ioRate = ioRate;
     }
 
     public static EnergyType setEnergyType(ItemStack stack, EnergyType energyType) {
-        NBTHandler.putNBTForItem(stack.getOrCreateTag(), "energyType", energyType.getRegistryID().toString());
+        NBTHandler.putNBTForItem(stack.getOrCreateNbt(), "energyType", energyType.getRegistryID().toString());
         return energyType;
     }
 
     public static EnergyType getEnergyType(ItemStack stack) {
-        String key = NBTHandler.getString(stack.getOrCreateTag(), "energyType");
-        if (stack.hasTag()) {
+        String key = NBTHandler.getString(stack.getOrCreateNbt(), "energyType");
+        if (stack.hasNbt()) {
             if (S0Registry.ENERGY_TYPE.hasKey(key)) {
                 return S0Registry.ENERGY_TYPE.get(key);
             }
@@ -35,13 +37,13 @@ public class CapacitorItem extends ComponentItem implements IItemEnergyContainer
     }
 
     public static long setEnergy(ItemStack stack, long n) {
-        NBTHandler.putNBT(stack.getOrCreateTag(), "energy", n);
+        NBTHandler.putNBT(stack.getOrCreateNbt(), "energy", n);
         return n;
     }
 
     public static long getEnergy(ItemStack stack) {
-        if (stack.hasTag()) {
-            return NBTHandler.getLong(stack.getTag(), "energy");
+        if (stack.hasNbt()) {
+            return NBTHandler.getLong(stack.getNbt(), "energy");
         } else {
             return 0;
         }
@@ -69,7 +71,7 @@ public class CapacitorItem extends ComponentItem implements IItemEnergyContainer
     @Override
     public int getItemBarColor(ItemStack stack) {
         //System.out.println("Checking color...");
-        if (stack.hasTag()) {
+        if (stack.hasNbt()) {
             //System.out.println("...found a color!");
             EnergyType energyType = getEnergyType(stack);
             if (energyType != null) {

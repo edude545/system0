@@ -1,7 +1,7 @@
 ACT 1: Gift of a Starry Sky
 
-	SCENE 1: Contact
-		(Contact with Sentinel, falling star impact, growing germs & harvesting fallen star.)
+	SCENE 1: Notice
+		(Contact with Sentinel, falling star impact.)
 	
 		From the very start of the game, the Sky High Sentinel can be seen in the night sky. It is a blue eye suspended in the sky, a little smaller than the moon. When the player looks at it, it twitches, and gradually starts to open. Once the Sentinel opens, it will blink a few times, before its iris transforms into Phantasmagoric noise, and it disappears.
 
@@ -22,12 +22,28 @@ ACT 1: Gift of a Starry Sky
 		"Whee."
 		The sky will change color, and the player's vision will become distorted in various ways.
 
-		Once the countdown has elapsed, a star falls from the day sky and destroys a wide chunk of land, scattering debris everywhere. The debris can be mined for a very wide variety of basic resources.
-		At the centre of the fallen star is a fully grown System Germ, growing out the top of the Star's Heart. The Heart and Germ are both indestructible at this point. The Germ can be harvested for more Germs, which can be planted anywhere except within 5 blocks of another Germ.
-		When fully grown, the Germs power on using energy from the soil, and are able to convert certain items into exotic forms. They can perform a wide variety of specific recipes, but are very limited. An item can be manually placed into the Germ, which will absorb it and gradually convert it. Progress is indicated by the power indicators on the Germ.
+		Once the countdown has elapsed, a star falls from the day sky and destroys a wide chunk of land, scattering debris everywhere.
 		
 	SCENE 2: Indigo Waltz
-		(Production of basic resources with germs, basic aggregators and machines.)
+		(Growing germs & harvesting fallen star, production of basic resources with germs, raw energy and machines.)
+		The debris from the fallen star can be mined for a very wide variety of basic resources.
+		At the centre of the fallen star is a fully grown System Germ, growing out the top of the Star's Heart. The Heart and Germ are both indestructible at this point. The Germ can be harvested for more Germs, which can be planted anywhere except within 5 blocks of another Germ.
+		When fully grown, the Germs power on using energy from the soil, and are able to convert certain items into exotic forms. They can perform a wide variety of specific recipes, but are very limited. An item can be manually placed into the Germ, which will absorb it and gradually convert it. Progress is indicated by the power indicators on the Germ.
+		...
 		
-	SCENE 3: Symphony Impossible to Play
-		(Construction of Zero Orchestra, performance of first Symphonies.)
+	SCENE 3: First Explosion
+		(Construction of first aggregators, expanison across the overworld, assimilation of multiple energy types.)
+		...
+		
+	SCENE 4: Vision of an Organ
+		(Construction of Zero Orchestra, performance of first Symphony and subsequent vision of the Paraworld.)
+		...
+		
+ACT 2: Symphony Impossible to Play
+
+	SCENE 1: Symphony Impossible to Play
+	
+
+	SCENE x: Target Located
+	
+ACT 3: Another Medium

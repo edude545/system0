@@ -2,46 +2,40 @@ package net.ethobat.system0.api.network.abstracted;
 
 import net.ethobat.system0.api.nbt.NBTHandler;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 import java.util.UUID;
 
-public class AbstractedDrain implements IAbstractedNetworkMember,INetworkTerminal {
-
-    public Network network;
-
-    public final UUID uuid;
-
-    public AbstractedDrain(Network network, UUID uuid) {
-        this.network = network;
-        this.uuid = uuid;
-    }
+public class AbstractedDrain extends AbstractedNetworkMember {
 
     public AbstractedDrain(UUID uuid) {
-        this(null, uuid);
-    }
-
-
-    public UUID getUUID() {
-        return this.uuid;
+        super(uuid);
     }
 
     @Override
-    public Network getNetwork() {
-        return null;
+    public void subscribe(Network network) {
+        this.network = network;
     }
 
-    // NBT stuff
-
-    public static AbstractedDrain fromNBT(NbtCompound nbt) {
-        return new AbstractedDrain(
-                NBTHandler.getUUID(nbt, "uuid")
-        );
+    public AbstractedDrain silentSubscribe(Network network) {
+        this.network = network;
+        return this;
     }
+
+    //
+    // NBT
+    //
 
     public NbtCompound toNBT() {
         NbtCompound nbt = new NbtCompound();
-        NBTHandler.genericPut(nbt, "uuid", this.uuid);
+        NBTHandler.genericPut(nbt, NBT_UUID_KEY, this.uuid);
         return nbt;
+    }
+
+    public static AbstractedDrain fromNBT(NbtCompound nbt) {
+        return new AbstractedDrain(
+                NBTHandler.getUUID(nbt, NBT_UUID_KEY)
+        );
     }
 
 }

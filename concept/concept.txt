@@ -34,7 +34,24 @@ Vague ideas:
 	The Far Lands
 	
 
+
 	
+	
+Magic Items
+
+	Gushing Scepter
+		Blue conjuring scepter of the ocean. Right-click on a block to place a water source.	
+		Hold right-click to spray a stream of water particles, which turn into water source blocks upon landing. If sprayed into a pit, the lower layers will be filled first, so the entire hole is filled with source blocks.
+	
+	Menger Sponge
+		Handheld fractal sponge. Right-click to absorb liquid into another dimension.
+		Hold right-click on flowing liquid to gradually reverse the flow and remove the source block, then all connected source blocks.
+		When submerged in a body of liquid, hold right-click to gradually absorb it all, beginning with the top. Water is drained especially fast.
+		
+	Edifice Wand
+
+
+
 
 	
 Modular Hardware:
@@ -94,36 +111,36 @@ Modular Hardware:
 		Hardlight Blade:
 			"Projects energy into a deathly sharp blade."
 			Module slots:
-				Capacitor					- Determines energy storage and power.
+				Capacitor					- Determines energy storage. Limits power.
 				Hardlight Projector 		- Determines stats. Harder beam = more damage, longer beam = more reach
 				Implementation Sigil		- Optional. Specializes the blade:
-												Conquer 	- "Iconoclance" only works in network coverage.
-												Create		-
+												Conquer 	- "Iconoclance" 
+												Create		- "Incipispear" only works in network coverage.
 												Destroy		- "Gigaton Buster" annihilates in swathes, destroying drops.
 												Learn		- "Dharmakhanda" becomes stronger with each unique enemy killed.
-												Love 		- "Asuterosaberu" backfires if used against passive and neutral mobs.
-												Protect		- "Aegestoc" attacks while a shield is raised.
-												Terrify		- 
+												Love 		- "Asuterosaberu" is powerful but backfires if used against passive and neutral mobs.
+												Protect		- "Aegestoc" attacks while a shield is raised. Also gains power when defending the vulnerable.
+												Terrify		- "Horrorbrand" causes mobs to flee in terror. Fleeing mobs may be attacked from any distance.
 					
 				
 		Bass Blaster:
 			Portable Sorcery Synth.
 			Module Slots:
-				Capacitor					- Determines energy storage. Bottlenecks power.
-				Arcoplexer					- Bottlenecks power.
-				Synthboard					- Determines signal complexity. Bottlenecks power.
+				Capacitor					- Determines energy storage. Limits power.
+				Arcoplexer					- Limits power.
+				Synthboard					- Determines signal complexity. Limits power.
 				
 		Zing Bolter
-			"Primitive firearm. Flexible and can be powered by many energy types."
+			"Primitive firearm. Flexible and powered with just raw energy."
 			Module slots:
-				Capacitor					- Determines energy storage. Bottlenecks power.
-				Immaterializer				- Bottlenecks power.
+				Capacitor					- Determines energy storage. Limits power.
+				Immaterializer				- Limits power.
 				
 		Lighting Gungnir
 			"Modular polearm capable of delivering anbaric shocks."
 			"Optional: When upgraded, capable of channeling PSI/Lightning Spear."
 			Module slots:
-				Capacitor					- Determines energy storage. Bottlenecks power.
+				Capacitor					- Determines energy storage. Limits power.
 				
 		Seraph Habit
 			"Hallowed angelic exosuit. Provides its wearer with unearthly mobility and power."
@@ -227,7 +244,7 @@ Energy types:
 		
 	Tidalizing Energy:
 		Aesthetic: Cyan/navy. Rolls around in powerful crashing waves.
-		Occurs on beaches.
+		Occurs in ocean monuments.
 		Keywords: Might of the ocean, tidal waves, the roiling sea, pummelling aquatic force, strength, power.
 		
 	Chorromatic Energy:
@@ -535,10 +552,13 @@ There are many machines that do different processes with varying efficiencies.
 	Wireframe Fusion:
 		"Firm bonding together of materials."
 		e.g. Indigo Hyperleaf -> Indigonite Composite
+		"Collision Exploit" Wireframe Fuser: 					Basic machine. 1 input slot.
 		
 	Planar Reduction:
 		"Compaction of objects into a 2-dimensional form."
-		e.g. Gold -> Gold Hyperleaf, Diverse Indigonite -> Indigo Hyperleaf
+		e.g. Gold -> Gold Hyperleaf, Indigo 1,2,3,4 -> Indigo Hyperleaf
+		"Heavy Press" Planar Reductor:						Basic machine. 1 input slot.
+		"Inclusive Press" Multi Planar Reductor:			4 input slots. High power cost.
 		
 	Powder Agglomeration:
 		"Assembly of small particles into a continuous solid."
@@ -551,7 +571,9 @@ There are many machines that do different processes with varying efficiencies.
 		"Transmutation of material into something completely new."
 		e.g. Lapis Lazuli -> Indigonite, Emerald -> Smaragdinoid, Gold -> Aurichalcum
 		Machines:
-			"First Arcanum" Exoticizer: Belljar with a small platform that fits a single item. 1 input -> 1 output.
+			"First Arcanum" Exoticizer:							Belljar with a small platform that fits a single item. 1 input -> 1 output.
+			"Stage Magic" Macroexoticizer: 						Multiblock structure. 3x3 platform with an overhead laser. Applies exoticization process to entities.
+			"Inordinate Voluminosity" Jumboexoticizer:			Very large multiblock structure. 7x7 platform with side-mounted laser. Applies exoticization process to largest of entities.
 		
 	Magic Statification:
 		"Introduction of magic into material substrate."
@@ -595,8 +617,8 @@ System magic can be used to synthesise many exotic materials.
 		Bismuth 					- Weak metal that forms beautiful right-angled crystals. Reflects most magic while absorbing a small amount of it, trapping and storing it very efficiently. Normally dull, but an iridescent sheen is visible when storing a lot of energy. Comes in many different colours.
 		Celadon						- Jade-coloured ceramic, conductive to magical energy.
 		Smaragdinoid				- Exoticized emerald.
-		Kaput						- Rusty reddish-black alchemical waste.
 		
+		Kaput						- Rusty reddish-black alchemical waste.
 		Indigonite Composite		- Layered wafers of varied indigonite.
 		Flashtin Pole				- Thin translucent pole that resonates with magic.
 		Skein Whip					- Skeintillating manifestation. Long and extremely elastic object.
@@ -616,10 +638,11 @@ System magic can be used to synthesise many exotic materials.
 		Symvinyl					- Cheap, glossy plastic. Construction material.
 		Woven Air					- Extremely lightweight low-density plastic.
 		Glaucous Gourd				- Plant with a flesh that when dried is a useful material for machinery.
-		Fulvous Quill				- Striking orange feather produced by Peachquill Mallards.
+		Fulvous Quill				- Striking orange feather produced by Peachquill Mallards
+		Amalgamucilage				- Extremely adhesive organic secretion. Produced by exotic organisms.
 		Kiratin						- Hard light-gray protein with a characteristic sparkling surface. (kirakira + keratin)
-		Bismiridium 				- Iridium with a distinct iridescent sheen. Contrasynthetic of Iridium and Bismuth.
 		Unicorn Tears				- Teardrops of a unicorn.
+		Bismiridium 				- Iridium with a distinct iridescent sheen. Contrasynthetic of Iridium and Bismuth.
 		
 		Hypersporadic Violet Cell	- Half-matter indigo pseudosphere. Tetration of Indigonite Composite.
 		Superenergized Quill		-
@@ -639,7 +662,7 @@ System magic can be used to synthesise many exotic materials.
 		Black Liquid Sorrow			- Concentrated unicorn tears, blacker than pitch.
 		
 		Cyber Soulware				-
-		Psycho-Cyber Blasphemoid	-
+		Psycho Blasphemoid			-
 		Nexxine Symbol				- Small, heavy and deeply engraved runestone.
 		Fenestrated Plane			- Windowed portal to another plane.
 	
@@ -665,63 +688,72 @@ Entities:
 		Strange luminous apparition that can never be observed from up close. Glows tantalizingly in the distance.
 
 
-Schemas are abilities programmed into the player's body. Once programmed, a player must "meditate" on the schema under certain conditions to unlock it.
-Each Schema has an experience bar. Using a Schema a lot will improve its energy cost and effectiveness.
-Unless keepInventory is enabled, when a player dies, they will lose all Schemas programmed into their body and all Schema experience. Schemas can be programmed back into the body and the player won't have to meditate on them again, but they will have to earn back all Schema experience.
-They can be used through a central radial menu, through a keybind, or through a dedicated channelling item such as "Gungnir DX".
+		
+		
+		
+Psionic Abilities
+	Psionic Schemas are abilities programmed into the player's body. Once programmed, a player must "meditate" on the schema under certain conditions to unlock it.
+	Each Schema has an experience bar. Using a Schema a lot will improve its energy cost and effectiveness.
+	Unless keepInventory is enabled, when a player dies, they will lose all Schemas programmed into their body and all Schema experience. Schemas can be programmed back into the body and the player won't have to meditate on them again, but they will have to earn back all Schema experience.
+	They can be used through a central radial menu, through a keybind, or through a dedicated channelling item such as "Gungnir DX".
+	Besides meditation, schemas require a sufficient Psionic Power Level. PL can be increased through the Hyperbolic Enhancement Chamber, and requires exponentially greater amounts of energy for each level. New energy types are required at each level. PL, similar to Schema experience, enhances Schema effectiveness. However, PL is permanent and is not lost upon death.
 
-Grades:
-	Auto		- Made with materials available in the Overworld.
-	Systemic	- Made with technology salvaged from the Paraworld.
-	Exodus 		- Made with artefacts won from the early universe.
-	Superreal	- Retrieved from a higher reality.
+	Grades:
+		Auto		- Made with materials available in the Overworld.
+		Systemic	- Made with technology salvaged from the Paraworld.
+		Exodus 		- Made with artefacts won from the early universe.
+		Superreal	- Retrieved from a higher reality.
 
-	
-	Auto/Schema: "Blakron Blast"
+	Auto/Schema PL1: "Blakron Blast"
 	Projectile Splinterization Impeller
 		"Launch a volatile bundle of energy that detonates upon the slightest touch."
 		"Meditate at the centre of a high-energy explosion."
 		>> Blakronic >>
 		
-	Auto/Schema: "Skeintillating Admonishment"
+	Auto/Schema PL1: "Skeintillating Admonishment"
 	Punishing Skein Implement
 		"Summon energy to form a long, lashing whip."
 		"Meditate with a high horizontal velocity."
 		>> Skeintillating >>
 		
-	Auto/Schema: "Malicious Rail"
+	Auto/Schema PL1: "Redstone Disruption"
+	Primitive Systems Inhibitor
+		"Create a wave of random redstone impulses, disrupting machinery."
+		
+	Auto/Schema PL2: "Tech Support"
+	Particularizing Systems Investigator
+		"Diagnose problems with machinery."
+		"Meditate on broken hardware."
+		
+	Auto/Schema PL2: "Fire, At Will"
+	Pyromaniac's Surging Inferno
+		"Shoot a wild gout of flame."
+		"Meditate unharmed in a massive inferno."
+		>> Fulvinant >>
+		
+	Auto/Schema PL5: "Malicious Rail"
 	Plutonic Sentry's Ignition
 		"Unleash a beam of Hell Energy that explodes hit objects."
 		>> Fulvinant > Petrionic >>
 		
-	Auto/Schema: "Redstone Disruption"
-	Primitive Systems Inhibitor
-		"Create a wave of random redstone impulses, disrupting machinery."
-		
-	Auto/Schema: "Fire, At Will"
-	Pyromaniac's Surging Inferno
-		"Shoot a wild gout of flame."
-		"Meditate unharmed in a massive inferno."
-		
-	Auto/Schema: "Bonfire Night"
-	Piercing Sky Illuminations
-		"Launch a group of fireworks."
+	
 	
 	Auto/Schema: "Breakneck Blitz"
 	Peak Scampertude Intensification
 		"Dash across the earth at a breakneck pace."
 		"Meditate while exhausted from sprinting."
 		
-	Auto/Schema: "Tech Support"
-	Particularizing Systems Investigator
-		"Diagnose problems with machinery."
-		"Meditate on broken hardware."
+	
 		
 	Auto/Schema: "Personal Civil Engineer"
 	Prefabricated Site Illustrator
 		"Conjure modular habitation/production structures."
 		"Meditate in a grand structure."
 		>> Anbaric > Lodestic > Petrionic >>
+		
+	Auto/Schema  PL11: "Bonfire Night"
+	Piercing Sky Illuminations
+		"Launch a group of fireworks."
 		
 		
 		
@@ -817,6 +849,24 @@ Grades:
 		
 		
 		
+		
+		
+Mnemonic Consolidation
+
+	At Psionic Power Level 22, the ability to memorize and conjure objects from internalized energy is unlocked.
+	Item memorization can be performed with the Thoughtwave Laserstation.
+	The following items can be memorized:
+		- Most S0 magic items.
+		- The Network PDA.
+		- Wrenches from other mods - Create's Wrench, TechReborn's Wrench, AE2's Network Tool...
+		- Botania items that draw from a mana tablet.
+		- Items with infinite durability, e.g. Bedrock tools from Spectrum, tools enchanted with Indestructible from Forbidden & Arcanus...
+	Blocks, consumable items, items with durability or items with extra NBT cannot be memorized, unless specified above.
+	
+
+		
+		
+		
 Dimensions:
 		
 	Paraworld:
@@ -835,7 +885,7 @@ Dimensions:
 			Hyperspace Junction:
 				- One in each sector.
 		
-		# PERFORMING BACKGROUND PARAWORLD SURVEILLANCE
+		# PERFORMING BACKGROUND PARAWORLD SURVEILLANCE...
 		# WARNING: JUNCTION WILL BE OPEN FOR ESTIMATED [...] *15 SECONDS* BEFORE DETECTION BY PARAWORLD DEFENCE MECHANISMS
 		# BEGIN CONNECTION PROTOCOL? (Y/N)
 		> Y
@@ -847,17 +897,46 @@ Dimensions:
 		# METASTABLE CONNECTION ESTABLISHED; JUNCTION OPEN FOR TRANSIT
 		# ESTIMATED TIME TO LINK REJECTION: [00:15]
 		
+	Planes:
+		Planes are metastable pseudo-dimensions, discerned from the infinite well of possibility. They can be accessed through a 7-Dimensinonal Hyperjunction, augmented with a Planar Clarifier, with a configured Possibility Matrix corresponding to that plane.
+		
+		When a player accesses a Plane, the world is generated with the parameters provided by the Possibility Matrix. Planes are normally metastable, which means that when there are no players left in a given plane, all world data is deleted, recycling hard drive space for new Planes.
+	
+		Planes can be stabilized into full dimensions with the Idol of Planar Embodiment. This integrates them into the world as Paradimensions. After integrating a plane, it can be destroyed with the Planar Collapse Engine, yielding enormous amounts of energy and resources, including exotic materials like Collapsium.
+		
 	Exodus:
-		Birth of the universe, accessed through the 5D Hyperjunction. The 5DHJ can dial forwards through time, but not backwards. But maybe there is a loophole...
+		Birth of the universe, accessed through the 8-Dimensional Hyperjunction. The 5DHJ can dial forwards through time, but not backwards. But maybe there is a loophole...
 		With sufficient energy, 5DHJ can tunnel through the [Great Black Hole after the Death of Heat] into the [Great White Rift at the Dawn of Time] (i.e. Exodus Reacharound Manoeuvre).
 		
-		# 5DHJ SYSTEMS FULLY OPERATIONAL
+		# 8DHJ SYSTEMS FULLY OPERATIONAL
 		# CALCULATIONS FOR EXODUS REACHAROUND MANOEUVRE COMPLETE
 		# CHANCE OF SURVIVAL... 100%
 		# RETURN TO SLIME? (Y/N)
 		> Y
 
+		
+		
+		
 
+Hyperjunctions
+	
+	The Hyperjunction is an element of S0's exploration-oriented progression system. Certain milestones of progression involve adding an extra dimension to the Hyperjunction, allowing for the exploration of new places.
+	3DHJ:
+		Transport across the physical dimensions. Teleport to any place in the current dimension.
+	4DHJ:
+		Dimensional axis. Teleport between dimensions.
+	5DHJ:
+		Paradimensional axis. Allows transport to the Paraworld and Paraworld-adjacent dimensions, once discovered.
+	6DHJ:
+		Hyperspatial axis. Allows commendment of physical artefacts into Hyperspace.
+	7DHJ:
+		Possibility axis. Allows transport to metastable Planes.
+	8DHJ:
+		Temporal axis. Allows accessing the beginning of time through Exodus Reacharound Manoeuvre.
+		
+		
+		
+		
  
 Demirail Transit
 
@@ -1008,7 +1087,7 @@ Auxiliatrix Marbles:
 Hyperspace
 
 	Between worlds is a zone called hyperspace. Reality here does not support conventional structures of matter, and radical redesigns of existing technology must be made to traverse it.
-	Though the player unable to safely enter hyperspace, 
+	Though the player is unable to safely enter hyperspace, 
 
 
 
@@ -1035,9 +1114,11 @@ Research:
 					> Conceptual Singularity
 			> Cryptoharmonics
 				> Ligma Theory
-		
-			
 
+
+
+
+			
 Death messages:
 
 	Lethal time acceleration: 	[player] died of natural causes

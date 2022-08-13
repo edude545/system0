@@ -1,12 +1,10 @@
 package net.ethobat.system0.registry;
 
+import net.ethobat.system0.System0;
 import net.ethobat.system0.api.item.CapacitorItem;
-import net.ethobat.system0.auxiliary.S0ArmorItem;
-import net.ethobat.system0.auxiliary.S0CapacitorItem;
+import net.ethobat.system0.auxiliary.*;
 import net.ethobat.system0.items.cards.TarotCard;
 import net.ethobat.system0.items.equipment.*;
-import net.ethobat.system0.auxiliary.MaterialItem;
-import net.ethobat.system0.auxiliary.S0Item;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 
@@ -31,6 +29,7 @@ public final class S0Items {
     public static final S0Item INDIGO_4_SHEET = new MaterialItem("indigo_4_sheet");
 
     public static final S0Item GLAUCOUS_GOURD_SLICE = new MaterialItem("glaucous_gourd_slice");
+    public static final S0AliasedBlockItem GLAUCOUS_KERNELS = new S0AliasedBlockItem("glaucous_kernels", S0Blocks.GLAUCOUS_GOURD_STEM, (new Item.Settings()).group(System0.ITEM_GROUP_CRAFTING));
     public static final S0Item SYMVINYL_SHEET = new MaterialItem("symvinyl_sheet");
     public static final S0Item PARA_TRILLIONS = new MaterialItem("para_trillions");
     public static final S0Item NEXXINE_SYMBOL = new MaterialItem("nexxine_symbol");
@@ -43,6 +42,7 @@ public final class S0Items {
     // Psionics
 
     // Tools
+    public static final Mitten MITTEN = new Mitten();
     public static final Clanger CLANGER = new Clanger();
     public static final DebugTool DEBUG_TOOL = new DebugTool();
     public static final AntennaLinker ANTENNA_LINKER = new AntennaLinker();
@@ -51,7 +51,9 @@ public final class S0Items {
     public static final Crowbar CROWBAR = new Crowbar();
 
     // Components
-    public static final CapacitorItem ORGIMEX_DUAL_CELL = new S0CapacitorItem(240_000);
+    public static final CapacitorItem CELADON_CELL = new S0CapacitorItem("celadon_cell", 10_000, 300);
+    public static final CapacitorItem ORGIMEX_DUAL_CELL = new S0CapacitorItem("orgimex_dual_cell", 240_000, 4_000);
+    public static final CapacitorItem TANGLECAGE_SYNERCELL = new S0CapacitorItem("tanglecage_synercell", 16_000, 12_000);
 
     public static class AugmentCards {
         public static class Tarot {
@@ -162,8 +164,6 @@ public final class S0Items {
         SYMVINYL_SHEET.giveTooltip();
         PARA_TRILLIONS.giveTooltip();
         NEXXINE_SYMBOL.giveTooltip();
-
-        //S0Registrar.register(ORGIMEX_DUAL_CELL, "orgimex_dual_cell");
     }
 
     public static void init() {

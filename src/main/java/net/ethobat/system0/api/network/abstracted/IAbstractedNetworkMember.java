@@ -8,4 +8,7 @@ public interface IAbstractedNetworkMember {
 
     UUID getUUID();
 
+    void subscribe(Network network);
+    void subscribe(UUID uuid);
+
 }

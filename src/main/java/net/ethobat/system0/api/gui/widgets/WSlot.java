@@ -2,7 +2,7 @@ package net.ethobat.system0.api.gui.widgets;
 
 import net.ethobat.system0.api.gui.WidgetedScreen;
 import net.ethobat.system0.api.gui.WidgetedScreenHandler;
-import net.ethobat.system0.api.visuals.S0Renderer;
+import net.ethobat.system0.api.rendering.S0Drawing;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.inventory.Inventory;
@@ -13,15 +13,19 @@ import net.minecraft.util.Identifier;
 
 public class WSlot extends GUIWidget {
 
+    public static final Identifier TEXTURE_NORMAL = new Identifier("system0", "textures/gui/widget/slot.png");
+    public static final Identifier TEXTURE_OUTPUT = new Identifier("system0", "textures/gui/widget/slot_24_fancy.png");
+
     public int index;
 
     public Inventory inv;
-    public boolean isOutput = false;
+    public boolean isOutput;
 
     public WSlot(String name, int screenX, int screenY, Inventory inv, int index) {
         super(name, screenX, screenY);
         this.inv = inv;
         this.index = index;
+        this.isOutput = false;
     }
 
     @Override
@@ -42,8 +46,14 @@ public class WSlot extends GUIWidget {
 
     @Override
     public void draw(WidgetedScreen<?> screen, MatrixStack matrices, int mouseX, int mouseY) {
-        S0Renderer.prepareTexture(this.getTexture());
-        DrawableHelper.drawTexture(matrices, this.screenX+screen.getX(), this.screenY+screen.getY(), 0, 0, 18, 18, 18, 18);
+
+        if (this.isOutput) {
+            S0Drawing.prepareTexture(TEXTURE_OUTPUT);
+            DrawableHelper.drawTexture(matrices, this.screenX+screen.getX()-3, this.screenY+screen.getY()-3, 0, 0, 24, 24, 24, 24);
+        } else {
+            S0Drawing.prepareTexture(TEXTURE_NORMAL);
+            DrawableHelper.drawTexture(matrices, this.screenX+screen.getX(), this.screenY+screen.getY(), 0, 0, 18, 18, 18, 18);
+        }
     }
 
     // Inventory-based widgets don't need to be synced between server & client.
@@ -53,10 +63,6 @@ public class WSlot extends GUIWidget {
     public WSlot setOutput() {
         this.isOutput = true;
         return this;
-    }
-
-    public Identifier getTexture() {
-        return new Identifier("system0", "textures/gui/widget/slot.png");
     }
 
     public Slot asSlot() {

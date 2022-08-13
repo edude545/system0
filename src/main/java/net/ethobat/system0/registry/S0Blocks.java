@@ -1,6 +1,7 @@
 package net.ethobat.system0.registry;
 
 import net.ethobat.system0.auxiliary.S0Block;
+import net.ethobat.system0.auxiliary.S0GourdBlock;
 import net.ethobat.system0.block.*;
 import net.ethobat.system0.network.sources.DebugEnergySource;
 import net.ethobat.system0.machinery.DebugMachine;
@@ -14,9 +15,13 @@ import net.minecraft.block.Blocks;
 public final class S0Blocks {
 
     public static final S0Block ROUGH_ROCK = new S0Block(FabricBlockSettings.copy(Blocks.STONE), "rough_rock");
-    public static final StorageBlock STORAGE_BLOCK = new StorageBlock("storage_block");
     public static final S0Block INDIGONITE_TRIM = new S0Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK), "indigonite_trim");
-    public static final GlaucousGourd GLAUCOUS_GOURD = new GlaucousGourd(); // "glaucous_gourd"
+
+    public static final S0GourdBlock GLAUCOUS_GOURD = new GlaucousGourd(); // "glaucous_gourd"
+    public static final S0GourdBlock.Stem GLAUCOUS_GOURD_STEM = new S0GourdBlock.Stem(GLAUCOUS_GOURD, ()->S0Items.GLAUCOUS_KERNELS, "glaucous_gourd_stem");
+    public static final S0GourdBlock.AttachedStem ATTACHED_GLAUCOUS_GOURD_STEM = new S0GourdBlock.AttachedStem(GLAUCOUS_GOURD, ()->S0Items.GLAUCOUS_KERNELS, "attached_glaucous_gourd_stem");
+
+
     public static final S0Block ICON_TROPHY = new S0Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK), "icon_trophy");
 
     // Aggregators

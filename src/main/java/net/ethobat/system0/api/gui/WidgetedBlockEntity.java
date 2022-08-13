@@ -12,13 +12,12 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
 
-public abstract class WidgetedBlockEntity extends BlockEntity implements IWidgetNBTProvider,ExtendedScreenHandlerFactory {
+public abstract class WidgetedBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory {
 
     // Maps users to the ScreenHandlers opened by this BlockEntity.
     // When the user's currentScreenHandler no longer matches this record, the player is removed from the map.
@@ -26,19 +25,6 @@ public abstract class WidgetedBlockEntity extends BlockEntity implements IWidget
 
     public <T extends S0Block> WidgetedBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-    }
-
-    // Safe to call on both sides.
-    public <T extends BlockEntity> void syncScreenData() {
-        assert !this.getWorld().isClient();
-        for (ServerPlayerEntity user : this.userSHRecord.keySet()) {
-            if (user.currentScreenHandler == this.userSHRecord.get(user)) {
-                GUINetworkingHandler.sendWidgetData(user, this.createWidgetNBT(user, new NbtCompound()));
-            } else {
-                this.userSHRecord.remove(user);
-            }
-
-        }
     }
 
     // This method is for Blocks that have a WidgetedBlockEntity associated with them.
@@ -63,22 +49,28 @@ public abstract class WidgetedBlockEntity extends BlockEntity implements IWidget
         }
     }
 
-    public Text getDisplayName() {
-        return new TranslatableText(this.getCachedState().getBlock().getTranslationKey());
+    // Safe to call on both sides.
+    public <T extends BlockEntity> void syncScreenData() {
+        assert !this.getWorld().isClient();
+        for (ServerPlayerEntity user : this.userSHRecord.keySet()) {
+            if (user.currentScreenHandler == this.userSHRecord.get(user)) {
+                GUINetworkingHandler.sendWidgetPacket(user, this.createWidgetNBT(user, new NbtCompound()));
+            } else {
+                this.userSHRecord.remove(user);
+            }
+
+        }
     }
+
+    public Text getDisplayName() {
+        return Text.translatable(this.getCachedState().getBlock().getTranslationKey());
+    }
+
+    public abstract NbtCompound createWidgetNBT(ServerPlayerEntity player, NbtCompound nbt);
 
     @Override
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeNbt(this.createWidgetNBT(player, new NbtCompound()));
-    }
-
-    public static class UserSHRecord {
-        public final ServerPlayerEntity PLAYER;
-        public final ScreenHandler SH;
-        public UserSHRecord(ServerPlayerEntity player, ScreenHandler sh) {
-            this.PLAYER = player;
-            this.SH = sh;
-        }
     }
 
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "block/stem_fruit",
+  "textures": {
+    "stem": "system0:block/glaucous_gourd_stem",
+    "upperstem": "system0:block/attached_glaucous_gourd_stem"
+  }
+}

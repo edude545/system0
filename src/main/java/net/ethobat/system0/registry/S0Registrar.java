@@ -28,6 +28,9 @@ public class S0Registrar {
 
         // Part of S0's API
         GUINetworkingHandler.init();
+
+        // CC-API
+        S0Components.init();
     }
 
     // Registered on the client only.

@@ -42,11 +42,8 @@ public class Crowbar extends S0ToolItem {
             nbt.putByte("Peek", (byte) 30);
             entity.readCustomDataFromNbt(nbt);
 
-            entity.emitGameEvent(GameEvent.SHULKER_OPEN);
             entity.getAttributeInstance(EntityAttributes.GENERIC_ARMOR).removeModifier(((ShulkerEntityMixin)entity).getCoveredArmorBonus());
             entity.playSound(SoundEvents.BLOCK_CHEST_OPEN, 0.6F, 1.2F);
-
-            entity.emitGameEvent(GameEvent.SHULKER_OPEN);
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;

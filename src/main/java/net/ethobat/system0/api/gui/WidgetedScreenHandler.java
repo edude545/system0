@@ -1,8 +1,11 @@
 package net.ethobat.system0.api.gui;
 
 import net.ethobat.system0.api.gui.widgets.GUIWidget;
+import net.ethobat.system0.api.gui.widgets.IWClickable;
 import net.ethobat.system0.api.nbt.NBTHandler;
+import net.ethobat.system0.api.util.MouseButton;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.Mouse;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
@@ -89,6 +92,14 @@ public abstract class WidgetedScreenHandler extends ScreenHandler {
         nbt = nbt.getCompound(NBTHandler.WIDGET_NBT_KEY);
         for (String name : this.widgets.keySet()) {
             this.widgets.get(name).updateFromNBT(nbt.getCompound(name));
+        }
+    }
+
+    public void mouseInteract(double mouseX, double mouseY, MouseButton button, boolean released) {
+        for (GUIWidget widget : this.getWidgets()) {
+            if (widget instanceof IWClickable) {
+                ((IWClickable)widget).onMouseInteract(mouseX, mouseY, button, released);
+            }
         }
     }
 

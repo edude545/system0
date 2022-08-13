@@ -1,6 +1,5 @@
 package net.ethobat.system0.api.gui;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.ethobat.system0.api.gui.widgets.GUIWidget;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
@@ -38,11 +37,20 @@ public abstract class WidgetedScreen<SH extends WidgetedScreenHandler> extends H
     }
 
     @Override
-    public void onClose() {
-        super.onClose();
+    public boolean mouseClicked(double mouseX, double mouseY, int mouseButton) {
+        //this.getScreenHandler().mouseClicked(this, mouseX, mouseY, MouseButton.fromInt(i));
+        GUINetworkingHandler.sendMouseInteractPacket(mouseX, mouseY, mouseButton, false);
+        return super.mouseClicked(mouseX, mouseY, mouseButton);
     }
 
-    // Public access methods
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int mouseButton) {
+        //this.getScreenHandler().mouseReleased(this, mouseX, mouseY, MouseButton.fromInt(i));#
+        GUINetworkingHandler.sendMouseInteractPacket(mouseX, mouseY, mouseButton, true);
+        return super.mouseReleased(mouseX, mouseY, mouseButton);
+    }
+
+    // Position of WidgetedScreen on the display
     public int getX() { return this.x; }
     public int getY() { return this.y; }
 

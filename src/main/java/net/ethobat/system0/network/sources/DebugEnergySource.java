@@ -33,15 +33,15 @@ public class DebugEnergySource extends S0Aggregator {
 
         @Override
         public void subscribe(Network network) {
-            network.registerSource(new AbstractedDebugEnergySource(network, UUID.randomUUID()));
+            network.registerSource(new AbstractedDebugEnergySource());
         }
 
     }
 
     public static class AbstractedDebugEnergySource extends AbstractedSource {
 
-        public AbstractedDebugEnergySource(Network network, UUID uuid) {
-            super(network, uuid);
+        public AbstractedDebugEnergySource() {
+            super(UUID.randomUUID());
         }
 
         @Override

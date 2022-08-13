@@ -1,0 +1,14 @@
+package net.ethobat.system0.registry;
+
+import net.ethobat.system0.machinery.DebugMachine;
+import net.ethobat.system0.machinery.FirstArcanumExoticizer;
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
+
+public final class S0Screens {
+
+    public static void init() {
+        ScreenRegistry.register(S0ScreenHandlerTypes.FIRST_ARCANUM_EXOTICIZER, FirstArcanumExoticizer.HS::new);
+        ScreenRegistry.register(S0ScreenHandlerTypes.DEBUG_MACHINE, DebugMachine.HS::new);
+    }
+
+}

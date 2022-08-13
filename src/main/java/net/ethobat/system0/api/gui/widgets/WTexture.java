@@ -6,6 +6,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
+// Basic widget. Draws a texture on the GUI, with no interactivity.
+// Draws from a given point in a spritesheet. WTexture#single is probably more useful.
 public class WTexture extends GUIWidget {
 
     public final Identifier ID;
@@ -27,6 +29,10 @@ public class WTexture extends GUIWidget {
         this.HEIGHT = height;
         this.TX_WIDTH = txWidth;
         this.TX_HEIGHT = txHeight;
+    }
+
+    public static WTexture single(String name, int x, int y, Identifier id, int width, int height) {
+        return new WTexture(name, x, y, id, 0, 0, width, height, width, height);
     }
 
 //    // Draws the entire texture.

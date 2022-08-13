@@ -1,10 +1,8 @@
 package net.ethobat.system0.api.gui;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import net.ethobat.system0.api.visuals.S0Renderer;
+import net.ethobat.system0.api.rendering.S0Drawing;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
@@ -40,7 +38,7 @@ public class GUIBackground extends DrawableHelper {
     }
 
     public void draw(MatrixStack matrices, int x, int y, int tileWidth, int tileHeight) {
-        S0Renderer.prepareTexture(this.TEXTURE_ID);
+        S0Drawing.prepareTexture(this.TEXTURE_ID);
         boolean isNearX;
         boolean isNearY;
         boolean isFarX;

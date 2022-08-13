@@ -10,6 +10,6 @@ public interface ShulkerEntityMixin {
 
     // Used in Crowbar
     @Accessor("COVERED_ARMOR_BONUS")
-     EntityAttributeModifier getCoveredArmorBonus();
+    EntityAttributeModifier getCoveredArmorBonus();
 
 }

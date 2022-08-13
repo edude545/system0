@@ -2,13 +2,15 @@ package net.ethobat.system0.registry;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import dev.onyxstudios.cca.api.v3.level.LevelComponents;
 import net.ethobat.system0.api.gui.GUIBackground;
 import net.ethobat.system0.api.psionics.PsionicProfile;
-import net.ethobat.system0.api.psionics.PsionicSchema;
+import net.ethobat.system0.api.savedata.Networks;
 import net.ethobat.system0.api.util.MessageHandler;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.ServerCommandSource;
@@ -20,17 +22,11 @@ import static net.minecraft.server.command.CommandManager.literal;
 public final class S0Commands implements Command<Object> {
 
     public static void init() {
-        CommandRegistrationCallback.EVENT.register((dispatcher, isDedicated) ->
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
                 dispatcher.register(literal("s0")
                         .then(
                                 literal("debug")
                                         .executes(S0Commands::executeDebug)
-                        )
-                        .then(
-                                literal("test").then (
-                                    argument("dbgtestarg", IntegerArgumentType.integer())
-                                        .executes(S0Commands::dbgtest)
-                                )
                         )
                         .then(
                                 literal("hello")
@@ -65,7 +61,7 @@ public final class S0Commands implements Command<Object> {
         return 1;
     }
 
-    public static int executeSay(CommandContext<ServerCommandSource> ctx, String str) throws CommandSyntaxException {
+    public static int executeSay(CommandContext<ServerCommandSource> ctx, String str) {
         MessageHandler.say(str, ctx.getSource().getPlayer());
         return 1;
     }
@@ -73,11 +69,6 @@ public final class S0Commands implements Command<Object> {
     public static int executeShowPsionics(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         PlayerEntity player = EntityArgumentType.getPlayer(ctx, "player");
         MessageHandler.say(PsionicProfile.ofPlayer(player).toString(), player);
-        return 1;
-    }
-
-    private static int dbgtest(CommandContext<ServerCommandSource> ctx) {
-        GUIBackground.TILE_SIZE = ctx.getArgument("dbgtestarg", Integer.class);
         return 1;
     }
 

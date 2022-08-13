@@ -3,7 +3,6 @@ package net.ethobat.system0.api.energy;
 import net.ethobat.system0.api.color.RGB;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
@@ -18,7 +17,7 @@ public class EnergyType {
         this.REGISTRY_ID = registryID;
         this.PRIMARY_COLOR = primaryColor;
 
-        this.FORMAT_COLOR_CODE = this.PRIMARY_COLOR.getFormatCode();
+        this.FORMAT_COLOR_CODE = this.PRIMARY_COLOR.FORMAT_CODE;
     }
 
     public Identifier getRegistryID() {
@@ -34,7 +33,7 @@ public class EnergyType {
     }
 
     public MutableText getTranslatedName() {
-        return new TranslatableText(EnergyType.getTranslationKeyFromID(this.REGISTRY_ID));
+        return Text.translatable(EnergyType.getTranslationKeyFromID(this.REGISTRY_ID));
     }
 
     public RGB getPrimaryColor() {

@@ -1,6 +1,7 @@
 package net.ethobat.system0.network.sources;
 
 import net.ethobat.system0.api.energy.EnergyType;
+import net.ethobat.system0.api.network.abstracted.AbstractedPassiveSource;
 import net.ethobat.system0.api.network.abstracted.Network;
 import net.ethobat.system0.auxiliary.S0Block;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -31,7 +32,7 @@ public abstract class S0BasicAggregator extends S0Aggregator {
 
         @Override
         public void subscribe(Network network) {
-            network.registerSource(new SimpleMonoSource(network, UUID.randomUUID(), this.energyType, this.potentialEnergy));
+            network.registerSource(AbstractedPassiveSource.mono(network, this.energyType, this.potentialEnergy));
         }
 
     }

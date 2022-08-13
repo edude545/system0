@@ -1,6 +1,7 @@
 package net.ethobat.system0.api.nbt;
 
 import net.ethobat.system0.api.energy.EnergyTypeMap;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.*;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
@@ -63,8 +64,7 @@ public class NBTHandler {
     // ~~~ ~~~~~~~~~~~~~~ ~~~
 
     public static Byte getNBTTypeNumber(Class<?> cls) {
-             if (cls.isAssignableFrom(NbtNull          .class)) {return NbtElement.NULL_TYPE;       }
-        else if (cls.isAssignableFrom(NbtByte          .class)) {return NbtElement.BYTE_TYPE;       }
+             if (cls.isAssignableFrom(NbtByte          .class)) {return NbtElement.BYTE_TYPE;       }
         else if (cls.isAssignableFrom(NbtShort         .class)) {return NbtElement.SHORT_TYPE;      }
         else if (cls.isAssignableFrom(NbtInt           .class)) {return NbtElement.INT_TYPE;        }
         else if (cls.isAssignableFrom(NbtLong          .class)) {return NbtElement.LONG_TYPE;       }
@@ -139,33 +139,40 @@ public class NBTHandler {
     public static EnergyTypeMap getEnergyTypeMap(NbtCompound nbt, String key) {
         return EnergyTypeMap.fromNBT(nbt.getCompound(key));
     }
+    public static ItemStack getItemStack(NbtCompound nbt, String key) {
+        return ItemStack.fromNbt(nbt.getCompound(key));
+    }
 
     public static void putNBTForItem(NbtCompound nbt, String key, Object obj) {
         genericPut(nbt, key, obj);
     }
 
     public static void genericPut(NbtCompound nbt, String key, Object obj) {
-             if (obj instanceof Byte         ) { putNBT(nbt, key, (Byte          ) obj); }
-        else if (obj instanceof Short        ) { putNBT(nbt, key, (Short         ) obj); }
-        else if (obj instanceof Integer      ) { putNBT(nbt, key, (Integer       ) obj); }
-        else if (obj instanceof Long         ) { putNBT(nbt, key, (Long          ) obj); }
-        else if (obj instanceof Float        ) { putNBT(nbt, key, (Float         ) obj); }
-        else if (obj instanceof Double       ) { putNBT(nbt, key, (Double        ) obj); }
+        if (obj != null) {
+            if (obj instanceof Byte         ) { putNBT(nbt, key, (Byte          ) obj); }
+            else if (obj instanceof Short        ) { putNBT(nbt, key, (Short         ) obj);            }
+            else if (obj instanceof Integer      ) { putNBT(nbt, key, (Integer       ) obj);            }
+            else if (obj instanceof Long         ) { putNBT(nbt, key, (Long          ) obj);            }
+            else if (obj instanceof Float        ) { putNBT(nbt, key, (Float         ) obj);            }
+            else if (obj instanceof Double       ) { putNBT(nbt, key, (Double        ) obj);            }
 //        else if (obj instanceof Byte[]       ) { putNBT(nbt, key, (Byte[]        ) obj); }
-        else if (obj instanceof String       ) { putNBT(nbt, key, (String        ) obj); }
-        //else if (obj instanceof NbtElement[]) { putNBT(nbt, key, (Byte) obj); }
-        else if (obj instanceof NbtCompound  ) { putNBT(nbt, key, (NbtCompound   ) obj); }
+            else if (obj instanceof String       ) { putNBT(nbt, key, (String        ) obj);            }
+            //else if (obj instanceof NbtElement[]) { putNBT(nbt, key, (Byte) obj); }
+            else if (obj instanceof NbtCompound  ) { putNBT(nbt, key, (NbtCompound   ) obj);            }
 //        else if (obj instanceof Integer[]    ) { putNBT(nbt, key, (Integer[]     ) obj); }
 //        else if (obj instanceof Long[]       ) { putNBT(nbt, key, (Long[]        ) obj); }
-        else if (obj instanceof UUID         ) { putNBT(nbt, key, obj.toString());       }
-        else if (obj instanceof EnergyTypeMap) { putNBT(nbt, key, ((EnergyTypeMap) obj).toNBT()); }
-        else {
-            throw new IllegalArgumentException("Can't write object of type \"" + obj.getClass().toString() + "\" to NBT!");
+            else if (obj instanceof UUID         ) { putNBT(nbt, key, obj.toString());                  }
+            else if (obj instanceof EnergyTypeMap) { putNBT(nbt, key, ((EnergyTypeMap) obj).toNBT());   }
+            else if (obj instanceof ItemStack    ) { NbtCompound tmp = new NbtCompound(); ((ItemStack) obj).writeNbt(tmp);
+                                                     putNBT(nbt, key, tmp);                             }
+            else {
+                throw new IllegalArgumentException("Can't write object of type \"" + obj.getClass().toString() + "\" to NBT!");
+            }
         }
     }
 
-    public static void putNBT(NbtCompound nbt, String key) {
-        putNBTForItem(nbt, key, NbtNull.INSTANCE);}
+//    public static void putNBT(NbtCompound nbt, String key) {
+//        putNBTForItem(nbt, key, null);}
 
     public static void putNBT(NbtCompound nbt, String key, Byte b           ) { nbt.put(key, NbtByte.of(b));        }
     public static void putNBT(NbtCompound nbt, String key, Short n          ) { nbt.put(key, NbtShort.of(n));       }
