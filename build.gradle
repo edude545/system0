@@ -20,6 +20,9 @@ repositories {
 		name = 'Ladysnake Mods'
 		url = 'https://ladysnake.jfrog.io/artifactory/mods'
 	}
+	maven {
+		url = 'https://jitpack.io'
+	}
 }
 
 dependencies {
@@ -31,6 +34,9 @@ dependencies {
 
 	// Cardinal Components API. Used to save/load networks and run network logic.
 	modApi "dev.onyxstudios.cardinal-components-api:cardinal-components-api:${project.cardinal_components_version}"
+
+	// 0x3C50's rendering API.
+	include modImplementation("com.github.0x3C50:Renderer:master-SNAPSHOT")
 }
 
 processResources {

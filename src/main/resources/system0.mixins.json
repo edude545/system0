@@ -6,7 +6,8 @@
   "mixins": [
     "DebugMixin",
     "LivingEntityMixin",
-    "ShulkerEntityMixin"
+    "ShulkerEntityMixin",
+    "WorldChunkMixin"
   ],
   "client": [
     "PlayerEntityMixin",

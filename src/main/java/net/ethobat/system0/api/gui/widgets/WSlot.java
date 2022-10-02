@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 public class WSlot extends GUIWidget {
 
     public static final Identifier TEXTURE_NORMAL = new Identifier("system0", "textures/gui/widget/slot.png");
-    public static final Identifier TEXTURE_OUTPUT = new Identifier("system0", "textures/gui/widget/slot_24_fancy.png");
+    public static final Identifier TEXTURE_OUTPUT = new Identifier("system0", "textures/gui/widget/slot_26.png");
 
     public int index;
 

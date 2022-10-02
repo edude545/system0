@@ -444,6 +444,12 @@ Magical machinery can be salvaged or engineered to serve many purposes, many imp
 		Breaks bedrock below it, allowing access to the exotic resources beneath. Teleports the egg back up when done. Only works when not observed.
 		Inspired by the dragon egg glitch that causes the egg to overwrite all blocks when falling.
 		
+	Axial Transportalizer Mk.I:
+		Transports entities up to 4 chunks in one direction to a matching AT. Does not require energy. Activates on redstone signal.
+	
+	Axial Transportalizer Mk.II:
+		 32 chunk range. Required energy scales with distance. 
+		
 	Condor Beacon:
 		Multiblock. Provides unlimited creative flight to players. Energy consumption increases with player range. Unlimited range.
 	
@@ -761,6 +767,10 @@ Psionic Abilities
 	Prognosticant Situation Informer
 		"Predict upcoming events in the Paraworld."
 		"Meditate in the Paraworld."
+		
+	Systemic/Schema: "Bulletbrouillard"
+	Perilous Shrouding Inclemency
+		"Summon a thick cloud of lacerating fog."
 	
 	Systemic/Schema: "Lightning Spear"
 	Partizan Shock Impaler
@@ -780,6 +790,11 @@ Psionic Abilities
 	Systemic/Schema: "Revelation Ray"
 	Purifying Seraph's Immolator
 		"Conjure a cruciform beam of holy destructive light."
+		
+	Systemic/Schema: "Weird Alchemy"
+	Parody Singer's Invocation
+		"Summon the powers of space and time for some wacky metaphysical ruin."
+		>> Harlequious > Gravital >>
 		
 		
 		

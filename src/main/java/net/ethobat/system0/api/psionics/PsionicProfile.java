@@ -1,13 +1,12 @@
 package net.ethobat.system0.api.psionics;
 
 import net.ethobat.system0.api.registry.S0Registry;
-import net.ethobat.system0.api.savedata.AbstractPlayerData;
 import net.minecraft.entity.player.PlayerEntity;
 
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class PsionicProfile extends AbstractPlayerData {
+public class PsionicProfile {
 
     private final PlayerEntity player;
     private final HashSet<PsionicSchema> programmed;

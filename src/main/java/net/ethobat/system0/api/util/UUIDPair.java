@@ -1,6 +1,6 @@
 package net.ethobat.system0.api.util;
 
-import net.ethobat.system0.api.network.abstracted.AbstractedNode;
+import net.ethobat.system0.api.network.NWNode;
 
 import java.util.UUID;
 
@@ -14,8 +14,12 @@ public final class UUIDPair {
         this.SECOND = second;
     }
 
-    public UUIDPair(AbstractedNode transmitter, AbstractedNode receiver) {
+    public UUIDPair(NWNode transmitter, NWNode receiver) {
         this(transmitter.getUUID(), receiver.getUUID());
+    }
+
+    public boolean has(UUID uuid) {
+        return this.FIRST.equals(uuid) || this.SECOND.equals(uuid);
     }
 
     public String toString() {

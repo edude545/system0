@@ -4,6 +4,6 @@ import net.ethobat.system0.api.util.MouseButton;
 
 public interface IWClickable {
 
-    void onMouseInteract(double widgetX, double widgetY, MouseButton mouseButton, boolean released);
+    void onMouseInteract(double mouseX, double mouseY, MouseButton mouseButton, boolean released);
 
 }

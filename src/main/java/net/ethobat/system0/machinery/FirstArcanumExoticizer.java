@@ -12,6 +12,7 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -83,7 +84,7 @@ public class FirstArcanumExoticizer extends S0Machine {
         public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInv, PlayerEntity player) {
             //We provide *this* to the screenHandler as our class Implements Inventory
             //Only the Server has the Inventory at the start, this will be synced to the client in the ScreenHandler
-            return new SH(syncId, playerInv, this);
+            return new SH(syncId, false, playerInv, this);
         }
 
         public <T extends S0Block> BE(BlockPos pos, BlockState state) {
@@ -110,14 +111,14 @@ public class FirstArcanumExoticizer extends S0Machine {
     public static class SH extends S0Machine.SH {
 
 //        // SIMPLE screen handler constructor! extremely fucking cursed
-//        public SH(int syncID, PlayerInventory playerInv) {
+//        public SHViewport(int syncID, PlayerInventory playerInv) {
 //            this(syncID, playerInv, new SimpleInventory(9)); // calling the server constructor
 //        }
 
         // Server constructor; server knows container's inventory and can directly provide it as an argument.
         // This inventory will then be synced to the client.
-        public SH(int syncID, PlayerInventory playerInv, Inventory inv) {
-            super(syncID, playerInv, inv);
+        public SH(int syncID, boolean isClient, PlayerInventory playerInv, Inventory inv) {
+            super(syncID, isClient, playerInv, inv);
             checkSize(inv, 9);
             //this.place3x3GridSlots(inv, 62, 17);
             //this.placePlayerInvSlots(playerInv, 8, 84);
@@ -126,7 +127,7 @@ public class FirstArcanumExoticizer extends S0Machine {
 
         // Client constructor
         public SH(int syncID, PlayerInventory playerInv, PacketByteBuf buf) {
-            this(syncID, playerInv, new SimpleInventory(9));
+            this(syncID, true, playerInv, new SimpleInventory(9));
             checkSize(inv, 9);
             //this.updateWidgetsFromNBT(buf.readNbt());
         }
@@ -141,10 +142,15 @@ public class FirstArcanumExoticizer extends S0Machine {
     public static class HS extends S0Machine.HS<SH> {
 
         public HS(ScreenHandler handler, PlayerInventory inventory, Text title) {
-            //super((SH) handler, inventory, new LiteralText(String.valueOf(((BE) ((SH) handler).getBlockEntity()).on)));
-            super((SH) handler, inventory, Text.literal(((SH) handler).pos.toShortString()));
+            //super((SHViewport) handler, inventory, new LiteralText(String.valueOf(((BE) ((SHViewport) handler).getBlockEntity()).on)));
+            //super((SHViewport) handler, inventory, Text.literal(((SHViewport) handler).pos.toShortString()));
+            super((SH) handler, inventory, title);
         }
 
+        @Override
+        public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+            super.render(matrices, mouseX, mouseY, delta);
+        }
     }
 
 }

@@ -13,6 +13,7 @@ public abstract class GUIWidget extends DrawableHelper {
     public String name;
     public int screenX;
     public int screenY;
+    public boolean isClient = false;
 
     public GUIWidget(String name, int x, int y) {
         this.name = name;
@@ -36,6 +37,18 @@ public abstract class GUIWidget extends DrawableHelper {
             this.highlight(screen, matrices);
         }
     }
+
+    public boolean isPointWithinBounds(int screenPosX, int screenPosY, int x, int y) {
+        int sx = this.screenX+screenPosX;
+        int sy = this.screenY+screenPosY;
+        return sx <= x && x < sx+this.getWidth()
+            && sy <= y && y < sy+this.getHeight();
+    }
+
+    public boolean isPointWithinBounds(WidgetedScreen<?> screen, int x, int y) {
+        return this.isPointWithinBounds(screen.getX(), screen.getY(), x, y);
+    }
+
     public void highlight(WidgetedScreen<?> screen, MatrixStack matrices) {
         S0Drawing.fillRectangle(matrices, screen.getX() + this.screenX + 1, screen.getY() + this.screenY + 1, this.getWidth() - 1, this.getHeight() - 1, -2130706433);
     }
@@ -77,7 +90,7 @@ public abstract class GUIWidget extends DrawableHelper {
     public abstract void updateFromNBT(NbtCompound nbt);
 
     public void onAdd(WidgetedScreenHandler handler) {
-
+        this.isClient = handler.isClient;
     }
 
     public abstract int getWidth();

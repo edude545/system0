@@ -79,7 +79,7 @@ public class S0Registrar {
     }
 
 //    // Register screen handler type
-//    public static <SH extends S0ScreenHandler> ScreenHandlerType<SH> register(ScreenHandlerType<SH> type, String name) {
+//    public static <SHViewport extends S0ScreenHandler> ScreenHandlerType<SHViewport> register(ScreenHandlerType<SHViewport> type, String name) {
 //        return ScreenHandlerRegistry.registerSimple(id(name), type:n);
 //    }
 

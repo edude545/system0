@@ -1,9 +1,11 @@
 package net.ethobat.system0.api.gui;
 
+import net.ethobat.system0.api.nbt.NBTHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.NameTagItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
@@ -19,51 +21,41 @@ public abstract class WidgetedItem extends Item {
         super(settings);
     }
 
-    // This method is for Blocks that have a WidgetedBlockEntity associated with them.
-    // Safe to call on both sides.
-    public static void openScreenFromItemStack(World world, ItemStack stack, PlayerEntity player) {
-        if (!world.isClient) {
-            WidgetedItem item = (WidgetedItem) stack.getItem();
-            ItemStackProxy proxy = item.createItemStackProxy(stack);
-            player.openHandledScreen(proxy);
-            proxy.userSHRecord.put((ServerPlayerEntity) player, player.currentScreenHandler);
-        }
+    // Server method.
+    public static void openScreenFromItemStack(World world, ItemStackProxy proxy, PlayerEntity player) {
+        player.openHandledScreen(proxy);
     }
 
-    // Safe to call on both sides.
-    public <T extends ItemStackProxy> void syncScreenData(World world, ItemStackProxy proxy) {
-        assert !world.isClient();
-        for (ServerPlayerEntity user : proxy.userSHRecord.keySet()) {
-            if (user.currentScreenHandler == proxy.userSHRecord.get(user)) {
-                GUINetworkingHandler.sendWidgetPacket(user, proxy.createWidgetNBT(user, new NbtCompound()));
-            } else {
-                proxy.userSHRecord.remove(user);
-            }
-
-        }
-    }
-
-    public abstract ItemStackProxy createItemStackProxy(ItemStack stack);
-
+    // WidgetedItems should extend this class.
     public abstract static class ItemStackProxy implements ExtendedScreenHandlerFactory {
 
+        public ServerPlayerEntity player;
         public ItemStack stack;
         public Item item;
 
-        // Maps users to the ScreenHandlers opened by this ItemStackProxy.
-        // When the user's currentScreenHandler no longer matches this record, the player is removed from the map.
-        public HashMap<ServerPlayerEntity,ScreenHandler> userSHRecord = new HashMap<>();
-
-        public ItemStackProxy(ItemStack stack) {
+        public ItemStackProxy(ServerPlayerEntity player, ItemStack stack) {
+            this.player = player;
             this.stack = stack;
             this.item = this.stack.getItem();
         }
 
-        @Override
-        public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
-            buf.writeNbt(this.createWidgetNBT(player, new NbtCompound()));
+        // Server method.
+        public <T extends ItemStackProxy> void syncScreenData(World world) {
+            GUINetworkingHandler.sendWidgetPacket(player, this.createWidgetNBT(player, new NbtCompound()));
         }
 
+        @Override
+        public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
+            NbtCompound nbt = new NbtCompound();
+            this.writeScreenOpeningNBT(player, nbt);
+            buf.writeNbt(nbt);
+        }
+
+        public void writeScreenOpeningNBT(ServerPlayerEntity player, NbtCompound nbt) {
+            nbt.put(NBTHandler.WIDGET_NBT_KEY, this.createWidgetNBT(player, new NbtCompound()));
+        }
+
+        // Read the ItemStack's NBT and convert into widget data, to be loaded by the server & client.
         public abstract NbtCompound createWidgetNBT(ServerPlayerEntity player, NbtCompound nbt);
 
         @Override

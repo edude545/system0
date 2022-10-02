@@ -22,7 +22,7 @@ public abstract class PlayerEntityMixin {
 
     @Shadow public abstract void playSound(SoundEvent event, SoundCategory category, float volume, float pitch);
 
-    @Inject(at = @At("HEAD"), method = "jump()V")
+    @Inject(method = "jump()V", at = @At("HEAD"))
     public void jump(CallbackInfo ci) {
 //        System.out.println("Player jumped!");
 //        System.out.println(this.selectedItem);

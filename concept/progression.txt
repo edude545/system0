@@ -29,7 +29,8 @@ ACT 1: Gift of a Starry Sky
 		The debris from the fallen star can be mined for a very wide variety of basic resources.
 		At the centre of the fallen star is a fully grown System Germ, growing out the top of the Star's Heart. The Heart and Germ are both indestructible at this point. The Germ can be harvested for more Germs, which can be planted anywhere except within 5 blocks of another Germ.
 		When fully grown, the Germs power on using energy from the soil, and are able to convert certain items into exotic forms. They can perform a wide variety of specific recipes, but are very limited. An item can be manually placed into the Germ, which will absorb it and gradually convert it. Progress is indicated by the power indicators on the Germ.
-		...
+		If a Germ is given paper, cryptic information will be printed onto it, creating an "Artefact Script".
+		One Artefact Script provides hints for the nine items needed to create an Evolved System Germ.
 		
 	SCENE 3: First Explosion
 		(Construction of first aggregators, expanison across the overworld, assimilation of multiple energy types.)

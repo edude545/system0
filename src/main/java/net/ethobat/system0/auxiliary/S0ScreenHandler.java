@@ -1,22 +1,19 @@
 package net.ethobat.system0.auxiliary;
 
 import net.ethobat.system0.api.gui.WidgetedScreenHandler;
-import net.ethobat.system0.api.gui.widgets.WPlayerInventory;
-import net.ethobat.system0.api.gui.widgets.WSlotGrid;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
 // ScreenHandlers exist to sync the GUI between the client and server. Has stuff like interactive slots/buttons.
 public abstract class S0ScreenHandler extends WidgetedScreenHandler {
 
-    public S0ScreenHandler(@Nullable ScreenHandlerType<?> type, int syncID, PlayerInventory playerInv) {
-        super(type, syncID);
+    public S0ScreenHandler(@Nullable ScreenHandlerType<?> type, int syncID, boolean isClient, PlayerInventory playerInv) {
+        super(type, syncID, isClient);
     }
 
 //    public S0ScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {

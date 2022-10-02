@@ -1,16 +1,15 @@
 package net.ethobat.system0.network.sources;
 
 import net.ethobat.system0.api.energy.EnergyType;
-import net.ethobat.system0.api.network.abstracted.AbstractedPassiveSource;
-import net.ethobat.system0.api.network.abstracted.Network;
+import net.ethobat.system0.api.network.AbstractNWMember;
+import net.ethobat.system0.api.network.NWPassiveSource;
+import net.ethobat.system0.api.network.Network;
 import net.ethobat.system0.auxiliary.S0Block;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
-
-import java.util.UUID;
 
 // Class for basic aggregators with fixed influx and single energy type.
 public abstract class S0BasicAggregator extends S0Aggregator {
@@ -31,8 +30,8 @@ public abstract class S0BasicAggregator extends S0Aggregator {
         }
 
         @Override
-        public void subscribe(Network network) {
-            network.registerSource(AbstractedPassiveSource.mono(network, this.energyType, this.potentialEnergy));
+        public AbstractNWMember createNetworkMember() {
+            return NWPassiveSource.mono(this.pos, this.energyType, this.potentialEnergy);
         }
 
     }

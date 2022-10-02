@@ -1,6 +1,7 @@
 package net.ethobat.system0.api.gui;
 
 import net.ethobat.system0.api.gui.widgets.GUIWidget;
+import net.ethobat.system0.api.util.MouseButton;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
@@ -38,16 +39,23 @@ public abstract class WidgetedScreen<SH extends WidgetedScreenHandler> extends H
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int mouseButton) {
-        //this.getScreenHandler().mouseClicked(this, mouseX, mouseY, MouseButton.fromInt(i));
-        GUINetworkingHandler.sendMouseInteractPacket(mouseX, mouseY, mouseButton, false);
+        this.getScreenHandler().mouseInteract(this.getX(), this.getY(), mouseX, mouseY, MouseButton.fromInt(mouseButton), false);
+        GUINetworkingHandler.sendMouseInteractPacket(this.getX(), this.getY(), mouseX, mouseY, mouseButton, false);
         return super.mouseClicked(mouseX, mouseY, mouseButton);
     }
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int mouseButton) {
-        //this.getScreenHandler().mouseReleased(this, mouseX, mouseY, MouseButton.fromInt(i));#
-        GUINetworkingHandler.sendMouseInteractPacket(mouseX, mouseY, mouseButton, true);
+        this.getScreenHandler().mouseInteract(this.getX(), this.getY(),  mouseX, mouseY, MouseButton.fromInt(mouseButton), true);
+        GUINetworkingHandler.sendMouseInteractPacket(this.getX(), this.getY(), mouseX, mouseY, mouseButton, true);
         return super.mouseReleased(mouseX, mouseY, mouseButton);
+    }
+
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double direction) {
+        this.getScreenHandler().mouseScroll(this.getX(), this.getY(), mouseX, mouseY, direction);
+        GUINetworkingHandler.sendMouseScrollPacket(this.getX(), this.getY(), mouseX, mouseY, direction);
+        return super.mouseScrolled(mouseX, mouseY, direction);
     }
 
     // Position of WidgetedScreen on the display

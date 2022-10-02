@@ -57,7 +57,11 @@ public class GUIBackground extends DrawableHelper {
                 else if (           isNearY) {part = Parts.TOP;}
                 else if (            isFarY) {part = Parts.BOTTOM;}
                 else                         {part = Parts.MIDDLE;}
-                DrawableHelper.drawTexture(matrices, (tileX*TILE_SIZE)+x, (tileY*TILE_SIZE)+y, part.u, part.v, TILE_SIZE, TILE_SIZE, TEXTURE_SIZE, TEXTURE_SIZE);
+                if (part == Parts.MIDDLE) {
+                    S0Drawing.fillRectangle(matrices, x+TILE_SIZE, y+TILE_SIZE, (tileWidth-2)*TILE_SIZE, (tileHeight-2)*TILE_SIZE, 0xFFC6C6C6);
+                } else {
+                    DrawableHelper.drawTexture(matrices, (tileX*TILE_SIZE)+x, (tileY*TILE_SIZE)+y, part.u, part.v, TILE_SIZE, TILE_SIZE, TEXTURE_SIZE, TEXTURE_SIZE);
+                }
             }
         }
     }

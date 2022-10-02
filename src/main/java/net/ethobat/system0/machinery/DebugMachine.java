@@ -119,7 +119,7 @@ public class DebugMachine extends S0Machine {
 
         @Override
         public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInv, PlayerEntity playerEntity) {
-            return new SH(syncId, playerInv, this);
+            return new SH(syncId, false, playerInv, this);
         }
 
         @Override
@@ -137,8 +137,8 @@ public class DebugMachine extends S0Machine {
         public PowerBar skeinPowerBar;
 
         // Server constructor
-        public SH(int syncId, PlayerInventory playerInv, Inventory inv) {
-            super(syncId, playerInv, inv);
+        public SH(int syncId, boolean isClient, PlayerInventory playerInv, Inventory inv) {
+            super(syncId, isClient, playerInv, inv);
 
             //checkSize(inv, 2);
 
@@ -155,7 +155,7 @@ public class DebugMachine extends S0Machine {
 
         // Client constructor
         public SH(int syncId, PlayerInventory playerInv, PacketByteBuf buf) {
-            this(syncId, playerInv, new SimpleInventory(2));
+            this(syncId, true, playerInv, new SimpleInventory(2));
             //checkSize(inv, 2);
             NbtCompound nbt = buf.readNbt();
             this.updateWidgetsFromNBT(nbt);

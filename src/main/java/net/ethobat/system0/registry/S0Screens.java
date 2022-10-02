@@ -10,7 +10,8 @@ public final class S0Screens {
     public static void init() {
         ScreenRegistry.register(S0ScreenHandlerTypes.FIRST_ARCANUM_EXOTICIZER, FirstArcanumExoticizer.HS::new);
         ScreenRegistry.register(S0ScreenHandlerTypes.DEBUG_MACHINE, DebugMachine.HS::new);
-        ScreenRegistry.register(S0ScreenHandlerTypes.NETWORK_PDA, NetworkPDA.HS::new);
+        ScreenRegistry.register(S0ScreenHandlerTypes.NETWORK_PDA_VIEWPORT, NetworkPDA.HSViewport::new);
+        ScreenRegistry.register(S0ScreenHandlerTypes.NETWORK_PDA_SELECTOR, NetworkPDA.HSSelector::new);
     }
 
 }

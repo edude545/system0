@@ -1,32 +1,64 @@
+Germ recipes:
+	Paper -> Artefact Script (5 seconds)
+	Lapis Lazuli Block -> Grungy Indigonite (30 seconds)
+	Lightning Rod -> Flashtin Pole (30 seconds)
+	Heart of the Sea || Totem of Undying || Wither Skeleton Skull || Shulker Shell || Enchanted Golden Apple -> Curious Core (5 minutes)
+	
+Complex Germ recipes:
+	Sometimes grown system germs will harvest a Complex Germ Kernel in addition to the regular kernel.
+	Complex System Germs take 3 items, and transform into the output item when finished processing.
+	Grown Complex Germs cannot be harvested - they can only be used for recipes.
+	
+	Clock + Compass + Observer -> Germ Mechanism Calibrator (5 minutes)
+	Piston + Iron Trapdoor + Dispenser -> Germ Mechanism Locomotor (5 minutes)
+	Jukebox + Note Block + TNT -> Germ Mechanism Phylactery -> (5 minutes)
+	Calibrator + Locomotor + Phylactery -> Evolved System Germ (entity)
+	
+
 "First Arcanum" Exoticizer:
-	gfg
 	fcf
-	fff
+	gmg
+	fcf
 g: Glass
 f: Sketch Framework
 c: Sketch Components
+m: Curious Core
 	
 Trickle Aggregator:
 	fcf	
-	hch
-	fcf`
+	hah
+	fcf
 h: Flashtin Hoop
 f: Sketch Framework
 c: Sketch Components
+a: Germ-Derived Arcoplexer
 
 Deleterious Disthusiator:
-
+	fcf
+	cac
+	fcf
+f: Sketch Framework
+c: Sketch Components
+a: Germ-Derived Arcoplexer
 	
-Flashtin Whip:
-	```
-	`fp
+Flashtin Whip (2):
+	`p`
+	`f`
 	```
 p: Flashtin Pole
 f: Sketch Framework	
 
-Flashtin Dipole:
+Flashtin Dipole (2):
 	```
 	pfp
 	```
 p: Flashtin Pole
 f: Sketch Framework
+
+Flashtin Hooptenna:
+	`h`
+	`f`
+	`f`
+h: Flasthin Hoop
+f: Sketch Framework
+	

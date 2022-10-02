@@ -39,22 +39,11 @@ public class S0Drawing extends DrawableHelper {
         drawText(matrices, Text.literal(string), x, y);
     }
 
-    public static BufferBuilder.BuiltBuffer drawWireframe(int color, Vec3d... vertices) {
-        BufferBuilder buffer = Tessellator.getInstance().getBuffer();
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
-        for (Vec3d v : vertices) {
-            buffer.vertex(v.x, v.y, v.z).color(color).next();
-        }
-        return buffer.end();
-    }
-
     // TODO
     // This code is copied from InventoryScreen#drawEntity - in the process of deconstructing it
     public static void drawEntity(int x, int y, int size, float mouseX, float mouseY, LivingEntity livingEntity) {
-        mouseX = (float)(x + 51) - mouseX;
-        mouseY = (float)(y + 25) - mouseY;
-        mouseX = (float)Math.atan(mouseX / 40.0f);
-        mouseY = (float)Math.atan(mouseY / 40.0f);
+        mouseX = (float)Math.atan(((x + 51) - mouseX) / 40.0f);
+        mouseY = (float)Math.atan(((y + 25) - mouseY) / 40.0f);
 
         MatrixStack matrixStack = RenderSystem.getModelViewStack();
         matrixStack.push();

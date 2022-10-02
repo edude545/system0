@@ -1,33 +1,41 @@
 package net.ethobat.system0.api.rendering;
 
-import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.VertexFormat;
-import net.minecraft.client.render.VertexFormats;
+import com.mojang.blaze3d.systems.RenderSystem;
+import me.x150.renderer.renderer.Renderer3d;
+import me.x150.renderer.renderer.color.Color;
+import me.x150.renderer.renderer.util.CameraContext3D;
+import net.ethobat.system0.api.color.RGB;
+import net.minecraft.client.gl.VertexBuffer;
+import net.minecraft.client.render.*;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3f;
+import org.lwjgl.opengl.GL11;
 
 public class Line implements I3DBody {
 
     public final Vec3d pos1;
     public final Vec3d pos2;
-    public final int color;
+    public final Color color;
 
-    public Line(Vec3d pos1, Vec3d pos2, int color) {
+    public Line(Vec3d pos1, Vec3d pos2, Color color) {
         this.pos1 = pos1;
         this.pos2 = pos2;
         this.color = color;
     }
 
-    public Line(BlockPos pos1, BlockPos pos2, int color) {
-        this(new Vec3d(pos1.getX(), pos1.getY(), pos1.getZ()), new Vec3d(pos2.getX(), pos2.getY(), pos2.getZ()), color);
+    public Line(BlockPos pos1, BlockPos pos2, Color color) {
+        this(S03DMath.blockPosToVec3dCenter(pos1), S03DMath.blockPosToVec3dCenter(pos2), color);
     }
 
     @Override
-    public BufferBuilder.BuiltBuffer buildBuffer(BufferBuilder bb) {
-        bb.begin(VertexFormat.DrawMode.LINES, VertexFormats.LINES);
-        bb.vertex(pos1.x, pos1.y, pos1.z).color(this.color).next();
-        bb.vertex(pos2.x, pos2.y, pos2.z).color(this.color).next();
-        return bb.end();
+    public void render(CameraContext3D camera) {
+        render(camera, this.pos1, this.pos2, this.color);
+    }
+
+    public static void render(CameraContext3D camera, Vec3d pos1, Vec3d pos2, Color color) {
+        Renderer3d.renderLine(pos1, pos2, color).drawWithoutVboWith3DContext(camera);
     }
 
 }

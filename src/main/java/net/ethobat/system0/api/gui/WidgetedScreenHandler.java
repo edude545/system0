@@ -2,12 +2,10 @@ package net.ethobat.system0.api.gui;
 
 import net.ethobat.system0.api.gui.widgets.GUIWidget;
 import net.ethobat.system0.api.gui.widgets.IWClickable;
+import net.ethobat.system0.api.gui.widgets.IWScrollable;
 import net.ethobat.system0.api.nbt.NBTHandler;
 import net.ethobat.system0.api.util.MouseButton;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.client.Mouse;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
@@ -20,11 +18,13 @@ public abstract class WidgetedScreenHandler extends ScreenHandler {
 
     public static final String WIDGET_NBT_KEY = "widgets";
 
+    public final boolean isClient;
     public final HashMap<String, GUIWidget> widgets = new HashMap<>();
 
     // Server constructor
-    public WidgetedScreenHandler(@Nullable ScreenHandlerType<?> type, int syncID) {
+    public WidgetedScreenHandler(@Nullable ScreenHandlerType<?> type, int syncID, boolean isClient) {
         super(type, syncID);
+        this.isClient = isClient;
     }
 
 //    // Client constructor example - don't uncomment
@@ -44,10 +44,9 @@ public abstract class WidgetedScreenHandler extends ScreenHandler {
 //        }
 //    }
 
-    public GUIWidget addWidget(GUIWidget widget) {
+    public void addWidget(GUIWidget widget) {
         this.widgets.put(widget.getName(), widget);
         widget.onAdd(this);
-        return widget;
     }
 
     public GUIWidget getWidget(String name) {
@@ -61,16 +60,6 @@ public abstract class WidgetedScreenHandler extends ScreenHandler {
     public Collection<GUIWidget> getWidgets() {
         return this.widgets.values();
     }
-
-    // Wrote this code thinking data came from ScreenHandler rather than BlockEntity for some reason... SH can't write data, only BE can
-//    public PacketByteBuf writeWidgetsToBuf(PacketByteBuf buf) {
-//        NbtList nbtWidgetList = new NbtList();
-//        for (String name : widgets.keySet()) {
-//            nbtWidgetList.add(this.getWidget(name).writeToNBT(new NbtCompound()));
-//        }
-//        buf.readNbt().put("widgets", nbtWidgetList);
-//        return buf;
-//    }
 
     // workaround; ScreenHandler#addSlot is protected and can't be accessed from GUIWidget#onAdd
     @Override
@@ -95,10 +84,18 @@ public abstract class WidgetedScreenHandler extends ScreenHandler {
         }
     }
 
-    public void mouseInteract(double mouseX, double mouseY, MouseButton button, boolean released) {
+    public void mouseInteract(int screenPosX, int screenPosY, double mouseX, double mouseY, MouseButton button, boolean released) {
         for (GUIWidget widget : this.getWidgets()) {
-            if (widget instanceof IWClickable) {
+            if (widget instanceof IWClickable && widget.isPointWithinBounds(screenPosX, screenPosY, (int) mouseX, (int) mouseY)) {
                 ((IWClickable)widget).onMouseInteract(mouseX, mouseY, button, released);
+            }
+        }
+    }
+
+    public void mouseScroll(int screenPosX, int screenPosY, double mouseX, double mouseY, double direction) {
+        for (GUIWidget widget : this.getWidgets()) {
+            if (widget instanceof IWScrollable && widget.isPointWithinBounds(screenPosX, screenPosY, (int) mouseX, (int) mouseY)) {
+                ((IWScrollable)widget).onMouseScroll(mouseX, mouseY, direction);
             }
         }
     }

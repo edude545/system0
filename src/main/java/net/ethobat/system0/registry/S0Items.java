@@ -37,7 +37,7 @@ public final class S0Items {
 
     // Decorations
 
-    // Networks
+    // LevelNetworks
 
     // Psionics
 
@@ -45,7 +45,6 @@ public final class S0Items {
     public static final Mitten MITTEN = new Mitten();
     public static final Clanger CLANGER = new Clanger();
     public static final DebugTool DEBUG_TOOL = new DebugTool();
-    public static final AntennaLinker ANTENNA_LINKER = new AntennaLinker();
     public static final VeinScouter VEIN_SCOUTER = new VeinScouter();
     public static final NetworkPDA NETWORK_PDA = new NetworkPDA();
     public static final Crowbar CROWBAR = new Crowbar();

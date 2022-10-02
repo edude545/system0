@@ -36,29 +36,25 @@ public abstract class WidgetedBlockEntity extends BlockEntity implements Extende
     //     ...
     //     return ActionResult.SUCCESS;
     // }
-    // Safe to call on both sides.
+    // Server method.
     public static void openScreenFromBlock(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-        if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
-            if (screenHandlerFactory != null) {
-                WidgetedBlockEntity be = ((WidgetedBlockEntity)world.getBlockEntity(pos));
-                assert be != null;
-                player.openHandledScreen(screenHandlerFactory);
-                be.userSHRecord.put((ServerPlayerEntity) player, player.currentScreenHandler);
-            }
+        NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
+        if (screenHandlerFactory != null) {
+            WidgetedBlockEntity be = ((WidgetedBlockEntity)world.getBlockEntity(pos));
+            assert be != null;
+            player.openHandledScreen(screenHandlerFactory);
+            be.userSHRecord.put((ServerPlayerEntity) player, player.currentScreenHandler);
         }
     }
 
-    // Safe to call on both sides.
+    // Server method.
     public <T extends BlockEntity> void syncScreenData() {
-        assert !this.getWorld().isClient();
         for (ServerPlayerEntity user : this.userSHRecord.keySet()) {
             if (user.currentScreenHandler == this.userSHRecord.get(user)) {
                 GUINetworkingHandler.sendWidgetPacket(user, this.createWidgetNBT(user, new NbtCompound()));
             } else {
                 this.userSHRecord.remove(user);
             }
-
         }
     }
 

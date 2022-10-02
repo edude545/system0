@@ -1,8 +1,10 @@
 package net.ethobat.system0.network.sources;
 
 import net.ethobat.system0.api.energy.EnergyTypeMap;
-import net.ethobat.system0.api.network.abstracted.AbstractedSource;
-import net.ethobat.system0.api.network.abstracted.Network;
+import net.ethobat.system0.api.network.AbstractNWMember;
+import net.ethobat.system0.api.network.NWPassiveSource;
+import net.ethobat.system0.api.network.NWSource;
+import net.ethobat.system0.api.network.Network;
 import net.ethobat.system0.auxiliary.S0Block;
 import net.ethobat.system0.registry.S0BlockEntityTypes;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -32,23 +34,9 @@ public class DebugEnergySource extends S0Aggregator {
         }
 
         @Override
-        public void subscribe(Network network) {
-            network.registerSource(new AbstractedDebugEnergySource());
+        public AbstractNWMember createNetworkMember() {
+            return new NWPassiveSource(this.pos, EnergyTypeMap.maxAll());
         }
-
-    }
-
-    public static class AbstractedDebugEnergySource extends AbstractedSource {
-
-        public AbstractedDebugEnergySource() {
-            super(UUID.randomUUID());
-        }
-
-        @Override
-        public EnergyTypeMap getPotentialEnergy() {
-            return EnergyTypeMap.maxAll();
-        }
-
     }
 
 }

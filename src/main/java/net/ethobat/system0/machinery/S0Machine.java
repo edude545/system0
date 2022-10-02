@@ -42,7 +42,9 @@ public abstract class S0Machine extends S0BlockWithEntity {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        WidgetedBlockEntity.openScreenFromBlock(state, world, pos, player);
+        if (!world.isClient()) {
+            WidgetedBlockEntity.openScreenFromBlock(state, world, pos, player);
+        }
         return ActionResult.SUCCESS;
     }
 
@@ -102,8 +104,8 @@ public abstract class S0Machine extends S0BlockWithEntity {
 
         // Server constructor; the server knows the inventory of the container and can directly provide it as an argument.
         // This inventory will then be synced to the client.
-        public SH(int syncId, PlayerInventory playerInv, Inventory inv) {
-            super(null, syncId, playerInv); // type constructor
+        public SH(int syncId, boolean isClient, PlayerInventory playerInv, Inventory inv) {
+            super(null, syncId, isClient, playerInv); // type constructor
 
             this.playerInventory = new WPlayerInventory("playerInventory", 7, 70, playerInv);
             this.addWidget(this.playerInventory);
@@ -116,7 +118,7 @@ public abstract class S0Machine extends S0BlockWithEntity {
         }
 
 //        // Client constructor; server sends PacketByteBuf to client. PlayerInventory is already present on the client, and doesn't need to be synced here.
-//        public SH(int syncId, PlayerInventory playerInv, PacketByteBuf buf) {
+//        public SHViewport(int syncId, PlayerInventory playerInv, PacketByteBuf buf) {
 //            this(syncId, playerInv, new SimpleInventory(1)); // Dummy placeholder inv argument.
 //        }
 

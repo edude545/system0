@@ -63,6 +63,17 @@ public class NBTHandler {
 
     // ~~~ ~~~~~~~~~~~~~~ ~~~
 
+    // Return a copy of the input NBT with only the given keys.
+    public static NbtCompound filter(NbtCompound nbt, String... keys) {
+        NbtCompound ret = new NbtCompound();
+        for (String key : keys) {
+            if (nbt.contains(key)) {
+                ret.put(key, nbt.get(key));
+            }
+        }
+        return ret;
+    }
+
     public static Byte getNBTTypeNumber(Class<?> cls) {
              if (cls.isAssignableFrom(NbtByte          .class)) {return NbtElement.BYTE_TYPE;       }
         else if (cls.isAssignableFrom(NbtShort         .class)) {return NbtElement.SHORT_TYPE;      }
@@ -129,18 +140,21 @@ public class NBTHandler {
 //    public static int[] getIntArray(NbtCompound nbt, String key) {return nbt.getIntArray(key);}
 //    public static long[] getLongArray(NbtCompound nbt, String key) {return nbt.getLongArray(key);}
 
-    public static BlockPos getBlockPos(NbtCompound nbt, String key) {
-        return new BlockPos(nbt.getInt("x"), nbt.getInt("y"), nbt.getInt("z"));
-    }
-
     public static UUID getUUID(NbtCompound nbt, String key) {
-        return UUID.fromString(nbt.getString(key));
+        try {
+            return UUID.fromString(nbt.getString(key));
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
     }
     public static EnergyTypeMap getEnergyTypeMap(NbtCompound nbt, String key) {
         return EnergyTypeMap.fromNBT(nbt.getCompound(key));
     }
     public static ItemStack getItemStack(NbtCompound nbt, String key) {
         return ItemStack.fromNbt(nbt.getCompound(key));
+    }
+    public static BlockPos getBlockPos(NbtCompound nbt, String key) {
+        return BlockPos.fromLong(nbt.getLong(key));
     }
 
     public static void putNBTForItem(NbtCompound nbt, String key, Object obj) {
@@ -149,7 +163,7 @@ public class NBTHandler {
 
     public static void genericPut(NbtCompound nbt, String key, Object obj) {
         if (obj != null) {
-            if (obj instanceof Byte         ) { putNBT(nbt, key, (Byte          ) obj); }
+            if (obj instanceof Byte              ) { putNBT(nbt, key, (Byte          ) obj);            }
             else if (obj instanceof Short        ) { putNBT(nbt, key, (Short         ) obj);            }
             else if (obj instanceof Integer      ) { putNBT(nbt, key, (Integer       ) obj);            }
             else if (obj instanceof Long         ) { putNBT(nbt, key, (Long          ) obj);            }
@@ -165,8 +179,9 @@ public class NBTHandler {
             else if (obj instanceof EnergyTypeMap) { putNBT(nbt, key, ((EnergyTypeMap) obj).toNBT());   }
             else if (obj instanceof ItemStack    ) { NbtCompound tmp = new NbtCompound(); ((ItemStack) obj).writeNbt(tmp);
                                                      putNBT(nbt, key, tmp);                             }
+            else if (obj instanceof BlockPos     ) { putNBT(nbt, key, (BlockPos      ) obj);            }
             else {
-                throw new IllegalArgumentException("Can't write object of type \"" + obj.getClass().toString() + "\" to NBT!");
+                throw new IllegalArgumentException("S0 NBT handler can't write object of type \"" + obj.getClass().toString() + "\" to NBT!");
             }
         }
     }
@@ -186,5 +201,6 @@ public class NBTHandler {
     public static void putNBT(NbtCompound nbt, String key, NbtCompound nbt_ ) { nbt.put(key, nbt_);                 }
 //    public static void putNBT(NbtCompound nbt, String key, List<Integer> na) {putNBT(nbt, key, new NbtIntArray(na));}
 //    public static void putNBT(NbtCompound nbt, String key, List<Long> na) {putNBT(nbt, key, new NbtLongArray(na));}
+    public static void putNBT(NbtCompound nbt, String key, BlockPos pos     ) { nbt.putLong(key, pos.asLong());}
 
 }

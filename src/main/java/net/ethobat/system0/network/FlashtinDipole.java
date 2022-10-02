@@ -1,11 +1,11 @@
 package net.ethobat.system0.network;
 
 import net.ethobat.system0.api.energy.EnergyType;
-import net.ethobat.system0.api.network.physical.be.AbstractBETransceiverDeprecated;
-import net.ethobat.system0.auxiliary.S0Block;
+import net.ethobat.system0.api.network.AbstractNWMember;
+import net.ethobat.system0.api.network.NWNode;
+import net.ethobat.system0.auxiliary.S0NetworkBlock;
 import net.ethobat.system0.registry.S0BlockEntityTypes;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntity;
@@ -16,6 +16,8 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.UUID;
 
 public class FlashtinDipole extends S0NetworkBlock {
 
@@ -36,47 +38,23 @@ public class FlashtinDipole extends S0NetworkBlock {
         return this.getDefaultState().with(Properties.FACING, ctx.getSide());
     }
 
+    @Nullable
     @Override
-    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new BE(pos, state);
+    public BlockEntity createBlockEntity(BlockPos blockPos, BlockState blockState) {
+        return new BE(blockPos, blockState);
     }
 
-//    @Override
-//    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-//        return BE::tick;
-//    }
 
-    public static class BE extends AbstractBETransceiverDeprecated {
+    public static class BE extends S0NetworkBlock.BE {
 
         public BE(BlockPos pos, BlockState state) {
             super(S0BlockEntityTypes.FLASHTIN_DIPOLE, pos, state);
         }
 
-        public int getRange() {
-            return 16;
+        @Override
+        public AbstractNWMember createNetworkMember() {
+            return new NWNode(this.pos, 8, 12, 1.0f);
         }
-        public float getPenetration() {
-            return 0;
-        }
-        public long getBandwidthUp() {
-            return 16;
-        }
-
-        public long getBandwidthDown() {
-            return 64;
-        }
-        public float getSensitivity() {
-            return 1.5f;
-        }
-
-
-
-        public long transmitEnergy(long amt, EnergyType type) {
-            return 0;
-        } // TEMP
-        public long occupyBandwidth(long amt) {
-            return 0;
-        } // TEMP
 
     }
 

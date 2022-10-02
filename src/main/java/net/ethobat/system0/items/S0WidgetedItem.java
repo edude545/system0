@@ -46,8 +46,8 @@ public abstract class S0WidgetedItem extends WidgetedItem implements IS0Item {
 
         public ItemStack stack;
 
-        public SH(int syncID, PlayerInventory playerInv, ItemStackProxy proxy) {
-            super(null, syncID, playerInv);
+        public SH(int syncID, boolean isClient, PlayerInventory playerInv, ItemStackProxy proxy) {
+            super(null, syncID, isClient, playerInv);
             this.stack = proxy.stack;
         }
 

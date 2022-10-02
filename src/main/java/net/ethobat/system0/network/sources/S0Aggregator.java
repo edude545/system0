@@ -1,9 +1,7 @@
 package net.ethobat.system0.network.sources;
 
-import net.ethobat.system0.api.network.abstracted.AbstractedSource;
 import net.ethobat.system0.auxiliary.S0Block;
-import net.ethobat.system0.auxiliary.S0BlockEntity;
-import net.ethobat.system0.network.S0NetworkBlock;
+import net.ethobat.system0.auxiliary.S0NetworkBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -11,7 +9,6 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.event.listener.GameEventListener;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class S0Aggregator extends S0NetworkBlock {

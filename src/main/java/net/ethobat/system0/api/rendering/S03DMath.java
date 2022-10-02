@@ -1,6 +1,10 @@
 package net.ethobat.system0.api.rendering;
 
+import me.x150.renderer.renderer.util.CameraContext3D;
+import net.ethobat.system0.api.math.Polar3D;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3f;
 
 public class S03DMath {
@@ -33,6 +37,18 @@ public class S03DMath {
 
     public static void scale(MatrixStack matrixStack, float factor) {
         matrixStack.scale(factor, factor, factor);
+    }
+
+    public static Vec3d blockPosToVec3d(BlockPos blockPos) {
+        return new Vec3d(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+    }
+
+    public static Vec3d blockPosToVec3dCenter(BlockPos blockPos) {
+        return blockPosToVec3d(blockPos).add(0.5, 0.5,  0.5);
+    }
+
+    public static Vec3d cameraLookDirection(CameraContext3D camera) {
+        return Polar3D.cameraLookDirection(camera).toCartesian();
     }
 
 }
